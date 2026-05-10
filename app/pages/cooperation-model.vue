@@ -101,7 +101,7 @@ useHead({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/traffice-partner" class="model-card">
+        <NuxtLink to="/traffic-partner" class="model-card">
           <div class="model-number">03</div>
 
           <h3>

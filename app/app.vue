@@ -13,7 +13,7 @@
         rel="noopener noreferrer"
         class="floating-button telegram"
       >
-        Telegram
+        {{ floatingText.telegram }}
       </a>
 
       <a
@@ -22,11 +22,38 @@
         rel="noopener noreferrer"
         class="floating-button whatsapp"
       >
-        WhatsApp
+        {{ floatingText.whatsapp }}
       </a>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { computed, onMounted } from 'vue'
+
+const {
+  currentLanguage,
+  initLanguage
+} = useLanguage()
+
+onMounted(() => {
+  initLanguage()
+})
+
+const floatingText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+</script>
 
 <style>
 * {
@@ -67,13 +94,13 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 118px;
+  min-width: 128px;
   min-height: 42px;
   padding: 0 18px;
   border-radius: 999px;
   color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
 }
@@ -82,8 +109,16 @@ a {
   background: #1687d9;
 }
 
+.floating-button.telegram:hover {
+  background: #0f75c2;
+}
+
 .floating-button.whatsapp {
   background: #16a34a;
+}
+
+.floating-button.whatsapp:hover {
+  background: #12823d;
 }
 
 @media (max-width: 768px) {
@@ -93,8 +128,9 @@ a {
   }
 
   .floating-button {
-    min-width: 104px;
+    min-width: 112px;
     min-height: 38px;
+    padding: 0 14px;
     font-size: 13px;
   }
 }

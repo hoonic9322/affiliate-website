@@ -2,31 +2,31 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <h3>Partner Cooperation</h3>
+        <h3>{{ footerText.brandTitle }}</h3>
         <p>
-          我们欢迎招商、代理、流量和远程技术合作伙伴加入，共同拓展长期合作机会。
+          {{ footerText.brandDescription }}
         </p>
       </div>
 
       <div class="footer-links">
         <div class="footer-group">
-          <h4>合作方向</h4>
-          <NuxtLink to="/business-partner">招商合作</NuxtLink>
-          <NuxtLink to="/agent-partner">代理合作</NuxtLink>
-          <NuxtLink to="/traffice-partner">流量合作</NuxtLink>
-          <NuxtLink to="/technology-partner">技术合作</NuxtLink>
+          <h4>{{ footerText.partnershipTitle }}</h4>
+          <NuxtLink to="/business-partner">{{ footerText.business }}</NuxtLink>
+          <NuxtLink to="/agent-partner">{{ footerText.agent }}</NuxtLink>
+          <NuxtLink to="/traffic-partner">{{ footerText.traffic }}</NuxtLink>
+          <NuxtLink to="/technology-partner">{{ footerText.technology }}</NuxtLink>
         </div>
 
         <div class="footer-group">
-          <h4>网站页面</h4>
-          <NuxtLink to="/about">关于我们</NuxtLink>
-          <NuxtLink to="/cooperateion-model">合作模式</NuxtLink>
-          <NuxtLink to="/faq">常见问题</NuxtLink>
-          <NuxtLink to="/contact">联系我们</NuxtLink>
+          <h4>{{ footerText.pageTitle }}</h4>
+          <NuxtLink to="/about">{{ footerText.about }}</NuxtLink>
+          <NuxtLink to="/cooperation-model">{{ footerText.model }}</NuxtLink>
+          <NuxtLink to="/faq">{{ footerText.faq }}</NuxtLink>
+          <NuxtLink to="/contact">{{ footerText.contact }}</NuxtLink>
         </div>
 
         <div class="footer-group">
-          <h4>联系我们</h4>
+          <h4>{{ footerText.contactTitle }}</h4>
           <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer">
             Telegram
           </a>
@@ -38,10 +38,56 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Partner Cooperation. All rights reserved.</p>
+      <p>{{ footerText.copyright }}</p>
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const footerText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      brandTitle: '合作伙伴与商务合作',
+      brandDescription:
+        '我们欢迎招商、代理、流量和远程技术合作伙伴加入，共同拓展长期合作机会。',
+      partnershipTitle: '合作方向',
+      pageTitle: '网站页面',
+      contactTitle: '联系我们',
+      business: '招商合作',
+      agent: '代理合作',
+      traffic: '流量合作',
+      technology: '技术合作',
+      about: '关于我们',
+      model: '合作模式',
+      faq: '常见问题',
+      contact: '联系我们',
+      copyright: '© 2026 合作伙伴与商务合作网站。保留所有权利。'
+    }
+  }
+
+  return {
+    brandTitle: 'Partner Cooperation',
+    brandDescription:
+      'We welcome business, agent, traffic and remote technology partners to build long-term cooperation opportunities together.',
+    partnershipTitle: 'Partnership',
+    pageTitle: 'Pages',
+    contactTitle: 'Contact',
+    business: 'Business Partnership',
+    agent: 'Agent Partnership',
+    traffic: 'Traffic Partnership',
+    technology: 'Technology Partnership',
+    about: 'About Us',
+    model: 'Cooperation Model',
+    faq: 'FAQ',
+    contact: 'Contact Us',
+    copyright: '© 2026 Partner Cooperation. All rights reserved.'
+  }
+})
+</script>
 
 <style scoped>
 .site-footer {
@@ -61,6 +107,7 @@
 .footer-brand h3 {
   margin: 0 0 14px;
   font-size: 24px;
+  line-height: 1.3;
 }
 
 .footer-brand p {
@@ -91,6 +138,7 @@
 .footer-group a {
   color: #cbd5e1;
   font-size: 14px;
+  line-height: 1.5;
   text-decoration: none;
 }
 
@@ -114,10 +162,16 @@
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 32px;
+    padding: 42px 18px;
   }
 
   .footer-links {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-brand h3 {
+    font-size: 22px;
   }
 }
 </style>
