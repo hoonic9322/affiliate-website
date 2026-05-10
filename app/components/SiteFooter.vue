@@ -27,7 +27,7 @@
 
         <div class="footer-group">
           <h4>{{ footerText.contactTitle }}</h4>
-          <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer">
+          <a href="https://t.me/jerrymax88" target="_blank" rel="noopener noreferrer">
             Telegram
           </a>
           <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer">

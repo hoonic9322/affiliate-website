@@ -127,9 +127,10 @@ const closeMenu = () => {
   position: sticky;
   top: 0;
   z-index: 90;
-  background: #111827;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.2);
+  background: rgba(11, 18, 32, 0.94);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(18px);
 }
 
 .header-inner {
@@ -159,10 +160,13 @@ const closeMenu = () => {
   width: 46px;
   height: 46px;
   border-radius: 13px;
-  background: #1687d9;
+  background: linear-gradient(135deg, #1687d9, #0f75c2);
   color: #ffffff;
   font-size: 24px;
   font-weight: 900;
+  box-shadow:
+    0 10px 24px rgba(22, 135, 217, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .brand-text {
@@ -240,20 +244,31 @@ const closeMenu = () => {
 }
 
 .language-button:hover {
-  border-color: #1687d9;
+  border-color: #38bdf8;
   background: rgba(22, 135, 217, 0.18);
   color: #ffffff;
 }
 
 .contact-link {
-  margin-left: 4px;
-  padding: 0 16px;
-  background: #1687d9;
+  margin-left: 8px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1687d9, #0f75c2);
   color: #ffffff;
+  box-shadow:
+    0 10px 24px rgba(22, 135, 217, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .contact-link:hover {
-  background: #0f75c2;
+  background: linear-gradient(135deg, #1d9bf0, #1687d9);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 30px rgba(22, 135, 217, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .mobile-menu-button {
@@ -272,14 +287,23 @@ const closeMenu = () => {
   cursor: pointer;
 }
 
+.mobile-menu-button:hover {
+  border-color: #38bdf8;
+  background: rgba(22, 135, 217, 0.18);
+}
+
 @media (max-width: 1120px) {
   .header-inner {
     padding: 0 18px;
   }
 
-  .nav-link,
-  .contact-link {
+  .nav-link {
     padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .contact-link {
+    padding: 0 14px;
     font-size: 12px;
   }
 
@@ -313,10 +337,11 @@ const closeMenu = () => {
     margin-left: 0;
     padding: 16px;
     overflow-y: auto;
-    border: 1px solid rgba(203, 213, 225, 0.16);
+    border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: 16px;
-    background: #111827;
-    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.32);
+    background: rgba(11, 18, 32, 0.98);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(18px);
   }
 
   .nav-menu.open {
@@ -341,6 +366,8 @@ const closeMenu = () => {
     margin-left: 0;
     justify-content: center;
     text-align: center;
+    min-height: 46px;
+    border-radius: 12px;
   }
 }
 

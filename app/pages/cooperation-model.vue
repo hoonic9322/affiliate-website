@@ -14,6 +14,7 @@ const pageText = computed(() => {
       heroTitle: '灵活合作模式',
       heroDescription:
         '我们会根据合作伙伴类型、资源情况、市场方向、技术能力和长期合作目标，提供不同类型的合作方式。',
+      heroImageAlt: '合作模式与合作流程视觉图',
 
       mainLabel: '主要合作类型',
       mainTitle: '四大主要合作方向',
@@ -102,6 +103,7 @@ const pageText = computed(() => {
     heroTitle: 'Flexible Cooperation Models',
     heroDescription:
       'We support different cooperation models based on partner type, available resources, market direction, technical capability and long-term cooperation goals.',
+    heroImageAlt: 'Cooperation model and partnership workflow illustration',
 
     mainLabel: 'MAIN COOPERATION TYPES',
     mainTitle: 'Four Main Cooperation Directions',
@@ -204,17 +206,28 @@ useHead(() => ({
   <main class="model-page">
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">
-          {{ pageText.heroLabel }}
-        </p>
+        <div class="hero-copy">
+          <p class="section-label hero-label">
+            {{ pageText.heroLabel }}
+          </p>
 
-        <h1>
-          {{ pageText.heroTitle }}
-        </h1>
+          <h1>
+            {{ pageText.heroTitle }}
+          </h1>
 
-        <p>
-          {{ pageText.heroDescription }}
-        </p>
+          <p>
+            {{ pageText.heroDescription }}
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <img
+              src="/images/sections/cooperation-model-visual.png"
+              :alt="pageText.heroImageAlt"
+            >
+          </div>
+        </div>
       </div>
     </section>
 
@@ -235,32 +248,32 @@ useHead(() => ({
 
       <div class="model-grid">
         <NuxtLink to="/business-partner" class="model-card">
-          <div class="model-number">01</div>
+          <div class="model-number business-mini">01</div>
           <h3>{{ pageText.businessTitle }}</h3>
           <p>{{ pageText.businessDescription }}</p>
         </NuxtLink>
 
         <NuxtLink to="/agent-partner" class="model-card">
-          <div class="model-number">02</div>
+          <div class="model-number agent-mini">02</div>
           <h3>{{ pageText.agentTitle }}</h3>
           <p>{{ pageText.agentDescription }}</p>
         </NuxtLink>
 
         <NuxtLink to="/traffic-partner" class="model-card">
-          <div class="model-number">03</div>
+          <div class="model-number traffic-mini">03</div>
           <h3>{{ pageText.trafficTitle }}</h3>
           <p>{{ pageText.trafficDescription }}</p>
         </NuxtLink>
 
         <NuxtLink to="/technology-partner" class="model-card">
-          <div class="model-number">04</div>
+          <div class="model-number tech-mini">04</div>
           <h3>{{ pageText.technologyTitle }}</h3>
           <p>{{ pageText.technologyDescription }}</p>
         </NuxtLink>
       </div>
     </section>
 
-    <section class="content-section light-section">
+    <section class="content-section dark-section">
       <div class="section-heading">
         <p class="section-label">
           {{ pageText.commercialLabel }}
@@ -332,33 +345,39 @@ useHead(() => ({
 
         <div class="highlight-panel">
           <div class="highlight-item">
+            <span>01</span>
             <strong>{{ pageText.techOne }}</strong>
           </div>
 
           <div class="highlight-item">
+            <span>02</span>
             <strong>{{ pageText.techTwo }}</strong>
           </div>
 
           <div class="highlight-item">
+            <span>03</span>
             <strong>{{ pageText.techThree }}</strong>
           </div>
 
           <div class="highlight-item">
+            <span>04</span>
             <strong>{{ pageText.techFour }}</strong>
           </div>
 
           <div class="highlight-item">
+            <span>05</span>
             <strong>{{ pageText.techFive }}</strong>
           </div>
 
           <div class="highlight-item">
+            <span>06</span>
             <strong>{{ pageText.techSix }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section light-section">
+    <section class="content-section dark-section">
       <div class="section-heading">
         <p class="section-label">
           {{ pageText.processLabel }}
@@ -416,7 +435,7 @@ useHead(() => ({
 
         <div class="cta-actions">
           <a
-            href="https://t.me/your_username"
+            href="https://t.me/jerrymax88"
             target="_blank"
             rel="noopener noreferrer"
             class="primary-button"
@@ -441,39 +460,78 @@ useHead(() => ({
 <style scoped>
 .model-page {
   min-height: 100vh;
-  background: #f5f7fb;
-  color: #111827;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(22, 135, 217, 0.13), transparent 34%),
+    #0b1220;
+  color: #ffffff;
 }
 
 .page-hero {
-  max-width: 1180px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 72px 24px 36px;
 }
 
 .page-hero-content {
-  padding: 58px 56px;
-  border-radius: 24px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+  gap: 42px;
+  align-items: center;
+  padding: 68px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 32px;
   background:
-    radial-gradient(circle at top right, rgba(22, 135, 217, 0.16), transparent 34%),
-    #ffffff;
-  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+    linear-gradient(90deg, rgba(7, 17, 42, 0.94), rgba(7, 17, 42, 0.7)),
+    url("/images/sections/home-hero-bg.png") center / cover no-repeat;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.page-hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-copy,
+.hero-visual {
+  position: relative;
+  z-index: 2;
 }
 
 .section-label {
   margin: 0 0 14px;
-  color: #1687d9;
+  color: #38bdf8;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 16px;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-radius: 999px;
+  background: rgba(22, 135, 217, 0.16);
+  color: #93c5fd;
+}
+
 h1 {
   margin: 0 0 20px;
-  color: #07112a;
-  font-size: 50px;
-  line-height: 1.12;
+  color: #ffffff;
+  font-size: 54px;
+  line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
@@ -481,26 +539,45 @@ h1 {
 .section-heading p,
 .split-content p,
 .cta-card p,
+.model-card p,
 .step-card p {
-  max-width: 820px;
+  max-width: 860px;
   margin: 0 0 8px;
-  color: #334155;
+  color: #cbd5e1;
   font-size: 16px;
   line-height: 1.8;
+}
+
+.hero-image-card {
+  padding: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 28px;
+  background: rgba(15, 23, 42, 0.64);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+}
+
+.hero-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
 }
 
 .content-section {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: 52px 24px;
 }
 
-.light-section {
+.dark-section {
   max-width: none;
-  background: #ffffff;
+  background: rgba(15, 23, 42, 0.72);
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
 }
 
-.light-section > * {
+.dark-section > * {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
@@ -515,7 +592,7 @@ h1 {
 .split-content h2,
 .cta-card h2 {
   margin: 0 0 16px;
-  color: #07112a;
+  color: #ffffff;
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -529,21 +606,22 @@ h1 {
 
 .model-card {
   display: block;
-  min-height: 300px;
+  min-height: 320px;
   padding: 28px;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
   color: inherit;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
   transition: 0.2s ease;
+  backdrop-filter: blur(14px);
 }
 
 .model-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(22, 135, 217, 0.45);
-  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.09);
+  border-color: rgba(56, 189, 248, 0.48);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
 }
 
 .model-number,
@@ -551,26 +629,43 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 22px;
-  border-radius: 14px;
-  background: #eef6fd;
-  color: #1687d9;
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 900;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.3);
+}
+
+.business-mini {
+  background: linear-gradient(135deg, #1687d9, #38bdf8);
+}
+
+.agent-mini {
+  background: linear-gradient(135deg, #2563eb, #6366f1);
+}
+
+.traffic-mini {
+  background: linear-gradient(135deg, #0f766e, #22c55e);
+}
+
+.tech-mini {
+  background: linear-gradient(135deg, #334155, #0f172a);
 }
 
 .model-card h3,
 .step-card h3 {
   margin: 0 0 14px;
-  color: #07112a;
+  color: #ffffff;
   font-size: 20px;
   line-height: 1.35;
 }
 
-.model-card p {
-  margin: 0 0 8px;
-  color: #475569;
+.model-card p,
+.step-card p {
+  color: #cbd5e1;
   font-size: 15px;
   line-height: 1.75;
 }
@@ -583,17 +678,34 @@ h1 {
 
 .list-item,
 .highlight-item {
-  padding: 20px;
-  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 14px;
-  background: #f8fafc;
+  background: rgba(30, 41, 59, 0.72);
 }
 
 .list-item strong,
 .highlight-item strong {
   display: block;
-  color: #07112a;
+  color: #ffffff;
   font-size: 16px;
+}
+
+.highlight-item span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #1687d9;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .split-content {
@@ -602,9 +714,11 @@ h1 {
   gap: 40px;
   align-items: center;
   padding: 44px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
 }
 
 .highlight-panel {
@@ -619,29 +733,34 @@ h1 {
 }
 
 .step-card {
-  min-height: 240px;
+  min-height: 250px;
   padding: 26px;
-  border-radius: 18px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
 }
 
-.step-card p {
-  font-size: 15px;
-  color: #475569;
+.step-number {
+  background: linear-gradient(135deg, #1687d9, #38bdf8);
 }
 
 .cta-section {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 52px 24px 80px;
 }
 
 .cta-card {
-  padding: 50px;
+  padding: 54px;
+  border: 1px solid rgba(96, 165, 250, 0.26);
   border-radius: 24px;
-  background: linear-gradient(135deg, #07112a, #123d68);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 34%),
+    linear-gradient(135deg, #07112a, #123d68);
   color: #ffffff;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.26);
 }
 
 .cta-card h2,
@@ -681,6 +800,7 @@ h1 {
 .primary-button {
   background: #1687d9;
   color: #ffffff;
+  box-shadow: 0 12px 28px rgba(22, 135, 217, 0.24);
 }
 
 .primary-button:hover {
@@ -688,16 +808,22 @@ h1 {
 }
 
 .secondary-button {
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: transparent;
+  border: 1px solid rgba(203, 213, 225, 0.32);
+  background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
 }
 
 .secondary-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  border-color: #38bdf8;
+  background: rgba(22, 135, 217, 0.18);
 }
 
 @media (max-width: 1080px) {
+  .page-hero-content {
+    grid-template-columns: 1fr;
+    padding: 52px;
+  }
+
   .model-grid,
   .step-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -718,12 +844,12 @@ h1 {
   }
 
   .page-hero-content {
-    padding: 36px 24px;
-    border-radius: 20px;
+    padding: 36px 22px;
+    border-radius: 22px;
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 38px;
   }
 
   .section-heading h2,
@@ -734,7 +860,7 @@ h1 {
 
   .content-section,
   .cta-section {
-    padding: 36px 16px;
+    padding: 38px 16px;
   }
 
   .model-grid,

@@ -14,6 +14,11 @@ const pageText = computed(() => {
       viewOptions: '查看合作方向',
       contactUs: '联系我们',
 
+      heroImageAlt: '合作伙伴网络与商务合作视觉图',
+      visualContact: '直接联系',
+      visualTelegram: 'Telegram',
+      visualWhatsapp: 'WhatsApp',
+
       cooperationLabel: '合作类型',
       cooperationTitle: '四大合作方向',
       cooperationDescription:
@@ -81,6 +86,11 @@ const pageText = computed(() => {
       'We welcome business partners, agents, traffic partners and remote technology teams to build long-term cooperation with us.',
     viewOptions: 'View Partnership Options',
     contactUs: 'Contact Us',
+
+    heroImageAlt: 'Partner network and business cooperation illustration',
+    visualContact: 'Direct Contact',
+    visualTelegram: 'Telegram',
+    visualWhatsapp: 'WhatsApp',
 
     cooperationLabel: 'COOPERATION TYPES',
     cooperationTitle: 'Four Main Partnership Directions',
@@ -170,26 +180,47 @@ useHead(() => ({
   <main class="home-page">
     <section class="hero-section">
       <div class="hero-content">
-        <p class="section-label">
-          {{ pageText.heroLabel }}
-        </p>
+        <div class="hero-copy">
+          <p class="section-label hero-label">
+            {{ pageText.heroLabel }}
+          </p>
 
-        <h1>
-          {{ pageText.heroTitle }}
-        </h1>
+          <h1>
+            {{ pageText.heroTitle }}
+          </h1>
 
-        <p class="hero-description">
-          {{ pageText.heroDescription }}
-        </p>
+          <p class="hero-description">
+            {{ pageText.heroDescription }}
+          </p>
 
-        <div class="hero-actions">
-          <NuxtLink to="/business-partner" class="primary-button">
-            {{ pageText.viewOptions }}
-          </NuxtLink>
+          <div class="hero-actions">
+            <NuxtLink to="/business-partner" class="primary-button">
+              {{ pageText.viewOptions }}
+            </NuxtLink>
 
-          <NuxtLink to="/contact" class="secondary-button">
-            {{ pageText.contactUs }}
-          </NuxtLink>
+            <NuxtLink to="/contact" class="secondary-button">
+              {{ pageText.contactUs }}
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <img
+              src="/images/sections/partner-network.png"
+              :alt="pageText.heroImageAlt"
+            >
+          </div>
+
+          <div class="visual-card floating-card top-card">
+            <span>{{ pageText.visualContact }}</span>
+            <strong>{{ pageText.visualTelegram }}</strong>
+          </div>
+
+          <div class="visual-card floating-card bottom-card">
+            <span>{{ pageText.visualContact }}</span>
+            <strong>{{ pageText.visualWhatsapp }}</strong>
+          </div>
         </div>
       </div>
     </section>
@@ -211,7 +242,9 @@ useHead(() => ({
 
       <div class="partner-grid">
         <NuxtLink to="/business-partner" class="partner-card">
-          <div class="card-icon">01</div>
+          <div class="card-icon business-icon">
+            <span>01</span>
+          </div>
 
           <h3>{{ pageText.businessTitle }}</h3>
 
@@ -221,7 +254,9 @@ useHead(() => ({
         </NuxtLink>
 
         <NuxtLink to="/agent-partner" class="partner-card">
-          <div class="card-icon">02</div>
+          <div class="card-icon agent-icon">
+            <span>02</span>
+          </div>
 
           <h3>{{ pageText.agentTitle }}</h3>
 
@@ -231,7 +266,9 @@ useHead(() => ({
         </NuxtLink>
 
         <NuxtLink to="/traffic-partner" class="partner-card">
-          <div class="card-icon">03</div>
+          <div class="card-icon traffic-icon">
+            <span>03</span>
+          </div>
 
           <h3>{{ pageText.trafficTitle }}</h3>
 
@@ -241,7 +278,9 @@ useHead(() => ({
         </NuxtLink>
 
         <NuxtLink to="/technology-partner" class="partner-card">
-          <div class="card-icon">04</div>
+          <div class="card-icon technology-icon">
+            <span>04</span>
+          </div>
 
           <h3>{{ pageText.technologyTitle }}</h3>
 
@@ -252,7 +291,7 @@ useHead(() => ({
       </div>
     </section>
 
-    <section class="section-block light-section">
+    <section class="section-block dark-section">
       <div class="section-heading">
         <p class="section-label">
           {{ pageText.whyLabel }}
@@ -350,7 +389,7 @@ useHead(() => ({
 
         <div class="cta-actions">
           <a
-            href="https://t.me/your_username"
+            href="https://t.me/jerrymax88"
             target="_blank"
             rel="noopener noreferrer"
             class="primary-button"
@@ -362,7 +401,7 @@ useHead(() => ({
             href="https://wa.me/your_number"
             target="_blank"
             rel="noopener noreferrer"
-            class="secondary-button dark"
+            class="secondary-button"
           >
             {{ pageText.whatsapp }}
           </a>
@@ -375,47 +414,85 @@ useHead(() => ({
 <style scoped>
 .home-page {
   min-height: 100vh;
-  background: #f5f7fb;
-  color: #111827;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(22, 135, 217, 0.13), transparent 34%),
+    #0b1220;
+  color: #ffffff;
 }
 
 .hero-section {
-  max-width: 1180px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 88px 24px 52px;
+  padding: 76px 24px 52px;
 }
 
 .hero-content {
-  padding: 74px 66px;
-  border-radius: 28px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 42px;
+  align-items: center;
+  padding: 68px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 32px;
   background:
-    radial-gradient(circle at top right, rgba(22, 135, 217, 0.16), transparent 34%),
-    #ffffff;
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    linear-gradient(90deg, rgba(7, 17, 42, 0.94), rgba(7, 17, 42, 0.7)),
+    url("/images/sections/home-hero-bg.png") center / cover no-repeat;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
 }
 
 .section-label {
   margin: 0 0 14px;
-  color: #1687d9;
+  color: #38bdf8;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 16px;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-radius: 999px;
+  background: rgba(22, 135, 217, 0.16);
+  color: #93c5fd;
+}
+
 h1 {
   max-width: 860px;
   margin: 0 0 24px;
-  color: #07112a;
-  font-size: 56px;
-  line-height: 1.12;
+  color: #ffffff;
+  font-size: 58px;
+  line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
 .hero-description {
-  max-width: 820px;
+  max-width: 780px;
   margin: 0;
-  color: #334155;
+  color: #cbd5e1;
   font-size: 18px;
   line-height: 1.8;
 }
@@ -445,6 +522,7 @@ h1 {
 .primary-button {
   background: #1687d9;
   color: #ffffff;
+  box-shadow: 0 12px 28px rgba(22, 135, 217, 0.24);
 }
 
 .primary-button:hover {
@@ -452,25 +530,77 @@ h1 {
 }
 
 .secondary-button {
-  border: 1px solid #d1d5db;
-  background: #ffffff;
-  color: #111827;
+  border: 1px solid rgba(203, 213, 225, 0.32);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
 }
 
 .secondary-button:hover {
-  border-color: #1687d9;
-  color: #1687d9;
+  border-color: #38bdf8;
+  background: rgba(22, 135, 217, 0.18);
 }
 
-.secondary-button.dark {
-  background: transparent;
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.35);
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  min-height: 430px;
 }
 
-.secondary-button.dark:hover {
-  background: rgba(255, 255, 255, 0.1);
+.hero-image-card {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  width: 92%;
+  padding: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 28px;
+  background: rgba(15, 23, 42, 0.64);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+}
+
+.hero-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+}
+
+.visual-card {
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+}
+
+.floating-card {
+  position: absolute;
+  width: 178px;
+  padding: 18px;
+}
+
+.floating-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.floating-card strong {
   color: #ffffff;
+  font-size: 17px;
+}
+
+.top-card {
+  top: 0;
+  left: 0;
+}
+
+.bottom-card {
+  right: 22px;
+  bottom: 12px;
 }
 
 .section-block {
@@ -488,7 +618,7 @@ h1 {
 .split-section h2,
 .cta-card h2 {
   margin: 0 0 16px;
-  color: #07112a;
+  color: #ffffff;
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -498,7 +628,7 @@ h1 {
 .split-section p,
 .cta-card p {
   margin: 0 0 8px;
-  color: #334155;
+  color: #cbd5e1;
   font-size: 16px;
   line-height: 1.8;
 }
@@ -511,40 +641,88 @@ h1 {
 
 .partner-card {
   display: block;
-  min-height: 300px;
+  min-height: 310px;
   padding: 28px;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
   color: inherit;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
   transition: 0.2s ease;
+  backdrop-filter: blur(14px);
 }
 
 .partner-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(22, 135, 217, 0.45);
-  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.09);
+  border-color: rgba(56, 189, 248, 0.48);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
 }
 
 .card-icon {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
+  width: 58px;
+  height: 58px;
   margin-bottom: 24px;
-  border-radius: 14px;
-  background: #eef6fd;
-  color: #1687d9;
+  border-radius: 18px;
+  overflow: hidden;
+  color: #ffffff;
   font-weight: 900;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.28);
+}
+
+.card-icon::before,
+.card-icon::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.card-icon::before {
+  width: 34px;
+  height: 34px;
+  right: -10px;
+  top: -10px;
+}
+
+.card-icon::after {
+  width: 22px;
+  height: 22px;
+  left: -7px;
+  bottom: -7px;
+}
+
+.card-icon span {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.business-icon {
+  background: linear-gradient(135deg, #1687d9, #38bdf8);
+}
+
+.agent-icon {
+  background: linear-gradient(135deg, #2563eb, #6366f1);
+}
+
+.traffic-icon {
+  background: linear-gradient(135deg, #0f766e, #22c55e);
+}
+
+.technology-icon {
+  background: linear-gradient(135deg, #334155, #0f172a);
 }
 
 .partner-card h3,
 .benefit-item h3 {
   margin: 0 0 14px;
-  color: #07112a;
+  color: #ffffff;
   font-size: 21px;
   line-height: 1.35;
 }
@@ -552,17 +730,19 @@ h1 {
 .partner-card p,
 .benefit-item p {
   margin: 0 0 8px;
-  color: #475569;
+  color: #cbd5e1;
   font-size: 15px;
   line-height: 1.75;
 }
 
-.light-section {
+.dark-section {
   max-width: none;
-  background: #ffffff;
+  background: rgba(15, 23, 42, 0.72);
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
 }
 
-.light-section > * {
+.dark-section > * {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
@@ -577,9 +757,10 @@ h1 {
 
 .benefit-item {
   padding: 26px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 18px;
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
 }
 
 .split-section {
@@ -588,9 +769,11 @@ h1 {
   gap: 40px;
   align-items: center;
   padding: 44px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
 }
 
 .model-list {
@@ -600,14 +783,14 @@ h1 {
 
 .model-item {
   padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 14px;
-  background: #f5f7fb;
-  border: 1px solid #e5e7eb;
+  background: rgba(30, 41, 59, 0.72);
 }
 
 .model-item strong {
   display: block;
-  color: #07112a;
+  color: #ffffff;
   font-size: 16px;
 }
 
@@ -619,9 +802,13 @@ h1 {
 
 .cta-card {
   padding: 54px;
+  border: 1px solid rgba(96, 165, 250, 0.26);
   border-radius: 24px;
-  background: linear-gradient(135deg, #07112a, #123d68);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 34%),
+    linear-gradient(135deg, #07112a, #123d68);
   color: #ffffff;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.26);
 }
 
 .cta-card h2,
@@ -639,6 +826,21 @@ h1 {
 }
 
 @media (max-width: 1080px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 52px;
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .hero-image-card {
+    left: 70px;
+    right: auto;
+    width: calc(100% - 70px);
+  }
+
   .partner-grid,
   .benefit-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -655,12 +857,31 @@ h1 {
   }
 
   .hero-content {
-    padding: 38px 24px;
-    border-radius: 20px;
+    padding: 36px 22px;
+    border-radius: 22px;
   }
 
   h1 {
     font-size: 38px;
+  }
+
+  .hero-visual {
+    min-height: auto;
+    margin-top: 34px;
+  }
+
+  .hero-image-card,
+  .floating-card {
+    position: static;
+    width: 100%;
+  }
+
+  .hero-image-card {
+    padding: 10px;
+  }
+
+  .floating-card {
+    margin-top: 12px;
   }
 
   .section-heading h2,
