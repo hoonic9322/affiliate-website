@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Business Partnership | 招商合作',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Business partnership opportunities for partners with market resources, business channels and regional cooperation capability. 面向拥有市场资源、商务渠道和区域合作能力的招商合作伙伴。'
+    },
+    {
+      property: 'og:title',
+      content: 'Business Partnership | 招商合作'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Cooperate with us if you have business resources, market channels, regional connections or commercial development capability. 如果你拥有商务资源、市场渠道、区域资源或商业拓展能力，欢迎联系我们。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="partner-page">
     <!-- Page Hero -->
@@ -26,6 +48,7 @@
     <section class="content-section">
       <div class="section-heading">
         <p class="section-label">WHO WE ARE LOOKING FOR</p>
+
         <h2>
           Suitable Partner Types
           <span>适合的合作对象</span>
@@ -38,10 +61,12 @@
             Business Resource Partners
             <span>商务资源方</span>
           </h3>
+
           <p>
             Partners who have existing commercial resources, client connections,
             business networks or cooperation opportunities.
           </p>
+
           <p class="chinese">
             适合拥有现有商务资源、客户关系、业务网络或合作机会的资源方。
           </p>
@@ -52,10 +77,12 @@
             Regional Market Partners
             <span>区域市场合作方</span>
           </h3>
+
           <p>
             Partners who understand local markets and can help expand business
             in specific countries, regions or cities.
           </p>
+
           <p class="chinese">
             适合熟悉本地市场，并能协助在指定国家、地区或城市拓展业务的合作方。
           </p>
@@ -66,10 +93,12 @@
             Channel Partners
             <span>渠道合作方</span>
           </h3>
+
           <p>
             Partners with offline or online channels, industry connections,
             customer groups or market access resources.
           </p>
+
           <p class="chinese">
             适合拥有线上或线下渠道、行业关系、客户群体或市场入口资源的合作伙伴。
           </p>
@@ -80,10 +109,12 @@
             Strategic Cooperation Partners
             <span>战略合作伙伴</span>
           </h3>
+
           <p>
             Partners who can support long-term business development, brand cooperation,
             resource integration or market expansion.
           </p>
+
           <p class="chinese">
             适合可以支持长期业务发展、品牌合作、资源整合或市场拓展的合作伙伴。
           </p>
@@ -95,6 +126,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">COOPERATION AREAS</p>
+
         <h2>
           What We Can Cooperate On
           <span>可以合作的方向</span>

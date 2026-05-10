@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'About Us | 关于我们',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Learn about our cooperation platform for business partners, agents, traffic partners and remote technology teams. 了解我们的招商、代理、流量和远程技术合作平台。'
+    },
+    {
+      property: 'og:title',
+      content: 'About Us | 关于我们'
+    },
+    {
+      property: 'og:description',
+      content:
+        'A bilingual cooperation platform for business, agent, traffic and remote technology partners. 面向招商、代理、流量和远程技术合作伙伴的双语合作平台。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="about-page">
     <!-- Page Hero -->
@@ -97,10 +119,12 @@
             Business Resource Matching
             <span>商务资源对接</span>
           </h3>
+
           <p>
             We welcome partners who can provide regional resources, business channels,
             market access or strategic cooperation opportunities.
           </p>
+
           <p class="chinese">
             我们欢迎可以提供区域资源、商务渠道、市场入口或战略合作机会的合作方。
           </p>
@@ -111,10 +135,12 @@
             Agent and Market Growth
             <span>代理与市场增长</span>
           </h3>
+
           <p>
             We work with agent partners who can support local promotion,
             user development and long-term market operation.
           </p>
+
           <p class="chinese">
             我们与可以支持本地推广、用户开发和长期市场运营的代理伙伴合作。
           </p>
@@ -125,10 +151,12 @@
             Traffic and Promotion
             <span>流量与推广合作</span>
           </h3>
+
           <p>
             We cooperate with traffic owners, SEO teams, media buyers,
             KOLs and community operators.
           </p>
+
           <p class="chinese">
             我们与流量主、SEO 团队、广告投放团队、KOL 和社群运营方合作。
           </p>
@@ -139,10 +167,12 @@
             Remote Technical Support
             <span>远程技术支持</span>
           </h3>
+
           <p>
             We are open to working with remote software companies,
             development teams, QA teams and DevOps teams.
           </p>
+
           <p class="chinese">
             我们欢迎远程软件公司、开发团队、测试团队和运维团队参与技术合作。
           </p>
@@ -165,9 +195,11 @@
         <div class="value-card">
           <strong>Long-Term Mindset</strong>
           <span>长期合作意识</span>
+
           <p>
             We prefer partners who are looking for stable and long-term cooperation instead of short-term contact only.
           </p>
+
           <p class="chinese">
             我们更重视稳定、持续、长期配合的合作伙伴，而不是一次性的短期接触。
           </p>
@@ -176,9 +208,11 @@
         <div class="value-card">
           <strong>Clear Communication</strong>
           <span>清晰沟通</span>
+
           <p>
             We value direct communication, clear expectations and responsible follow-up.
           </p>
+
           <p class="chinese">
             我们重视直接沟通、明确预期和负责任的后续跟进。
           </p>
@@ -187,9 +221,11 @@
         <div class="value-card">
           <strong>Real Capability</strong>
           <span>真实能力</span>
+
           <p>
             We care about real resources, real traffic, real delivery experience and real cooperation capability.
           </p>
+
           <p class="chinese">
             我们关注真实资源、真实流量、真实交付经验和实际合作能力。
           </p>
@@ -198,9 +234,11 @@
         <div class="value-card">
           <strong>Flexible Cooperation</strong>
           <span>灵活合作</span>
+
           <p>
             Cooperation can be discussed based on partner type, market, resources and project needs.
           </p>
+
           <p class="chinese">
             合作方式可以根据合作类型、市场区域、资源情况和项目需求进行灵活沟通。
           </p>

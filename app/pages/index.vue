@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Home | 首页',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Looking for long-term business, agent, traffic and remote technology partners. 寻找长期招商、代理、流量和远程技术合作伙伴。'
+    },
+    {
+      property: 'og:title',
+      content: 'Partner Cooperation Home | 合作伙伴首页'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Business partnership, agent partnership, traffic partnership and remote technology cooperation opportunities. 招商、代理、流量和远程技术合作机会。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="home-page">
     <!-- Hero Section -->
@@ -40,14 +62,17 @@
     <section class="section-block">
       <div class="section-heading">
         <p class="section-label">COOPERATION TYPES</p>
+
         <h2>
           Four Main Partnership Directions
           <span>四大合作方向</span>
         </h2>
+
         <p>
           We provide different cooperation opportunities for business resources,
           agent teams, traffic resources and remote technical teams.
         </p>
+
         <p class="chinese">
           我们为商务资源方、代理团队、流量资源方和远程技术团队提供不同类型的合作机会。
         </p>
@@ -56,14 +81,17 @@
       <div class="partner-grid">
         <NuxtLink to="/business-partner" class="partner-card">
           <div class="card-icon">01</div>
+
           <h3>
             Business Partnership
             <span>招商合作</span>
           </h3>
+
           <p>
             For partners with business resources, market channels, regional connections or
             commercial development capability.
           </p>
+
           <p class="chinese">
             面向拥有商务资源、区域资源、渠道资源或市场拓展能力的合作伙伴。
           </p>
@@ -71,14 +99,17 @@
 
         <NuxtLink to="/agent-partner" class="partner-card">
           <div class="card-icon">02</div>
+
           <h3>
             Agent Partnership
             <span>代理合作</span>
           </h3>
+
           <p>
             For agent teams, local promoters, community operators and partners who can manage
             long-term user resources.
           </p>
+
           <p class="chinese">
             面向代理团队、区域代理、推广代理、社群代理和长期用户资源运营伙伴。
           </p>
@@ -86,14 +117,17 @@
 
         <NuxtLink to="/traffice-partner" class="partner-card">
           <div class="card-icon">03</div>
+
           <h3>
             Traffic Partnership
             <span>流量合作</span>
           </h3>
+
           <p>
             For website owners, SEO teams, media buyers, KOLs, social communities and
             affiliate traffic partners.
           </p>
+
           <p class="chinese">
             面向网站站长、SEO 团队、广告投放团队、KOL、社群资源方和媒体资源方。
           </p>
@@ -101,14 +135,17 @@
 
         <NuxtLink to="/technology-partner" class="partner-card">
           <div class="card-icon">04</div>
+
           <h3>
             Technology Partnership
             <span>远程技术合作</span>
           </h3>
+
           <p>
             For remote software companies, development teams, UI/UX teams, QA teams,
             DevOps and technical service providers.
           </p>
+
           <p class="chinese">
             面向远程软件开发公司、外包技术团队、UI/UX、QA、DevOps 和系统维护团队。
           </p>
@@ -120,6 +157,7 @@
     <section class="section-block light-section">
       <div class="section-heading">
         <p class="section-label">WHY WORK WITH US</p>
+
         <h2>
           Built for Long-Term Cooperation
           <span>为长期合作而建立</span>
@@ -132,9 +170,11 @@
             Long-Term Opportunities
             <span>长期合作机会</span>
           </h3>
+
           <p>
             We are looking for reliable partners who can grow with us continuously.
           </p>
+
           <p class="chinese">
             我们寻找可以长期配合、持续发展和稳定合作的伙伴。
           </p>
@@ -145,9 +185,11 @@
             Flexible Cooperation Model
             <span>灵活合作模式</span>
           </h3>
+
           <p>
             Cooperation can be adjusted based on partner type, market, resources and project needs.
           </p>
+
           <p class="chinese">
             合作方式可根据合作类型、市场、资源和项目需求灵活安排。
           </p>
@@ -158,9 +200,11 @@
             Clear Communication
             <span>沟通清晰直接</span>
           </h3>
+
           <p>
             We prefer direct communication through Telegram or WhatsApp for faster discussion.
           </p>
+
           <p class="chinese">
             我们优先通过 Telegram 或 WhatsApp 直接沟通，提高对接效率。
           </p>
@@ -171,9 +215,11 @@
             Multiple Cooperation Areas
             <span>多种合作方向</span>
           </h3>
+
           <p>
             Partners can cooperate in business development, agency, traffic or technology.
           </p>
+
           <p class="chinese">
             合作伙伴可以从招商、代理、流量或技术方向切入合作。
           </p>
@@ -186,14 +232,17 @@
       <div class="split-section">
         <div>
           <p class="section-label">COOPERATION MODEL</p>
+
           <h2>
             Simple, Direct and Flexible
             <span>简单、直接、灵活</span>
           </h2>
+
           <p>
             We do not use a complicated application process in the first phase.
             Interested partners can contact us directly and discuss suitable cooperation models.
           </p>
+
           <p class="chinese">
             第一阶段我们不设计复杂申请流程。有合作意向的伙伴可以直接联系我们，
             再根据资源、市场、团队能力和合作方向沟通适合的合作模式。
@@ -205,14 +254,17 @@
             <strong>Business Cooperation</strong>
             <span>招商 / 商务合作</span>
           </div>
+
           <div class="model-item">
             <strong>Agent Cooperation</strong>
             <span>代理合作</span>
           </div>
+
           <div class="model-item">
             <strong>Traffic Cooperation</strong>
             <span>流量合作</span>
           </div>
+
           <div class="model-item">
             <strong>Remote Technical Cooperation</strong>
             <span>远程技术合作</span>

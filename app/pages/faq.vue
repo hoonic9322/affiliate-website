@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'FAQ | 常见问题',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Frequently asked questions about business partnership, agent partnership, traffic partnership and remote technology cooperation. 招商、代理、流量和远程技术合作常见问题。'
+    },
+    {
+      property: 'og:title',
+      content: 'FAQ | 常见问题'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Find answers about cooperation types, contact methods, business partnership, agent partnership, traffic partnership and technology partnership. 查看招商、代理、流量和远程技术合作相关常见问题。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="faq-page">
     <!-- Page Hero -->

@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Contact Us | 联系我们',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Contact us through Telegram or WhatsApp for business, agent, traffic or remote technology cooperation. 通过 Telegram 或 WhatsApp 联系我们，沟通招商、代理、流量或远程技术合作。'
+    },
+    {
+      property: 'og:title',
+      content: 'Contact Us | 联系我们'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Start cooperation with us through Telegram or WhatsApp. 通过 Telegram 或 WhatsApp 联系我们开始合作。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="contact-page">
     <!-- Page Hero -->
@@ -119,9 +141,11 @@
             Cooperation Type
             <span>合作类型</span>
           </h3>
+
           <p>
             Business partnership, agent partnership, traffic partnership or technology partnership.
           </p>
+
           <p class="chinese">
             招商合作、代理合作、流量合作或远程技术合作。
           </p>
@@ -132,9 +156,11 @@
             Market or Region
             <span>市场或区域</span>
           </h3>
+
           <p>
             Tell us which country, region, city or target market you are focusing on.
           </p>
+
           <p class="chinese">
             说明你主要负责或关注的国家、地区、城市或目标市场。
           </p>
@@ -145,9 +171,11 @@
             Available Resources
             <span>现有资源</span>
           </h3>
+
           <p>
             Briefly introduce your business resources, agent resources, traffic channels or technical team.
           </p>
+
           <p class="chinese">
             简单介绍你的商务资源、代理资源、流量渠道或技术团队能力。
           </p>
@@ -158,9 +186,11 @@
             Expected Cooperation Model
             <span>期望合作方式</span>
           </h3>
+
           <p>
             Let us know what type of cooperation model you are looking for.
           </p>
+
           <p class="chinese">
             告诉我们你希望采用什么样的合作模式。
           </p>

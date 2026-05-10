@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Agent Partnership | 代理合作',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Agent partnership opportunities for agent teams, local promoters, community operators and long-term user resource partners. 面向代理团队、本地推广人员、社群运营者和长期用户资源合作伙伴。'
+    },
+    {
+      property: 'og:title',
+      content: 'Agent Partnership | 代理合作'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Cooperate with us if you have agent resources, local promotion capability, community resources or user operation experience. 如果你拥有代理资源、本地推广能力、社群资源或用户运营经验，欢迎联系我们。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="partner-page">
     <!-- Page Hero -->
@@ -25,6 +47,7 @@
     <section class="content-section">
       <div class="section-heading">
         <p class="section-label">WHO WE ARE LOOKING FOR</p>
+
         <h2>
           Suitable Agent Partners
           <span>适合的代理合作对象</span>
@@ -37,10 +60,12 @@
             Agent Teams
             <span>代理团队</span>
           </h3>
+
           <p>
             Teams with experience in user development, customer operation,
             local promotion or long-term community management.
           </p>
+
           <p class="chinese">
             适合具备用户开发、客户运营、本地推广或长期社群管理经验的代理团队。
           </p>
@@ -51,9 +76,11 @@
             Local Promoters
             <span>本地推广代理</span>
           </h3>
+
           <p>
             Partners who understand local markets, user behavior and local communication channels.
           </p>
+
           <p class="chinese">
             适合熟悉本地市场、用户习惯和本地沟通渠道的推广代理。
           </p>
@@ -64,10 +91,12 @@
             Community Operators
             <span>社群运营方</span>
           </h3>
+
           <p>
             Partners who manage Telegram groups, WhatsApp communities,
             social groups or other private traffic communities.
           </p>
+
           <p class="chinese">
             适合运营 Telegram 群、WhatsApp 社群、社交群组或其他私域流量社群的合作方。
           </p>
@@ -78,10 +107,12 @@
             Regional Agents
             <span>区域代理</span>
           </h3>
+
           <p>
             Partners who can develop local markets, manage regional user resources
             and support long-term business growth.
           </p>
+
           <p class="chinese">
             适合可以开发本地区域市场、管理区域用户资源，并支持长期业务增长的代理伙伴。
           </p>
@@ -93,6 +124,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">COOPERATION AREAS</p>
+
         <h2>
           What Agent Partners Can Do
           <span>代理伙伴可以合作的内容</span>
@@ -181,6 +213,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">OUR EXPECTATIONS</p>
+
         <h2>
           What We Care About
           <span>我们关注什么</span>

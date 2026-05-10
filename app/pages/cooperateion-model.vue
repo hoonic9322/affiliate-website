@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Cooperation Model | 合作模式',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Flexible cooperation models for business partnership, agent partnership, traffic partnership and remote technology partnership. 招商、代理、流量和远程技术合作的灵活合作模式。'
+    },
+    {
+      property: 'og:title',
+      content: 'Cooperation Model | 合作模式'
+    },
+    {
+      property: 'og:description',
+      content:
+        'We support business cooperation, agent cooperation, traffic cooperation and remote technical cooperation based on partner resources and long-term goals. 我们根据合作方资源和长期目标，支持招商、代理、流量和远程技术合作。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="model-page">
     <!-- Page Hero -->
@@ -45,14 +67,17 @@
       <div class="model-grid">
         <NuxtLink to="/business-partner" class="model-card">
           <div class="model-number">01</div>
+
           <h3>
             Business Partnership
             <span>招商合作</span>
           </h3>
+
           <p>
             Suitable for partners with business resources, regional channels,
             commercial connections or strategic cooperation opportunities.
           </p>
+
           <p class="chinese">
             适合拥有商务资源、区域渠道、商业关系或战略合作机会的合作伙伴。
           </p>
@@ -60,14 +85,17 @@
 
         <NuxtLink to="/agent-partner" class="model-card">
           <div class="model-number">02</div>
+
           <h3>
             Agent Partnership
             <span>代理合作</span>
           </h3>
+
           <p>
             Suitable for agent teams, local promoters, community operators and partners
             who can manage user resources.
           </p>
+
           <p class="chinese">
             适合代理团队、本地推广人员、社群运营者和可以运营用户资源的合作伙伴。
           </p>
@@ -75,14 +103,17 @@
 
         <NuxtLink to="/traffice-partner" class="model-card">
           <div class="model-number">03</div>
+
           <h3>
             Traffic Partnership
             <span>流量合作</span>
           </h3>
+
           <p>
             Suitable for website owners, SEO teams, media buyers, community resources,
             KOLs and affiliate traffic partners.
           </p>
+
           <p class="chinese">
             适合网站站长、SEO 团队、广告投放团队、社群资源方、KOL 和流量合作伙伴。
           </p>
@@ -90,14 +121,17 @@
 
         <NuxtLink to="/technology-partner" class="model-card">
           <div class="model-number">04</div>
+
           <h3>
             Technology Partnership
             <span>远程技术合作</span>
           </h3>
+
           <p>
             Suitable for remote software companies, development teams, UI/UX teams,
             QA teams, DevOps teams and technical service providers.
           </p>
+
           <p class="chinese">
             适合远程软件公司、开发团队、UI/UX 团队、测试团队、运维团队和技术服务商。
           </p>
@@ -251,13 +285,16 @@
       <div class="step-grid">
         <div class="step-card">
           <div class="step-number">01</div>
+
           <h3>
             Contact Us
             <span>联系我们</span>
           </h3>
+
           <p>
             Contact our team directly through Telegram or WhatsApp.
           </p>
+
           <p class="chinese">
             通过 Telegram 或 WhatsApp 直接联系我们。
           </p>
@@ -265,13 +302,16 @@
 
         <div class="step-card">
           <div class="step-number">02</div>
+
           <h3>
             Introduce Your Resources
             <span>介绍你的资源</span>
           </h3>
+
           <p>
             Tell us your cooperation type, market, resources, team background or technical capability.
           </p>
+
           <p class="chinese">
             简单说明你的合作类型、所在市场、资源情况、团队背景或技术能力。
           </p>
@@ -279,13 +319,16 @@
 
         <div class="step-card">
           <div class="step-number">03</div>
+
           <h3>
             Discuss Cooperation Model
             <span>沟通合作方式</span>
           </h3>
+
           <p>
             We discuss a suitable cooperation model based on your situation and our needs.
           </p>
+
           <p class="chinese">
             根据你的情况和我们的需求，沟通适合的合作方式。
           </p>
@@ -293,13 +336,16 @@
 
         <div class="step-card">
           <div class="step-number">04</div>
+
           <h3>
             Start Cooperation
             <span>开始合作</span>
           </h3>
+
           <p>
             After both sides confirm the cooperation direction, we can proceed with the next steps.
           </p>
+
           <p class="chinese">
             双方确认合作方向后，即可推进后续合作安排。
           </p>

@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Technology Partnership | 远程技术合作',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Remote technology partnership opportunities for software companies, development teams, UI/UX, QA, DevOps and technical service providers. 面向软件公司、远程开发团队、UI/UX、QA、DevOps 和技术服务商。'
+    },
+    {
+      property: 'og:title',
+      content: 'Technology Partnership | 远程技术合作'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Cooperate with us if your company or team provides website development, system development, UI/UX, QA, DevOps, deployment or technical support. 如果你的公司或团队提供网站开发、系统开发、UI/UX、测试、运维、部署或技术支持，欢迎联系我们。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="partner-page">
     <!-- Page Hero -->
@@ -25,6 +47,7 @@
     <section class="content-section">
       <div class="section-heading">
         <p class="section-label">WHO WE ARE LOOKING FOR</p>
+
         <h2>
           Suitable Technology Partners
           <span>适合的技术合作对象</span>
@@ -37,10 +60,12 @@
             Software Development Companies
             <span>软件开发公司</span>
           </h3>
+
           <p>
             Companies with experience in website development, system development,
             backend management systems and business platform development.
           </p>
+
           <p class="chinese">
             适合具备网站开发、系统开发、后台管理系统和业务平台开发经验的软件公司。
           </p>
@@ -51,10 +76,12 @@
             Remote Development Teams
             <span>远程开发团队</span>
           </h3>
+
           <p>
             Teams that can support frontend, backend, full-stack development,
             API integration and long-term project maintenance remotely.
           </p>
+
           <p class="chinese">
             适合可以远程支持前端、后端、全栈开发、API 对接和长期项目维护的开发团队。
           </p>
@@ -65,10 +92,12 @@
             UI/UX & Product Teams
             <span>UI/UX 与产品团队</span>
           </h3>
+
           <p>
             Teams that can support interface design, user experience design,
             prototype design and product requirement clarification.
           </p>
+
           <p class="chinese">
             适合可以支持界面设计、用户体验设计、原型设计和产品需求梳理的团队。
           </p>
@@ -79,10 +108,12 @@
             QA, DevOps & Technical Support
             <span>测试、运维与技术支持</span>
           </h3>
+
           <p>
             Teams that can support testing, deployment, server maintenance,
             database optimization and technical troubleshooting.
           </p>
+
           <p class="chinese">
             适合可以支持测试、部署、服务器维护、数据库优化和技术问题处理的团队。
           </p>
@@ -94,6 +125,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">TECHNICAL SERVICES</p>
+
         <h2>
           Services We May Need
           <span>我们可能需要的技术服务</span>
@@ -199,6 +231,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">COOPERATION MODELS</p>
+
         <h2>
           Flexible Technical Cooperation
           <span>灵活的技术合作方式</span>

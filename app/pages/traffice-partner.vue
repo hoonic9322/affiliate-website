@@ -1,3 +1,25 @@
+<script setup>
+useHead({
+  title: 'Traffic Partnership | 流量合作',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Traffic partnership opportunities for website owners, SEO teams, media buyers, KOLs, social communities and affiliate traffic partners. 面向网站站长、SEO 团队、广告投放团队、KOL、社群和流量合作伙伴。'
+    },
+    {
+      property: 'og:title',
+      content: 'Traffic Partnership | 流量合作'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Cooperate with us if you have real traffic resources, SEO ranking resources, advertising experience, community channels or media resources. 如果你拥有真实流量资源、SEO 排名资源、广告投放经验、社群渠道或媒体资源，欢迎联系我们。'
+    }
+  ]
+})
+</script>
+
 <template>
   <main class="partner-page">
     <!-- Page Hero -->
@@ -26,6 +48,7 @@
     <section class="content-section">
       <div class="section-heading">
         <p class="section-label">WHO WE ARE LOOKING FOR</p>
+
         <h2>
           Suitable Traffic Partners
           <span>适合的流量合作对象</span>
@@ -38,10 +61,12 @@
             Website Owners
             <span>网站站长</span>
           </h3>
+
           <p>
             Partners who own websites, content platforms, ranking pages or advertising spaces
             with stable visitor traffic.
           </p>
+
           <p class="chinese">
             适合拥有网站、内容平台、排名页面或广告位，并具备稳定访问流量的合作方。
           </p>
@@ -52,9 +77,11 @@
             SEO Teams
             <span>SEO 团队</span>
           </h3>
+
           <p>
             Teams with SEO ranking ability, keyword resources, content networks or search traffic.
           </p>
+
           <p class="chinese">
             适合具备 SEO 排名能力、关键词资源、内容网络或搜索流量资源的团队。
           </p>
@@ -65,10 +92,12 @@
             Media Buying Teams
             <span>广告投放团队</span>
           </h3>
+
           <p>
             Teams with paid advertising experience across Google, Meta, TikTok,
             native ads or other traffic platforms.
           </p>
+
           <p class="chinese">
             适合具备 Google、Meta、TikTok、原生广告或其他流量平台投放经验的团队。
           </p>
@@ -79,10 +108,12 @@
             Community & KOL Resources
             <span>社群与 KOL 资源方</span>
           </h3>
+
           <p>
             Partners who manage Telegram groups, WhatsApp communities, social media channels,
             influencers or private traffic groups.
           </p>
+
           <p class="chinese">
             适合拥有 Telegram 群、WhatsApp 社群、社交媒体频道、KOL 或私域流量资源的合作方。
           </p>
@@ -94,6 +125,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">TRAFFIC CHANNELS</p>
+
         <h2>
           Supported Traffic Channels
           <span>支持的流量渠道</span>
@@ -207,6 +239,7 @@
     <section class="content-section light-section">
       <div class="section-heading">
         <p class="section-label">OUR EXPECTATIONS</p>
+
         <h2>
           What We Care About
           <span>我们关注什么</span>
