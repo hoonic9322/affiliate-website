@@ -63,7 +63,7 @@
         </button>
 
         <NuxtLink to="/contact" class="contact-link" @click="closeMenu">
-          {{ menuText.contact }}
+          <span>{{ menuText.contact }}</span>
         </NuxtLink>
       </nav>
     </div>
@@ -250,25 +250,119 @@ const closeMenu = () => {
 }
 
 .contact-link {
+  position: relative;
   margin-left: 8px;
   min-height: 46px;
-  padding: 0 20px;
-  border: 1px solid rgba(56, 189, 248, 0.28);
+  padding: 0 22px;
+  overflow: hidden;
+  border: 1px solid rgba(96, 165, 250, 0.75);
   border-radius: 12px;
-  background: linear-gradient(135deg, #1687d9, #0f75c2);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 22%),
+    linear-gradient(180deg, #2aa7ff 0%, #1687d9 45%, #0f75c2 100%);
   color: #ffffff;
   box-shadow:
-    0 10px 24px rgba(22, 135, 217, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    0 0 0 1px rgba(125, 211, 252, 0.18),
+    0 0 18px rgba(56, 189, 248, 0.45),
+    0 10px 26px rgba(22, 135, 217, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -2px 0 rgba(7, 17, 42, 0.35);
+  animation: contactPulse 2.4s ease-in-out infinite;
+}
+
+.contact-link span {
+  position: relative;
+  z-index: 3;
+}
+
+.contact-link::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 1;
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.08) 42%,
+      transparent 100%
+    );
+  pointer-events: none;
+}
+
+.contact-link::after {
+  content: "";
+  position: absolute;
+  top: -80%;
+  left: -95%;
+  z-index: 2;
+  width: 70%;
+  height: 260%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.65) 50%,
+      transparent 100%
+    );
+  transform: rotate(22deg);
+  animation: contactShine 2.8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .contact-link:hover {
-  background: linear-gradient(135deg, #1d9bf0, #1687d9);
+  border-color: rgba(186, 230, 253, 0.95);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.42), transparent 24%),
+    linear-gradient(180deg, #38bdf8 0%, #1d9bf0 45%, #1687d9 100%);
   color: #ffffff;
   transform: translateY(-1px);
   box-shadow:
-    0 14px 30px rgba(22, 135, 217, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    0 0 0 1px rgba(125, 211, 252, 0.28),
+    0 0 26px rgba(56, 189, 248, 0.65),
+    0 14px 34px rgba(22, 135, 217, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    inset 0 -2px 0 rgba(7, 17, 42, 0.36);
+}
+
+.contact-link:active {
+  transform: translateY(0);
+}
+
+@keyframes contactShine {
+  0% {
+    left: -95%;
+  }
+
+  45% {
+    left: 135%;
+  }
+
+  100% {
+    left: 135%;
+  }
+}
+
+@keyframes contactPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(125, 211, 252, 0.18),
+      0 0 18px rgba(56, 189, 248, 0.45),
+      0 10px 26px rgba(22, 135, 217, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.42),
+      inset 0 -2px 0 rgba(7, 17, 42, 0.35);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(125, 211, 252, 0.3),
+      0 0 30px rgba(56, 189, 248, 0.72),
+      0 14px 34px rgba(22, 135, 217, 0.52),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -2px 0 rgba(7, 17, 42, 0.38);
+  }
 }
 
 .mobile-menu-button {
