@@ -1,302 +1,371 @@
-<script setup>
-useHead({
-  title: 'Traffic Partnership | 流量合作',
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const pageText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      seoTitle: '流量合作 | 合作伙伴与商务合作',
+      seoDescription:
+        '面向网站站长、SEO 团队、广告投放团队、KOL、社群和流量合作伙伴。',
+
+      heroLabel: '流量合作',
+      heroTitle: '流量合作',
+      heroDescription:
+        '我们欢迎拥有真实流量资源、SEO 排名资源、广告投放经验、社群渠道、媒体资源或区域推广能力的合作伙伴。',
+
+      targetLabel: '我们寻找谁',
+      targetTitle: '适合的流量合作对象',
+
+      cardOneTitle: '网站站长',
+      cardOneDescription:
+        '适合拥有网站、内容平台、排名页面或广告位，并具备稳定访问流量的合作方。',
+
+      cardTwoTitle: 'SEO 团队',
+      cardTwoDescription:
+        '适合具备 SEO 排名能力、关键词资源、内容网络或搜索流量资源的团队。',
+
+      cardThreeTitle: '广告投放团队',
+      cardThreeDescription:
+        '适合具备 Google、Meta、TikTok、原生广告或其他流量平台投放经验的团队。',
+
+      cardFourTitle: '社群与 KOL 资源方',
+      cardFourDescription:
+        '适合拥有 Telegram 群、WhatsApp 社群、社交媒体频道、KOL 或私域流量资源的合作方。',
+
+      channelLabel: '流量渠道',
+      channelTitle: '支持的流量渠道',
+
+      channelOne: 'SEO 网站流量',
+      channelTwo: '搜索引擎流量',
+      channelThree: '社交媒体流量',
+      channelFour: 'Telegram / WhatsApp 社群',
+      channelFive: 'KOL / 网红推广',
+      channelSix: '媒体广告位',
+      channelSeven: '付费广告流量',
+      channelEight: '内容推广',
+      channelNine: '区域市场渠道',
+
+      modelLabel: '合作模式',
+      modelTitle: '灵活的流量合作方式',
+      modelDescription:
+        '流量合作方式可以根据流量来源、市场区域、流量质量、转化预期和合作规模进行安排。',
+
+      modelOne: 'CPA 合作',
+      modelTwo: '收入分成合作',
+      modelThree: '固定广告位合作',
+      modelFour: '混合合作模式',
+      modelFive: '内容推广合作',
+      modelSix: '长期流量采购合作',
+
+      expectationLabel: '我们的关注点',
+      expectationTitle: '我们关注什么',
+
+      expectationOne: '真实流量来源',
+      expectationTwo: '目标市场匹配',
+      expectationThree: '稳定推广渠道',
+      expectationFour: '流量质量',
+      expectationFive: '基础数据透明',
+      expectationSix: '长期合作潜力',
+
+      ctaLabel: '开始合作',
+      ctaTitle: '联系我们开始流量合作',
+      ctaDescription:
+        '如果你拥有网站流量、SEO 排名资源、社群资源、KOL 资源、广告流量或本地推广渠道，可以直接联系我们。',
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    seoTitle: 'Traffic Partnership | Partner Cooperation',
+    seoDescription:
+      'Traffic partnership opportunities for website owners, SEO teams, media buyers, KOLs, social communities and affiliate traffic partners.',
+
+    heroLabel: 'TRAFFIC PARTNERSHIP',
+    heroTitle: 'Traffic Partnership',
+    heroDescription:
+      'We welcome partners with real traffic resources, SEO ranking resources, advertising experience, community channels, media resources or regional promotion ability.',
+
+    targetLabel: 'WHO WE ARE LOOKING FOR',
+    targetTitle: 'Suitable Traffic Partners',
+
+    cardOneTitle: 'Website Owners',
+    cardOneDescription:
+      'Partners who own websites, content platforms, ranking pages or advertising spaces with stable visitor traffic.',
+
+    cardTwoTitle: 'SEO Teams',
+    cardTwoDescription:
+      'Teams with SEO ranking ability, keyword resources, content networks or search traffic.',
+
+    cardThreeTitle: 'Media Buying Teams',
+    cardThreeDescription:
+      'Teams with paid advertising experience across Google, Meta, TikTok, native ads or other traffic platforms.',
+
+    cardFourTitle: 'Community & KOL Resources',
+    cardFourDescription:
+      'Partners who manage Telegram groups, WhatsApp communities, social media channels, influencers or private traffic groups.',
+
+    channelLabel: 'TRAFFIC CHANNELS',
+    channelTitle: 'Supported Traffic Channels',
+
+    channelOne: 'SEO Website Traffic',
+    channelTwo: 'Search Engine Traffic',
+    channelThree: 'Social Media Traffic',
+    channelFour: 'Telegram / WhatsApp Communities',
+    channelFive: 'KOL / Influencer Promotion',
+    channelSix: 'Media Advertising Spaces',
+    channelSeven: 'Paid Advertising Traffic',
+    channelEight: 'Content Promotion',
+    channelNine: 'Regional Market Channels',
+
+    modelLabel: 'COOPERATION MODELS',
+    modelTitle: 'Flexible Traffic Cooperation',
+    modelDescription:
+      'Traffic cooperation can be arranged based on traffic source, market, quality, conversion expectation and cooperation scale.',
+
+    modelOne: 'CPA Cooperation',
+    modelTwo: 'Revenue Share Cooperation',
+    modelThree: 'Fixed Advertising Placement',
+    modelFour: 'Hybrid Cooperation Model',
+    modelFive: 'Content Promotion',
+    modelSix: 'Long-Term Traffic Purchase',
+
+    expectationLabel: 'OUR EXPECTATIONS',
+    expectationTitle: 'What We Care About',
+
+    expectationOne: 'Real traffic source',
+    expectationTwo: 'Target market match',
+    expectationThree: 'Stable promotion channel',
+    expectationFour: 'Traffic quality',
+    expectationFive: 'Basic data transparency',
+    expectationSix: 'Long-term cooperation potential',
+
+    ctaLabel: 'START COOPERATION',
+    ctaTitle: 'Contact Us for Traffic Cooperation',
+    ctaDescription:
+      'If you have website traffic, SEO ranking resources, social communities, KOL resources, advertising traffic or local promotion channels, contact us directly.',
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+
+useHead(() => ({
+  title: pageText.value.seoTitle,
   meta: [
     {
       name: 'description',
-      content:
-        'Traffic partnership opportunities for website owners, SEO teams, media buyers, KOLs, social communities and affiliate traffic partners. 面向网站站长、SEO 团队、广告投放团队、KOL、社群和流量合作伙伴。'
+      content: pageText.value.seoDescription
     },
     {
       property: 'og:title',
-      content: 'Traffic Partnership | 流量合作'
+      content: pageText.value.seoTitle
     },
     {
       property: 'og:description',
-      content:
-        'Cooperate with us if you have real traffic resources, SEO ranking resources, advertising experience, community channels or media resources. 如果你拥有真实流量资源、SEO 排名资源、广告投放经验、社群渠道或媒体资源，欢迎联系我们。'
+      content: pageText.value.seoDescription
     }
   ]
-})
+}))
 </script>
 
 <template>
   <main class="partner-page">
-    <!-- Page Hero -->
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">TRAFFIC PARTNERSHIP</p>
+        <p class="section-label">
+          {{ pageText.heroLabel }}
+        </p>
 
         <h1>
-          Traffic Partnership
-          <span>流量合作</span>
+          {{ pageText.heroTitle }}
         </h1>
 
         <p>
-          We welcome partners with real traffic resources, SEO ranking resources,
-          advertising experience, community channels, media resources or regional promotion ability.
-        </p>
-
-        <p class="chinese">
-          我们欢迎拥有真实流量资源、SEO 排名资源、广告投放经验、社群渠道、
-          媒体资源或区域推广能力的合作伙伴。
+          {{ pageText.heroDescription }}
         </p>
       </div>
     </section>
 
-    <!-- Who We Are Looking For -->
     <section class="content-section">
       <div class="section-heading">
-        <p class="section-label">WHO WE ARE LOOKING FOR</p>
+        <p class="section-label">
+          {{ pageText.targetLabel }}
+        </p>
 
         <h2>
-          Suitable Traffic Partners
-          <span>适合的流量合作对象</span>
+          {{ pageText.targetTitle }}
         </h2>
       </div>
 
       <div class="card-grid">
         <div class="info-card">
-          <h3>
-            Website Owners
-            <span>网站站长</span>
-          </h3>
-
-          <p>
-            Partners who own websites, content platforms, ranking pages or advertising spaces
-            with stable visitor traffic.
-          </p>
-
-          <p class="chinese">
-            适合拥有网站、内容平台、排名页面或广告位，并具备稳定访问流量的合作方。
-          </p>
+          <h3>{{ pageText.cardOneTitle }}</h3>
+          <p>{{ pageText.cardOneDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            SEO Teams
-            <span>SEO 团队</span>
-          </h3>
-
-          <p>
-            Teams with SEO ranking ability, keyword resources, content networks or search traffic.
-          </p>
-
-          <p class="chinese">
-            适合具备 SEO 排名能力、关键词资源、内容网络或搜索流量资源的团队。
-          </p>
+          <h3>{{ pageText.cardTwoTitle }}</h3>
+          <p>{{ pageText.cardTwoDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Media Buying Teams
-            <span>广告投放团队</span>
-          </h3>
-
-          <p>
-            Teams with paid advertising experience across Google, Meta, TikTok,
-            native ads or other traffic platforms.
-          </p>
-
-          <p class="chinese">
-            适合具备 Google、Meta、TikTok、原生广告或其他流量平台投放经验的团队。
-          </p>
+          <h3>{{ pageText.cardThreeTitle }}</h3>
+          <p>{{ pageText.cardThreeDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Community & KOL Resources
-            <span>社群与 KOL 资源方</span>
-          </h3>
-
-          <p>
-            Partners who manage Telegram groups, WhatsApp communities, social media channels,
-            influencers or private traffic groups.
-          </p>
-
-          <p class="chinese">
-            适合拥有 Telegram 群、WhatsApp 社群、社交媒体频道、KOL 或私域流量资源的合作方。
-          </p>
+          <h3>{{ pageText.cardFourTitle }}</h3>
+          <p>{{ pageText.cardFourDescription }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Traffic Channels -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">TRAFFIC CHANNELS</p>
+        <p class="section-label">
+          {{ pageText.channelLabel }}
+        </p>
 
         <h2>
-          Supported Traffic Channels
-          <span>支持的流量渠道</span>
+          {{ pageText.channelTitle }}
         </h2>
       </div>
 
       <div class="list-panel">
         <div class="list-item">
-          <strong>SEO Website Traffic</strong>
-          <span>SEO 网站流量</span>
+          <strong>{{ pageText.channelOne }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Search Engine Traffic</strong>
-          <span>搜索引擎流量</span>
+          <strong>{{ pageText.channelTwo }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Social Media Traffic</strong>
-          <span>社交媒体流量</span>
+          <strong>{{ pageText.channelThree }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Telegram / WhatsApp Communities</strong>
-          <span>Telegram / WhatsApp 社群</span>
+          <strong>{{ pageText.channelFour }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>KOL / Influencer Promotion</strong>
-          <span>KOL / 网红推广</span>
+          <strong>{{ pageText.channelFive }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Media Advertising Spaces</strong>
-          <span>媒体广告位</span>
+          <strong>{{ pageText.channelSix }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Paid Advertising Traffic</strong>
-          <span>付费广告流量</span>
+          <strong>{{ pageText.channelSeven }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Content Promotion</strong>
-          <span>内容推广</span>
+          <strong>{{ pageText.channelEight }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Regional Market Channels</strong>
-          <span>区域市场渠道</span>
+          <strong>{{ pageText.channelNine }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- Cooperation Models -->
     <section class="content-section">
       <div class="split-content">
         <div>
-          <p class="section-label">COOPERATION MODELS</p>
+          <p class="section-label">
+            {{ pageText.modelLabel }}
+          </p>
 
           <h2>
-            Flexible Traffic Cooperation
-            <span>灵活的流量合作方式</span>
+            {{ pageText.modelTitle }}
           </h2>
 
           <p>
-            Traffic cooperation can be arranged based on traffic source, market,
-            quality, conversion expectation and cooperation scale.
-          </p>
-
-          <p class="chinese">
-            流量合作方式可以根据流量来源、市场区域、流量质量、转化预期和合作规模进行安排。
+            {{ pageText.modelDescription }}
           </p>
         </div>
 
         <div class="expectation-list">
           <div class="expectation-item">
-            <strong>CPA Cooperation</strong>
-            <span>CPA 合作</span>
+            <strong>{{ pageText.modelOne }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Revenue Share Cooperation</strong>
-            <span>收入分成合作</span>
+            <strong>{{ pageText.modelTwo }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Fixed Advertising Placement</strong>
-            <span>固定广告位合作</span>
+            <strong>{{ pageText.modelThree }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Hybrid Cooperation Model</strong>
-            <span>混合合作模式</span>
+            <strong>{{ pageText.modelFour }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Content Promotion</strong>
-            <span>内容推广合作</span>
+            <strong>{{ pageText.modelFive }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Long-Term Traffic Purchase</strong>
-            <span>长期流量采购合作</span>
+            <strong>{{ pageText.modelSix }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- What We Care About -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">OUR EXPECTATIONS</p>
+        <p class="section-label">
+          {{ pageText.expectationLabel }}
+        </p>
 
         <h2>
-          What We Care About
-          <span>我们关注什么</span>
+          {{ pageText.expectationTitle }}
         </h2>
       </div>
 
       <div class="requirement-grid">
         <div class="requirement-card">
-          <strong>Real traffic source</strong>
-          <span>真实流量来源</span>
+          <strong>{{ pageText.expectationOne }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Target market match</strong>
-          <span>目标市场匹配</span>
+          <strong>{{ pageText.expectationTwo }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Stable promotion channel</strong>
-          <span>稳定推广渠道</span>
+          <strong>{{ pageText.expectationThree }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Traffic quality</strong>
-          <span>流量质量</span>
+          <strong>{{ pageText.expectationFour }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Basic data transparency</strong>
-          <span>基础数据透明</span>
+          <strong>{{ pageText.expectationFive }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Long-term cooperation potential</strong>
-          <span>长期合作潜力</span>
+          <strong>{{ pageText.expectationSix }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="cta-section">
       <div class="cta-card">
-        <p class="section-label">START COOPERATION</p>
+        <p class="section-label">
+          {{ pageText.ctaLabel }}
+        </p>
 
         <h2>
-          Contact Us for Traffic Cooperation
-          <span>联系我们开始流量合作</span>
+          {{ pageText.ctaTitle }}
         </h2>
 
         <p>
-          If you have website traffic, SEO ranking resources, social communities,
-          KOL resources, advertising traffic or local promotion channels, contact us directly.
-        </p>
-
-        <p class="chinese">
-          如果你拥有网站流量、SEO 排名资源、社群资源、KOL 资源、广告流量或本地推广渠道，
-          可以直接联系我们。
+          {{ pageText.ctaDescription }}
         </p>
 
         <div class="cta-actions">
@@ -306,8 +375,7 @@ useHead({
             rel="noopener noreferrer"
             class="primary-button"
           >
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegram }}
           </a>
 
           <a
@@ -316,8 +384,7 @@ useHead({
             rel="noopener noreferrer"
             class="secondary-button"
           >
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsapp }}
           </a>
         </div>
       </div>
@@ -364,18 +431,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-h1 span,
-h2 span,
-h3 span,
-.primary-button span,
-.secondary-button span {
-  display: block;
-}
-
-h1 span {
-  margin-top: 8px;
-}
-
 .page-hero p,
 .section-heading p,
 .split-content p,
@@ -385,10 +440,6 @@ h1 span {
   color: #334155;
   font-size: 16px;
   line-height: 1.8;
-}
-
-.chinese {
-  color: #475569;
 }
 
 .content-section {
@@ -430,7 +481,7 @@ h1 span {
 }
 
 .info-card {
-  min-height: 320px;
+  min-height: 280px;
   padding: 28px;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
@@ -443,11 +494,6 @@ h1 span {
   color: #07112a;
   font-size: 20px;
   line-height: 1.35;
-}
-
-.info-card h3 span {
-  margin-top: 4px;
-  font-size: 17px;
 }
 
 .info-card p {
@@ -471,17 +517,11 @@ h1 span {
 }
 
 .list-item strong,
-.expectation-item strong {
+.expectation-item strong,
+.requirement-card strong {
   display: block;
-  margin-bottom: 6px;
   color: #07112a;
   font-size: 16px;
-}
-
-.list-item span,
-.expectation-item span {
-  color: #475569;
-  font-size: 14px;
 }
 
 .split-content {
@@ -520,18 +560,6 @@ h1 span {
   background: #f8fafc;
 }
 
-.requirement-card strong {
-  display: block;
-  margin-bottom: 6px;
-  color: #07112a;
-  font-size: 16px;
-}
-
-.requirement-card span {
-  color: #475569;
-  font-size: 14px;
-}
-
 .cta-section {
   max-width: 1180px;
   margin: 0 auto;
@@ -568,7 +596,6 @@ h1 span {
 .primary-button,
 .secondary-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 52px;

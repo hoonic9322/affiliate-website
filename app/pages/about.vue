@@ -1,269 +1,327 @@
-<script setup>
-useHead({
-  title: 'About Us | 关于我们',
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const pageText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      seoTitle: '关于我们 | 合作伙伴与商务合作',
+      seoDescription:
+        '了解我们的招商、代理、流量和远程技术合作平台。',
+      heroLabel: '关于我们',
+      heroTitle: '关于我们的合作平台',
+      heroDescription:
+        '我们正在建立一个面向不同类型长期合作伙伴的合作入口，包括招商合作方、代理合作方、流量合作方和远程技术合作团队。',
+
+      whoLabel: '我们是谁',
+      whoTitle: '面向长期合作的平台',
+      whoDescription:
+        '我们的目标是寻找可靠的合作伙伴，共同支持业务增长、市场拓展、用户开发、流量获取和技术交付。',
+
+      business: '招商合作',
+      agent: '代理合作',
+      traffic: '流量合作',
+      technology: '远程技术合作',
+
+      whatLabel: '我们做什么',
+      whatTitle: '连接资源、市场与技术',
+      whatDescription:
+        '我们为不同背景的合作伙伴提供清晰的合作入口。无论你拥有商务资源、代理网络、流量渠道或技术能力，都可以直接联系我们，沟通适合的合作机会。',
+
+      cardOneTitle: '商务资源对接',
+      cardOneDescription:
+        '我们欢迎可以提供区域资源、商务渠道、市场入口或战略合作机会的合作方。',
+
+      cardTwoTitle: '代理与市场增长',
+      cardTwoDescription:
+        '我们与可以支持本地推广、用户开发和长期市场运营的代理伙伴合作。',
+
+      cardThreeTitle: '流量与推广合作',
+      cardThreeDescription:
+        '我们与流量主、SEO 团队、广告投放团队、KOL 和社群运营方合作。',
+
+      cardFourTitle: '远程技术支持',
+      cardFourDescription:
+        '我们欢迎远程软件公司、开发团队、测试团队和运维团队参与技术合作。',
+
+      valuesLabel: '我们的价值观',
+      valuesTitle: '我们重视的合作原则',
+
+      valueOneTitle: '长期合作意识',
+      valueOneDescription:
+        '我们更重视稳定、持续、长期配合的合作伙伴，而不是一次性的短期接触。',
+
+      valueTwoTitle: '清晰沟通',
+      valueTwoDescription:
+        '我们重视直接沟通、明确预期和负责任的后续跟进。',
+
+      valueThreeTitle: '真实能力',
+      valueThreeDescription:
+        '我们关注真实资源、真实流量、真实交付经验和实际合作能力。',
+
+      valueFourTitle: '灵活合作',
+      valueFourDescription:
+        '合作方式可以根据合作类型、市场区域、资源情况和项目需求进行灵活沟通。',
+
+      ctaLabel: '联系我们',
+      ctaTitle: '有兴趣合作？',
+      ctaDescription:
+        '你可以直接通过 Telegram 或 WhatsApp 联系我们，并简单说明你的合作类型、资源情况、所在市场和期望合作方式。',
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    seoTitle: 'About Us | Partner Cooperation',
+    seoDescription:
+      'Learn about our cooperation platform for business partners, agents, traffic partners and remote technology teams.',
+    heroLabel: 'ABOUT US',
+    heroTitle: 'About Our Cooperation Platform',
+    heroDescription:
+      'We are building a cooperation entry point for different types of long-term partners, including business partners, agents, traffic partners and remote technology teams.',
+
+    whoLabel: 'WHO WE ARE',
+    whoTitle: 'A Platform for Long-Term Cooperation',
+    whoDescription:
+      'Our goal is to connect with reliable partners who can support business growth, market expansion, user development, traffic acquisition and technical delivery.',
+
+    business: 'Business Cooperation',
+    agent: 'Agent Cooperation',
+    traffic: 'Traffic Cooperation',
+    technology: 'Technology Cooperation',
+
+    whatLabel: 'WHAT WE DO',
+    whatTitle: 'We Connect Resources, Markets and Technology',
+    whatDescription:
+      'We provide a clear cooperation entry point for partners from different backgrounds. Whether you have business resources, agent networks, traffic channels or technical capability, you can contact us directly to discuss suitable cooperation opportunities.',
+
+    cardOneTitle: 'Business Resource Matching',
+    cardOneDescription:
+      'We welcome partners who can provide regional resources, business channels, market access or strategic cooperation opportunities.',
+
+    cardTwoTitle: 'Agent and Market Growth',
+    cardTwoDescription:
+      'We work with agent partners who can support local promotion, user development and long-term market operation.',
+
+    cardThreeTitle: 'Traffic and Promotion',
+    cardThreeDescription:
+      'We cooperate with traffic owners, SEO teams, media buyers, KOLs and community operators.',
+
+    cardFourTitle: 'Remote Technical Support',
+    cardFourDescription:
+      'We are open to working with remote software companies, development teams, QA teams and DevOps teams.',
+
+    valuesLabel: 'OUR VALUES',
+    valuesTitle: 'What We Value in Cooperation',
+
+    valueOneTitle: 'Long-Term Mindset',
+    valueOneDescription:
+      'We prefer partners who are looking for stable and long-term cooperation instead of short-term contact only.',
+
+    valueTwoTitle: 'Clear Communication',
+    valueTwoDescription:
+      'We value direct communication, clear expectations and responsible follow-up.',
+
+    valueThreeTitle: 'Real Capability',
+    valueThreeDescription:
+      'We care about real resources, real traffic, real delivery experience and real cooperation capability.',
+
+    valueFourTitle: 'Flexible Cooperation',
+    valueFourDescription:
+      'Cooperation can be discussed based on partner type, market, resources and project needs.',
+
+    ctaLabel: 'GET IN TOUCH',
+    ctaTitle: 'Interested in Cooperation?',
+    ctaDescription:
+      'Contact us directly through Telegram or WhatsApp and tell us your cooperation type, available resources, market and expected cooperation model.',
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+
+useHead(() => ({
+  title: pageText.value.seoTitle,
   meta: [
     {
       name: 'description',
-      content:
-        'Learn about our cooperation platform for business partners, agents, traffic partners and remote technology teams. 了解我们的招商、代理、流量和远程技术合作平台。'
+      content: pageText.value.seoDescription
     },
     {
       property: 'og:title',
-      content: 'About Us | 关于我们'
+      content: pageText.value.seoTitle
     },
     {
       property: 'og:description',
-      content:
-        'A bilingual cooperation platform for business, agent, traffic and remote technology partners. 面向招商、代理、流量和远程技术合作伙伴的双语合作平台。'
+      content: pageText.value.seoDescription
     }
   ]
-})
+}))
 </script>
 
 <template>
   <main class="about-page">
-    <!-- Page Hero -->
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">ABOUT US</p>
+        <p class="section-label">
+          {{ pageText.heroLabel }}
+        </p>
 
         <h1>
-          About Our Cooperation Platform
-          <span>关于我们的合作平台</span>
+          {{ pageText.heroTitle }}
         </h1>
 
         <p>
-          We are building a cooperation entry point for different types of long-term partners,
-          including business partners, agents, traffic partners and remote technology teams.
-        </p>
-
-        <p class="chinese">
-          我们正在建立一个面向不同类型长期合作伙伴的合作入口，
-          包括招商合作方、代理合作方、流量合作方和远程技术合作团队。
+          {{ pageText.heroDescription }}
         </p>
       </div>
     </section>
 
-    <!-- Who We Are -->
     <section class="content-section">
       <div class="split-content">
         <div>
-          <p class="section-label">WHO WE ARE</p>
+          <p class="section-label">
+            {{ pageText.whoLabel }}
+          </p>
 
           <h2>
-            A Platform for Long-Term Cooperation
-            <span>面向长期合作的平台</span>
+            {{ pageText.whoTitle }}
           </h2>
 
           <p>
-            Our goal is to connect with reliable partners who can support business growth,
-            market expansion, user development, traffic acquisition and technical delivery.
-          </p>
-
-          <p class="chinese">
-            我们的目标是寻找可靠的合作伙伴，共同支持业务增长、市场拓展、用户开发、
-            流量获取和技术交付。
+            {{ pageText.whoDescription }}
           </p>
         </div>
 
         <div class="highlight-panel">
           <div class="highlight-item">
-            <strong>Business Cooperation</strong>
-            <span>招商合作</span>
+            <strong>{{ pageText.business }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Agent Cooperation</strong>
-            <span>代理合作</span>
+            <strong>{{ pageText.agent }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Traffic Cooperation</strong>
-            <span>流量合作</span>
+            <strong>{{ pageText.traffic }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Technology Cooperation</strong>
-            <span>远程技术合作</span>
+            <strong>{{ pageText.technology }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- What We Do -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">WHAT WE DO</p>
+        <p class="section-label">
+          {{ pageText.whatLabel }}
+        </p>
 
         <h2>
-          We Connect Resources, Markets and Technology
-          <span>连接资源、市场与技术</span>
+          {{ pageText.whatTitle }}
         </h2>
 
         <p>
-          We provide a clear cooperation entry point for partners from different backgrounds.
-          Whether you have business resources, agent networks, traffic channels or technical capability,
-          you can contact us directly to discuss suitable cooperation opportunities.
-        </p>
-
-        <p class="chinese">
-          我们为不同背景的合作伙伴提供清晰的合作入口。
-          无论你拥有商务资源、代理网络、流量渠道或技术能力，都可以直接联系我们，
-          沟通适合的合作机会。
+          {{ pageText.whatDescription }}
         </p>
       </div>
 
       <div class="card-grid">
         <div class="info-card">
-          <h3>
-            Business Resource Matching
-            <span>商务资源对接</span>
-          </h3>
+          <h3>{{ pageText.cardOneTitle }}</h3>
 
           <p>
-            We welcome partners who can provide regional resources, business channels,
-            market access or strategic cooperation opportunities.
-          </p>
-
-          <p class="chinese">
-            我们欢迎可以提供区域资源、商务渠道、市场入口或战略合作机会的合作方。
+            {{ pageText.cardOneDescription }}
           </p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Agent and Market Growth
-            <span>代理与市场增长</span>
-          </h3>
+          <h3>{{ pageText.cardTwoTitle }}</h3>
 
           <p>
-            We work with agent partners who can support local promotion,
-            user development and long-term market operation.
-          </p>
-
-          <p class="chinese">
-            我们与可以支持本地推广、用户开发和长期市场运营的代理伙伴合作。
+            {{ pageText.cardTwoDescription }}
           </p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Traffic and Promotion
-            <span>流量与推广合作</span>
-          </h3>
+          <h3>{{ pageText.cardThreeTitle }}</h3>
 
           <p>
-            We cooperate with traffic owners, SEO teams, media buyers,
-            KOLs and community operators.
-          </p>
-
-          <p class="chinese">
-            我们与流量主、SEO 团队、广告投放团队、KOL 和社群运营方合作。
+            {{ pageText.cardThreeDescription }}
           </p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Remote Technical Support
-            <span>远程技术支持</span>
-          </h3>
+          <h3>{{ pageText.cardFourTitle }}</h3>
 
           <p>
-            We are open to working with remote software companies,
-            development teams, QA teams and DevOps teams.
-          </p>
-
-          <p class="chinese">
-            我们欢迎远程软件公司、开发团队、测试团队和运维团队参与技术合作。
+            {{ pageText.cardFourDescription }}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Cooperation Values -->
     <section class="content-section">
       <div class="section-heading">
-        <p class="section-label">OUR VALUES</p>
+        <p class="section-label">
+          {{ pageText.valuesLabel }}
+        </p>
 
         <h2>
-          What We Value in Cooperation
-          <span>我们重视的合作原则</span>
+          {{ pageText.valuesTitle }}
         </h2>
       </div>
 
       <div class="value-grid">
         <div class="value-card">
-          <strong>Long-Term Mindset</strong>
-          <span>长期合作意识</span>
+          <strong>{{ pageText.valueOneTitle }}</strong>
 
           <p>
-            We prefer partners who are looking for stable and long-term cooperation instead of short-term contact only.
-          </p>
-
-          <p class="chinese">
-            我们更重视稳定、持续、长期配合的合作伙伴，而不是一次性的短期接触。
+            {{ pageText.valueOneDescription }}
           </p>
         </div>
 
         <div class="value-card">
-          <strong>Clear Communication</strong>
-          <span>清晰沟通</span>
+          <strong>{{ pageText.valueTwoTitle }}</strong>
 
           <p>
-            We value direct communication, clear expectations and responsible follow-up.
-          </p>
-
-          <p class="chinese">
-            我们重视直接沟通、明确预期和负责任的后续跟进。
+            {{ pageText.valueTwoDescription }}
           </p>
         </div>
 
         <div class="value-card">
-          <strong>Real Capability</strong>
-          <span>真实能力</span>
+          <strong>{{ pageText.valueThreeTitle }}</strong>
 
           <p>
-            We care about real resources, real traffic, real delivery experience and real cooperation capability.
-          </p>
-
-          <p class="chinese">
-            我们关注真实资源、真实流量、真实交付经验和实际合作能力。
+            {{ pageText.valueThreeDescription }}
           </p>
         </div>
 
         <div class="value-card">
-          <strong>Flexible Cooperation</strong>
-          <span>灵活合作</span>
+          <strong>{{ pageText.valueFourTitle }}</strong>
 
           <p>
-            Cooperation can be discussed based on partner type, market, resources and project needs.
-          </p>
-
-          <p class="chinese">
-            合作方式可以根据合作类型、市场区域、资源情况和项目需求进行灵活沟通。
+            {{ pageText.valueFourDescription }}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="cta-section">
       <div class="cta-card">
-        <p class="section-label">GET IN TOUCH</p>
+        <p class="section-label">
+          {{ pageText.ctaLabel }}
+        </p>
 
         <h2>
-          Interested in Cooperation?
-          <span>有兴趣合作？</span>
+          {{ pageText.ctaTitle }}
         </h2>
 
         <p>
-          Contact us directly through Telegram or WhatsApp and tell us your cooperation type,
-          available resources, market and expected cooperation model.
-        </p>
-
-        <p class="chinese">
-          你可以直接通过 Telegram 或 WhatsApp 联系我们，并简单说明你的合作类型、
-          资源情况、所在市场和期望合作方式。
+          {{ pageText.ctaDescription }}
         </p>
 
         <div class="cta-actions">
@@ -273,8 +331,7 @@ useHead({
             rel="noopener noreferrer"
             class="primary-button"
           >
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegram }}
           </a>
 
           <a
@@ -283,8 +340,7 @@ useHead({
             rel="noopener noreferrer"
             class="secondary-button"
           >
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsapp }}
           </a>
         </div>
       </div>
@@ -331,18 +387,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-h1 span,
-h2 span,
-h3 span,
-.primary-button span,
-.secondary-button span {
-  display: block;
-}
-
-h1 span {
-  margin-top: 8px;
-}
-
 .page-hero p,
 .section-heading p,
 .split-content p,
@@ -353,10 +397,6 @@ h1 span {
   color: #334155;
   font-size: 16px;
   line-height: 1.8;
-}
-
-.chinese {
-  color: #475569;
 }
 
 .content-section {
@@ -416,14 +456,8 @@ h1 span {
 
 .highlight-item strong {
   display: block;
-  margin-bottom: 6px;
   color: #07112a;
   font-size: 16px;
-}
-
-.highlight-item span {
-  color: #475569;
-  font-size: 14px;
 }
 
 .card-grid {
@@ -433,7 +467,7 @@ h1 span {
 }
 
 .info-card {
-  min-height: 300px;
+  min-height: 260px;
   padding: 28px;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
@@ -446,11 +480,6 @@ h1 span {
   color: #07112a;
   font-size: 20px;
   line-height: 1.35;
-}
-
-.info-card h3 span {
-  margin-top: 4px;
-  font-size: 17px;
 }
 
 .info-card p {
@@ -476,17 +505,9 @@ h1 span {
 
 .value-card strong {
   display: block;
-  margin-bottom: 6px;
-  color: #07112a;
-  font-size: 18px;
-}
-
-.value-card span {
-  display: block;
   margin-bottom: 14px;
   color: #1687d9;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 18px;
 }
 
 .value-card p {
@@ -530,7 +551,6 @@ h1 span {
 .primary-button,
 .secondary-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 52px;

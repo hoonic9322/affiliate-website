@@ -1,66 +1,189 @@
-<script setup>
-useHead({
-  title: 'Contact Us | 联系我们',
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const pageText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      seoTitle: '联系我们 | 合作伙伴与商务合作',
+      seoDescription:
+        '通过 Telegram 或 WhatsApp 联系我们，沟通招商、代理、流量或远程技术合作。',
+
+      heroLabel: '联系我们',
+      heroTitle: '联系我们开始合作',
+      heroDescription:
+        '如果你有兴趣进行招商合作、代理合作、流量合作或远程技术合作，可以直接通过 Telegram 或 WhatsApp 联系我们。',
+
+      directLabel: '直接联系',
+      directTitle: '选择你的联系方式',
+      directDescription:
+        '我们建议通过 Telegram 或 WhatsApp 直接沟通，这样可以更快确认合作方向。',
+
+      telegramTitle: 'Telegram 联系',
+      telegramDescription:
+        '通过 Telegram 联系我们，快速沟通合作方向。',
+      telegramButton: '打开 Telegram',
+
+      whatsappTitle: 'WhatsApp 联系',
+      whatsappDescription:
+        '通过 WhatsApp 联系我们，沟通商务与合作事项。',
+      whatsappButton: '打开 WhatsApp',
+
+      prepareLabel: '联系前准备',
+      prepareTitle: '联系前可以准备的信息',
+      prepareDescription:
+        '为了让我们更快了解你的合作机会，你可以在联系我们前简单准备以下资料。',
+
+      infoOneTitle: '合作类型',
+      infoOneDescription:
+        '招商合作、代理合作、流量合作或远程技术合作。',
+
+      infoTwoTitle: '市场或区域',
+      infoTwoDescription:
+        '说明你主要负责或关注的国家、地区、城市或目标市场。',
+
+      infoThreeTitle: '现有资源',
+      infoThreeDescription:
+        '简单介绍你的商务资源、代理资源、流量渠道或技术团队能力。',
+
+      infoFourTitle: '期望合作方式',
+      infoFourDescription:
+        '告诉我们你希望采用什么样的合作模式。',
+
+      partnerLabel: '谁可以联系我们',
+      partnerTitle: '欢迎不同类型合作伙伴联系',
+      partnerDescription:
+        '无论你是个人、团队、公司、代理方、流量主、广告投放团队或技术服务商，都可以直接联系我们。',
+
+      partnerOne: '招商合作方',
+      partnerTwo: '代理合作方',
+      partnerThree: '流量合作方',
+      partnerFour: '远程技术合作方',
+
+      ctaLabel: '现在开始',
+      ctaTitle: '现在开始沟通合作',
+      ctaDescription:
+        '直接联系我们，并说明你的合作类型、市场、资源和期望合作方式。',
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    seoTitle: 'Contact Us | Partner Cooperation',
+    seoDescription:
+      'Contact us through Telegram or WhatsApp for business, agent, traffic or remote technology cooperation.',
+
+    heroLabel: 'CONTACT US',
+    heroTitle: 'Contact Us for Cooperation',
+    heroDescription:
+      'If you are interested in business partnership, agent partnership, traffic partnership or remote technology cooperation, contact us directly through Telegram or WhatsApp.',
+
+    directLabel: 'DIRECT CONTACT',
+    directTitle: 'Choose Your Preferred Contact Method',
+    directDescription:
+      'We recommend direct communication through Telegram or WhatsApp for faster response.',
+
+    telegramTitle: 'Telegram',
+    telegramDescription:
+      'Contact us through Telegram for quick cooperation discussion.',
+    telegramButton: 'Open Telegram',
+
+    whatsappTitle: 'WhatsApp',
+    whatsappDescription:
+      'Contact us through WhatsApp for business and cooperation inquiries.',
+    whatsappButton: 'Open WhatsApp',
+
+    prepareLabel: 'BEFORE CONTACTING US',
+    prepareTitle: 'Information You Can Prepare',
+    prepareDescription:
+      'To help us understand your cooperation opportunity faster, you can briefly prepare the following information before contacting us.',
+
+    infoOneTitle: 'Cooperation Type',
+    infoOneDescription:
+      'Business partnership, agent partnership, traffic partnership or technology partnership.',
+
+    infoTwoTitle: 'Market or Region',
+    infoTwoDescription:
+      'Tell us which country, region, city or target market you are focusing on.',
+
+    infoThreeTitle: 'Available Resources',
+    infoThreeDescription:
+      'Briefly introduce your business resources, agent resources, traffic channels or technical team.',
+
+    infoFourTitle: 'Expected Cooperation Model',
+    infoFourDescription:
+      'Let us know what type of cooperation model you are looking for.',
+
+    partnerLabel: 'WHO CAN CONTACT US',
+    partnerTitle: 'Open to Different Partner Types',
+    partnerDescription:
+      'Whether you are an individual, team, company, agency, traffic owner, media buyer or technical service provider, you can contact us directly.',
+
+    partnerOne: 'Business Partners',
+    partnerTwo: 'Agent Partners',
+    partnerThree: 'Traffic Partners',
+    partnerFour: 'Technology Partners',
+
+    ctaLabel: 'START NOW',
+    ctaTitle: 'Start the Conversation Today',
+    ctaDescription:
+      'Contact us directly and tell us your cooperation type, market, resources and expected cooperation model.',
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+
+useHead(() => ({
+  title: pageText.value.seoTitle,
   meta: [
     {
       name: 'description',
-      content:
-        'Contact us through Telegram or WhatsApp for business, agent, traffic or remote technology cooperation. 通过 Telegram 或 WhatsApp 联系我们，沟通招商、代理、流量或远程技术合作。'
+      content: pageText.value.seoDescription
     },
     {
       property: 'og:title',
-      content: 'Contact Us | 联系我们'
+      content: pageText.value.seoTitle
     },
     {
       property: 'og:description',
-      content:
-        'Start cooperation with us through Telegram or WhatsApp. 通过 Telegram 或 WhatsApp 联系我们开始合作。'
+      content: pageText.value.seoDescription
     }
   ]
-})
+}))
 </script>
 
 <template>
   <main class="contact-page">
-    <!-- Page Hero -->
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">CONTACT US</p>
+        <p class="section-label">
+          {{ pageText.heroLabel }}
+        </p>
 
         <h1>
-          Contact Us for Cooperation
-          <span>联系我们开始合作</span>
+          {{ pageText.heroTitle }}
         </h1>
 
         <p>
-          If you are interested in business partnership, agent partnership,
-          traffic partnership or remote technology cooperation, contact us directly
-          through Telegram or WhatsApp.
-        </p>
-
-        <p class="chinese">
-          如果你有兴趣进行招商合作、代理合作、流量合作或远程技术合作，
-          可以直接通过 Telegram 或 WhatsApp 联系我们。
+          {{ pageText.heroDescription }}
         </p>
       </div>
     </section>
 
-    <!-- Contact Options -->
     <section class="content-section">
       <div class="section-heading">
-        <p class="section-label">DIRECT CONTACT</p>
+        <p class="section-label">
+          {{ pageText.directLabel }}
+        </p>
 
         <h2>
-          Choose Your Preferred Contact Method
-          <span>选择你的联系方式</span>
+          {{ pageText.directTitle }}
         </h2>
 
         <p>
-          We recommend direct communication through Telegram or WhatsApp for faster response.
-        </p>
-
-        <p class="chinese">
-          我们建议通过 Telegram 或 WhatsApp 直接沟通，这样可以更快确认合作方向。
+          {{ pageText.directDescription }}
         </p>
       </div>
 
@@ -74,19 +197,14 @@ useHead({
           <div class="contact-icon">T</div>
 
           <h3>
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegramTitle }}
           </h3>
 
           <p>
-            Contact us through Telegram for quick cooperation discussion.
+            {{ pageText.telegramDescription }}
           </p>
 
-          <p class="chinese">
-            通过 Telegram 联系我们，快速沟通合作方向。
-          </p>
-
-          <strong>Open Telegram</strong>
+          <strong>{{ pageText.telegramButton }}</strong>
         </a>
 
         <a
@@ -98,169 +216,116 @@ useHead({
           <div class="contact-icon whatsapp">W</div>
 
           <h3>
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsappTitle }}
           </h3>
 
           <p>
-            Contact us through WhatsApp for business and cooperation inquiries.
+            {{ pageText.whatsappDescription }}
           </p>
 
-          <p class="chinese">
-            通过 WhatsApp 联系我们，沟通商务与合作事项。
-          </p>
-
-          <strong>Open WhatsApp</strong>
+          <strong>{{ pageText.whatsappButton }}</strong>
         </a>
       </div>
     </section>
 
-    <!-- What To Prepare -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">BEFORE CONTACTING US</p>
+        <p class="section-label">
+          {{ pageText.prepareLabel }}
+        </p>
 
         <h2>
-          Information You Can Prepare
-          <span>联系前可以准备的信息</span>
+          {{ pageText.prepareTitle }}
         </h2>
 
         <p>
-          To help us understand your cooperation opportunity faster,
-          you can briefly prepare the following information before contacting us.
-        </p>
-
-        <p class="chinese">
-          为了让我们更快了解你的合作机会，你可以在联系我们前简单准备以下资料。
+          {{ pageText.prepareDescription }}
         </p>
       </div>
 
       <div class="info-grid">
         <div class="info-card">
-          <h3>
-            Cooperation Type
-            <span>合作类型</span>
-          </h3>
+          <h3>{{ pageText.infoOneTitle }}</h3>
 
           <p>
-            Business partnership, agent partnership, traffic partnership or technology partnership.
-          </p>
-
-          <p class="chinese">
-            招商合作、代理合作、流量合作或远程技术合作。
+            {{ pageText.infoOneDescription }}
           </p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Market or Region
-            <span>市场或区域</span>
-          </h3>
+          <h3>{{ pageText.infoTwoTitle }}</h3>
 
           <p>
-            Tell us which country, region, city or target market you are focusing on.
-          </p>
-
-          <p class="chinese">
-            说明你主要负责或关注的国家、地区、城市或目标市场。
+            {{ pageText.infoTwoDescription }}
           </p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Available Resources
-            <span>现有资源</span>
-          </h3>
+          <h3>{{ pageText.infoThreeTitle }}</h3>
 
           <p>
-            Briefly introduce your business resources, agent resources, traffic channels or technical team.
-          </p>
-
-          <p class="chinese">
-            简单介绍你的商务资源、代理资源、流量渠道或技术团队能力。
+            {{ pageText.infoThreeDescription }}
           </p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Expected Cooperation Model
-            <span>期望合作方式</span>
-          </h3>
+          <h3>{{ pageText.infoFourTitle }}</h3>
 
           <p>
-            Let us know what type of cooperation model you are looking for.
-          </p>
-
-          <p class="chinese">
-            告诉我们你希望采用什么样的合作模式。
+            {{ pageText.infoFourDescription }}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Cooperation Types -->
     <section class="content-section">
       <div class="split-content">
         <div>
-          <p class="section-label">WHO CAN CONTACT US</p>
+          <p class="section-label">
+            {{ pageText.partnerLabel }}
+          </p>
 
           <h2>
-            Open to Different Partner Types
-            <span>欢迎不同类型合作伙伴联系</span>
+            {{ pageText.partnerTitle }}
           </h2>
 
           <p>
-            Whether you are an individual, team, company, agency, traffic owner,
-            media buyer or technical service provider, you can contact us directly.
-          </p>
-
-          <p class="chinese">
-            无论你是个人、团队、公司、代理方、流量主、广告投放团队或技术服务商，
-            都可以直接联系我们。
+            {{ pageText.partnerDescription }}
           </p>
         </div>
 
         <div class="partner-list">
           <div class="partner-item">
-            <strong>Business Partners</strong>
-            <span>招商合作方</span>
+            <strong>{{ pageText.partnerOne }}</strong>
           </div>
 
           <div class="partner-item">
-            <strong>Agent Partners</strong>
-            <span>代理合作方</span>
+            <strong>{{ pageText.partnerTwo }}</strong>
           </div>
 
           <div class="partner-item">
-            <strong>Traffic Partners</strong>
-            <span>流量合作方</span>
+            <strong>{{ pageText.partnerThree }}</strong>
           </div>
 
           <div class="partner-item">
-            <strong>Technology Partners</strong>
-            <span>远程技术合作方</span>
+            <strong>{{ pageText.partnerFour }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA -->
     <section class="cta-section">
       <div class="cta-card">
-        <p class="section-label">START NOW</p>
+        <p class="section-label">
+          {{ pageText.ctaLabel }}
+        </p>
 
         <h2>
-          Start the Conversation Today
-          <span>现在开始沟通合作</span>
+          {{ pageText.ctaTitle }}
         </h2>
 
         <p>
-          Contact us directly and tell us your cooperation type, market, resources
-          and expected cooperation model.
-        </p>
-
-        <p class="chinese">
-          直接联系我们，并说明你的合作类型、市场、资源和期望合作方式。
+          {{ pageText.ctaDescription }}
         </p>
 
         <div class="cta-actions">
@@ -270,8 +335,7 @@ useHead({
             rel="noopener noreferrer"
             class="primary-button"
           >
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegram }}
           </a>
 
           <a
@@ -280,8 +344,7 @@ useHead({
             rel="noopener noreferrer"
             class="secondary-button"
           >
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsapp }}
           </a>
         </div>
       </div>
@@ -328,18 +391,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-h1 span,
-h2 span,
-h3 span,
-.primary-button span,
-.secondary-button span {
-  display: block;
-}
-
-h1 span {
-  margin-top: 8px;
-}
-
 .page-hero p,
 .section-heading p,
 .split-content p,
@@ -351,10 +402,6 @@ h1 span {
   color: #334155;
   font-size: 16px;
   line-height: 1.8;
-}
-
-.chinese {
-  color: #475569;
 }
 
 .content-section {
@@ -438,12 +485,6 @@ h1 span {
   line-height: 1.3;
 }
 
-.contact-card h3 span {
-  margin-top: 4px;
-  color: #1687d9;
-  font-size: 18px;
-}
-
 .contact-card p {
   color: #475569;
   font-size: 15px;
@@ -463,7 +504,7 @@ h1 span {
 }
 
 .info-card {
-  min-height: 260px;
+  min-height: 230px;
   padding: 26px;
   border-radius: 18px;
   background: #f8fafc;
@@ -475,12 +516,6 @@ h1 span {
   color: #07112a;
   font-size: 20px;
   line-height: 1.35;
-}
-
-.info-card h3 span {
-  margin-top: 4px;
-  color: #1687d9;
-  font-size: 17px;
 }
 
 .info-card p {
@@ -513,14 +548,8 @@ h1 span {
 
 .partner-item strong {
   display: block;
-  margin-bottom: 6px;
   color: #07112a;
   font-size: 16px;
-}
-
-.partner-item span {
-  color: #475569;
-  font-size: 14px;
 }
 
 .cta-section {
@@ -559,7 +588,6 @@ h1 span {
 .primary-button,
 .secondary-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 52px;

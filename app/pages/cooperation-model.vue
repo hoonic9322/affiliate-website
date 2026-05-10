@@ -1,376 +1,417 @@
-<script setup>
-useHead({
-  title: 'Cooperation Model | 合作模式',
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const pageText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      seoTitle: '合作模式 | 合作伙伴与商务合作',
+      seoDescription:
+        '招商、代理、流量和远程技术合作的灵活合作模式。',
+
+      heroLabel: '合作模式',
+      heroTitle: '灵活合作模式',
+      heroDescription:
+        '我们会根据合作伙伴类型、资源情况、市场方向、技术能力和长期合作目标，提供不同类型的合作方式。',
+
+      mainLabel: '主要合作类型',
+      mainTitle: '四大主要合作方向',
+      mainDescription:
+        '本网站主要面向四类合作伙伴：招商合作、代理合作、流量合作和远程技术合作。',
+
+      businessTitle: '招商合作',
+      businessDescription:
+        '适合拥有商务资源、区域渠道、商业关系或战略合作机会的合作伙伴。',
+
+      agentTitle: '代理合作',
+      agentDescription:
+        '适合代理团队、本地推广人员、社群运营者和可以运营用户资源的合作伙伴。',
+
+      trafficTitle: '流量合作',
+      trafficDescription:
+        '适合网站站长、SEO 团队、广告投放团队、社群资源方、KOL 和流量合作伙伴。',
+
+      technologyTitle: '远程技术合作',
+      technologyDescription:
+        '适合远程软件公司、开发团队、UI/UX 团队、测试团队、运维团队和技术服务商。',
+
+      commercialLabel: '商务类合作',
+      commercialTitle: '招商、代理与流量合作',
+      commercialDescription:
+        '商务类合作可以根据市场资源、用户资源、流量质量、推广渠道和合作规模进行沟通。',
+
+      commercialOne: '商务资源合作',
+      commercialTwo: '区域市场合作',
+      commercialThree: '代理合作',
+      commercialFour: '社群合作',
+      commercialFive: 'CPA 合作',
+      commercialSix: '收入分成合作',
+      commercialSeven: '固定广告位合作',
+      commercialEight: '混合合作模式',
+      commercialNine: '长期渠道合作',
+
+      techLabel: '技术合作',
+      techTitle: '远程技术合作',
+      techDescription:
+        '技术合作可以根据项目范围、所需技术能力、交付周期、维护需求和长期支持能力进行安排。',
+
+      techOne: '项目制开发',
+      techTwo: '长期维护合作',
+      techThree: '月度技术支持',
+      techFour: '专属远程团队',
+      techFive: '技术顾问合作',
+      techSix: '紧急问题修复支持',
+
+      processLabel: '如何开始',
+      processTitle: '简单直接的合作沟通流程',
+      processDescription:
+        '第一阶段我们不设计复杂申请表单。合作方可以直接通过 Telegram 或 WhatsApp 联系我们。',
+
+      stepOneTitle: '联系我们',
+      stepOneDescription:
+        '通过 Telegram 或 WhatsApp 直接联系我们。',
+
+      stepTwoTitle: '介绍你的资源',
+      stepTwoDescription:
+        '简单说明你的合作类型、所在市场、资源情况、团队背景或技术能力。',
+
+      stepThreeTitle: '沟通合作方式',
+      stepThreeDescription:
+        '根据你的情况和我们的需求，沟通适合的合作方式。',
+
+      stepFourTitle: '开始合作',
+      stepFourDescription:
+        '双方确认合作方向后，即可推进后续合作安排。',
+
+      ctaLabel: '开始合作',
+      ctaTitle: '沟通适合的合作模式',
+      ctaDescription:
+        '无论你是招商合作方、代理合作方、流量合作方或技术合作方，都可以直接联系我们沟通合作机会。',
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    seoTitle: 'Cooperation Model | Partner Cooperation',
+    seoDescription:
+      'Flexible cooperation models for business partnership, agent partnership, traffic partnership and remote technology partnership.',
+
+    heroLabel: 'COOPERATION MODEL',
+    heroTitle: 'Flexible Cooperation Models',
+    heroDescription:
+      'We support different cooperation models based on partner type, available resources, market direction, technical capability and long-term cooperation goals.',
+
+    mainLabel: 'MAIN COOPERATION TYPES',
+    mainTitle: 'Four Main Cooperation Directions',
+    mainDescription:
+      'Our cooperation website focuses on four main partner categories: business partnership, agent partnership, traffic partnership and remote technology partnership.',
+
+    businessTitle: 'Business Partnership',
+    businessDescription:
+      'Suitable for partners with business resources, regional channels, commercial connections or strategic cooperation opportunities.',
+
+    agentTitle: 'Agent Partnership',
+    agentDescription:
+      'Suitable for agent teams, local promoters, community operators and partners who can manage user resources.',
+
+    trafficTitle: 'Traffic Partnership',
+    trafficDescription:
+      'Suitable for website owners, SEO teams, media buyers, community resources, KOLs and affiliate traffic partners.',
+
+    technologyTitle: 'Technology Partnership',
+    technologyDescription:
+      'Suitable for remote software companies, development teams, UI/UX teams, QA teams, DevOps teams and technical service providers.',
+
+    commercialLabel: 'COMMERCIAL COOPERATION',
+    commercialTitle: 'Business, Agent and Traffic Cooperation',
+    commercialDescription:
+      'Commercial cooperation can be discussed based on market resources, user resources, traffic quality, promotion channels and cooperation scale.',
+
+    commercialOne: 'Business Resource Cooperation',
+    commercialTwo: 'Regional Market Cooperation',
+    commercialThree: 'Agent Cooperation',
+    commercialFour: 'Community Cooperation',
+    commercialFive: 'CPA Cooperation',
+    commercialSix: 'Revenue Share Cooperation',
+    commercialSeven: 'Fixed Advertising Placement',
+    commercialEight: 'Hybrid Cooperation Model',
+    commercialNine: 'Long-Term Channel Cooperation',
+
+    techLabel: 'TECHNOLOGY COOPERATION',
+    techTitle: 'Remote Technical Cooperation',
+    techDescription:
+      'Technical cooperation can be arranged based on project scope, required skills, delivery timeline, maintenance needs and long-term support capability.',
+
+    techOne: 'Project-Based Development',
+    techTwo: 'Long-Term Maintenance',
+    techThree: 'Monthly Technical Support',
+    techFour: 'Dedicated Remote Team',
+    techFive: 'Technical Consulting',
+    techSix: 'Urgent Bug Fix Support',
+
+    processLabel: 'HOW WE START',
+    processTitle: 'Simple Cooperation Discussion Process',
+    processDescription:
+      'In the first phase, we do not use a complicated application form. Partners can contact us directly through Telegram or WhatsApp.',
+
+    stepOneTitle: 'Contact Us',
+    stepOneDescription:
+      'Contact our team directly through Telegram or WhatsApp.',
+
+    stepTwoTitle: 'Introduce Your Resources',
+    stepTwoDescription:
+      'Tell us your cooperation type, market, resources, team background or technical capability.',
+
+    stepThreeTitle: 'Discuss Cooperation Model',
+    stepThreeDescription:
+      'We discuss a suitable cooperation model based on your situation and our needs.',
+
+    stepFourTitle: 'Start Cooperation',
+    stepFourDescription:
+      'After both sides confirm the cooperation direction, we can proceed with the next steps.',
+
+    ctaLabel: 'START COOPERATION',
+    ctaTitle: 'Discuss the Right Cooperation Model',
+    ctaDescription:
+      'Whether you are a business partner, agent partner, traffic partner or technology partner, you can contact us directly to discuss cooperation opportunities.',
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+
+useHead(() => ({
+  title: pageText.value.seoTitle,
   meta: [
     {
       name: 'description',
-      content:
-        'Flexible cooperation models for business partnership, agent partnership, traffic partnership and remote technology partnership. 招商、代理、流量和远程技术合作的灵活合作模式。'
+      content: pageText.value.seoDescription
     },
     {
       property: 'og:title',
-      content: 'Cooperation Model | 合作模式'
+      content: pageText.value.seoTitle
     },
     {
       property: 'og:description',
-      content:
-        'We support business cooperation, agent cooperation, traffic cooperation and remote technical cooperation based on partner resources and long-term goals. 我们根据合作方资源和长期目标，支持招商、代理、流量和远程技术合作。'
+      content: pageText.value.seoDescription
     }
   ]
-})
+}))
 </script>
 
 <template>
   <main class="model-page">
-    <!-- Page Hero -->
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">COOPERATION MODEL</p>
+        <p class="section-label">
+          {{ pageText.heroLabel }}
+        </p>
 
         <h1>
-          Flexible Cooperation Models
-          <span>灵活合作模式</span>
+          {{ pageText.heroTitle }}
         </h1>
 
         <p>
-          We support different cooperation models based on partner type, available resources,
-          market direction, technical capability and long-term cooperation goals.
-        </p>
-
-        <p class="chinese">
-          我们会根据合作伙伴类型、资源情况、市场方向、技术能力和长期合作目标，
-          提供不同类型的合作方式。
+          {{ pageText.heroDescription }}
         </p>
       </div>
     </section>
 
-    <!-- Main Cooperation Categories -->
     <section class="content-section">
       <div class="section-heading">
-        <p class="section-label">MAIN COOPERATION TYPES</p>
+        <p class="section-label">
+          {{ pageText.mainLabel }}
+        </p>
 
         <h2>
-          Four Main Cooperation Directions
-          <span>四大主要合作方向</span>
+          {{ pageText.mainTitle }}
         </h2>
 
         <p>
-          Our cooperation website focuses on four main partner categories:
-          business partnership, agent partnership, traffic partnership and remote technology partnership.
-        </p>
-
-        <p class="chinese">
-          本网站主要面向四类合作伙伴：招商合作、代理合作、流量合作和远程技术合作。
+          {{ pageText.mainDescription }}
         </p>
       </div>
 
       <div class="model-grid">
         <NuxtLink to="/business-partner" class="model-card">
           <div class="model-number">01</div>
-
-          <h3>
-            Business Partnership
-            <span>招商合作</span>
-          </h3>
-
-          <p>
-            Suitable for partners with business resources, regional channels,
-            commercial connections or strategic cooperation opportunities.
-          </p>
-
-          <p class="chinese">
-            适合拥有商务资源、区域渠道、商业关系或战略合作机会的合作伙伴。
-          </p>
+          <h3>{{ pageText.businessTitle }}</h3>
+          <p>{{ pageText.businessDescription }}</p>
         </NuxtLink>
 
         <NuxtLink to="/agent-partner" class="model-card">
           <div class="model-number">02</div>
-
-          <h3>
-            Agent Partnership
-            <span>代理合作</span>
-          </h3>
-
-          <p>
-            Suitable for agent teams, local promoters, community operators and partners
-            who can manage user resources.
-          </p>
-
-          <p class="chinese">
-            适合代理团队、本地推广人员、社群运营者和可以运营用户资源的合作伙伴。
-          </p>
+          <h3>{{ pageText.agentTitle }}</h3>
+          <p>{{ pageText.agentDescription }}</p>
         </NuxtLink>
 
         <NuxtLink to="/traffic-partner" class="model-card">
           <div class="model-number">03</div>
-
-          <h3>
-            Traffic Partnership
-            <span>流量合作</span>
-          </h3>
-
-          <p>
-            Suitable for website owners, SEO teams, media buyers, community resources,
-            KOLs and affiliate traffic partners.
-          </p>
-
-          <p class="chinese">
-            适合网站站长、SEO 团队、广告投放团队、社群资源方、KOL 和流量合作伙伴。
-          </p>
+          <h3>{{ pageText.trafficTitle }}</h3>
+          <p>{{ pageText.trafficDescription }}</p>
         </NuxtLink>
 
         <NuxtLink to="/technology-partner" class="model-card">
           <div class="model-number">04</div>
-
-          <h3>
-            Technology Partnership
-            <span>远程技术合作</span>
-          </h3>
-
-          <p>
-            Suitable for remote software companies, development teams, UI/UX teams,
-            QA teams, DevOps teams and technical service providers.
-          </p>
-
-          <p class="chinese">
-            适合远程软件公司、开发团队、UI/UX 团队、测试团队、运维团队和技术服务商。
-          </p>
+          <h3>{{ pageText.technologyTitle }}</h3>
+          <p>{{ pageText.technologyDescription }}</p>
         </NuxtLink>
       </div>
     </section>
 
-    <!-- Commercial Cooperation -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">COMMERCIAL COOPERATION</p>
+        <p class="section-label">
+          {{ pageText.commercialLabel }}
+        </p>
 
         <h2>
-          Business, Agent and Traffic Cooperation
-          <span>招商、代理与流量合作</span>
+          {{ pageText.commercialTitle }}
         </h2>
 
         <p>
-          Commercial cooperation can be discussed based on market resources, user resources,
-          traffic quality, promotion channels and cooperation scale.
-        </p>
-
-        <p class="chinese">
-          商务类合作可以根据市场资源、用户资源、流量质量、推广渠道和合作规模进行沟通。
+          {{ pageText.commercialDescription }}
         </p>
       </div>
 
       <div class="list-panel">
         <div class="list-item">
-          <strong>Business Resource Cooperation</strong>
-          <span>商务资源合作</span>
+          <strong>{{ pageText.commercialOne }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Regional Market Cooperation</strong>
-          <span>区域市场合作</span>
+          <strong>{{ pageText.commercialTwo }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Agent Cooperation</strong>
-          <span>代理合作</span>
+          <strong>{{ pageText.commercialThree }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Community Cooperation</strong>
-          <span>社群合作</span>
+          <strong>{{ pageText.commercialFour }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>CPA Cooperation</strong>
-          <span>CPA 合作</span>
+          <strong>{{ pageText.commercialFive }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Revenue Share Cooperation</strong>
-          <span>收入分成合作</span>
+          <strong>{{ pageText.commercialSix }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Fixed Advertising Placement</strong>
-          <span>固定广告位合作</span>
+          <strong>{{ pageText.commercialSeven }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Hybrid Cooperation Model</strong>
-          <span>混合合作模式</span>
+          <strong>{{ pageText.commercialEight }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Long-Term Channel Cooperation</strong>
-          <span>长期渠道合作</span>
+          <strong>{{ pageText.commercialNine }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- Technology Cooperation -->
     <section class="content-section">
       <div class="split-content">
         <div>
-          <p class="section-label">TECHNOLOGY COOPERATION</p>
+          <p class="section-label">
+            {{ pageText.techLabel }}
+          </p>
 
           <h2>
-            Remote Technical Cooperation
-            <span>远程技术合作</span>
+            {{ pageText.techTitle }}
           </h2>
 
           <p>
-            Technical cooperation can be arranged based on project scope, required skills,
-            delivery timeline, maintenance needs and long-term support capability.
-          </p>
-
-          <p class="chinese">
-            技术合作可以根据项目范围、所需技术能力、交付周期、维护需求和长期支持能力进行安排。
+            {{ pageText.techDescription }}
           </p>
         </div>
 
         <div class="highlight-panel">
           <div class="highlight-item">
-            <strong>Project-Based Development</strong>
-            <span>项目制开发</span>
+            <strong>{{ pageText.techOne }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Long-Term Maintenance</strong>
-            <span>长期维护合作</span>
+            <strong>{{ pageText.techTwo }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Monthly Technical Support</strong>
-            <span>月度技术支持</span>
+            <strong>{{ pageText.techThree }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Dedicated Remote Team</strong>
-            <span>专属远程团队</span>
+            <strong>{{ pageText.techFour }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Technical Consulting</strong>
-            <span>技术顾问合作</span>
+            <strong>{{ pageText.techFive }}</strong>
           </div>
 
           <div class="highlight-item">
-            <strong>Urgent Bug Fix Support</strong>
-            <span>紧急问题修复支持</span>
+            <strong>{{ pageText.techSix }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- How We Start -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">HOW WE START</p>
+        <p class="section-label">
+          {{ pageText.processLabel }}
+        </p>
 
         <h2>
-          Simple Cooperation Discussion Process
-          <span>简单直接的合作沟通流程</span>
+          {{ pageText.processTitle }}
         </h2>
 
         <p>
-          In the first phase, we do not use a complicated application form.
-          Partners can contact us directly through Telegram or WhatsApp.
-        </p>
-
-        <p class="chinese">
-          第一阶段我们不设计复杂申请表单。合作方可以直接通过 Telegram 或 WhatsApp 联系我们。
+          {{ pageText.processDescription }}
         </p>
       </div>
 
       <div class="step-grid">
         <div class="step-card">
           <div class="step-number">01</div>
-
-          <h3>
-            Contact Us
-            <span>联系我们</span>
-          </h3>
-
-          <p>
-            Contact our team directly through Telegram or WhatsApp.
-          </p>
-
-          <p class="chinese">
-            通过 Telegram 或 WhatsApp 直接联系我们。
-          </p>
+          <h3>{{ pageText.stepOneTitle }}</h3>
+          <p>{{ pageText.stepOneDescription }}</p>
         </div>
 
         <div class="step-card">
           <div class="step-number">02</div>
-
-          <h3>
-            Introduce Your Resources
-            <span>介绍你的资源</span>
-          </h3>
-
-          <p>
-            Tell us your cooperation type, market, resources, team background or technical capability.
-          </p>
-
-          <p class="chinese">
-            简单说明你的合作类型、所在市场、资源情况、团队背景或技术能力。
-          </p>
+          <h3>{{ pageText.stepTwoTitle }}</h3>
+          <p>{{ pageText.stepTwoDescription }}</p>
         </div>
 
         <div class="step-card">
           <div class="step-number">03</div>
-
-          <h3>
-            Discuss Cooperation Model
-            <span>沟通合作方式</span>
-          </h3>
-
-          <p>
-            We discuss a suitable cooperation model based on your situation and our needs.
-          </p>
-
-          <p class="chinese">
-            根据你的情况和我们的需求，沟通适合的合作方式。
-          </p>
+          <h3>{{ pageText.stepThreeTitle }}</h3>
+          <p>{{ pageText.stepThreeDescription }}</p>
         </div>
 
         <div class="step-card">
           <div class="step-number">04</div>
-
-          <h3>
-            Start Cooperation
-            <span>开始合作</span>
-          </h3>
-
-          <p>
-            After both sides confirm the cooperation direction, we can proceed with the next steps.
-          </p>
-
-          <p class="chinese">
-            双方确认合作方向后，即可推进后续合作安排。
-          </p>
+          <h3>{{ pageText.stepFourTitle }}</h3>
+          <p>{{ pageText.stepFourDescription }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="cta-section">
       <div class="cta-card">
-        <p class="section-label">START COOPERATION</p>
+        <p class="section-label">
+          {{ pageText.ctaLabel }}
+        </p>
 
         <h2>
-          Discuss the Right Cooperation Model
-          <span>沟通适合的合作模式</span>
+          {{ pageText.ctaTitle }}
         </h2>
 
         <p>
-          Whether you are a business partner, agent partner, traffic partner or technology partner,
-          you can contact us directly to discuss cooperation opportunities.
-        </p>
-
-        <p class="chinese">
-          无论你是招商合作方、代理合作方、流量合作方或技术合作方，
-          都可以直接联系我们沟通合作机会。
+          {{ pageText.ctaDescription }}
         </p>
 
         <div class="cta-actions">
@@ -380,8 +421,7 @@ useHead({
             rel="noopener noreferrer"
             class="primary-button"
           >
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegram }}
           </a>
 
           <a
@@ -390,8 +430,7 @@ useHead({
             rel="noopener noreferrer"
             class="secondary-button"
           >
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsapp }}
           </a>
         </div>
       </div>
@@ -438,18 +477,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-h1 span,
-h2 span,
-h3 span,
-.primary-button span,
-.secondary-button span {
-  display: block;
-}
-
-h1 span {
-  margin-top: 8px;
-}
-
 .page-hero p,
 .section-heading p,
 .split-content p,
@@ -460,10 +487,6 @@ h1 span {
   color: #334155;
   font-size: 16px;
   line-height: 1.8;
-}
-
-.chinese {
-  color: #475569;
 }
 
 .content-section {
@@ -506,7 +529,7 @@ h1 span {
 
 .model-card {
   display: block;
-  min-height: 340px;
+  min-height: 300px;
   padding: 28px;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
@@ -545,12 +568,6 @@ h1 span {
   line-height: 1.35;
 }
 
-.model-card h3 span,
-.step-card h3 span {
-  margin-top: 4px;
-  font-size: 17px;
-}
-
 .model-card p {
   margin: 0 0 8px;
   color: #475569;
@@ -575,15 +592,8 @@ h1 span {
 .list-item strong,
 .highlight-item strong {
   display: block;
-  margin-bottom: 6px;
   color: #07112a;
   font-size: 16px;
-}
-
-.list-item span,
-.highlight-item span {
-  color: #475569;
-  font-size: 14px;
 }
 
 .split-content {
@@ -609,7 +619,7 @@ h1 span {
 }
 
 .step-card {
-  min-height: 280px;
+  min-height: 240px;
   padding: 26px;
   border-radius: 18px;
   background: #f8fafc;
@@ -657,7 +667,6 @@ h1 span {
 .primary-button,
 .secondary-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 52px;

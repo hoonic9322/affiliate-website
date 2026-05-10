@@ -1,275 +1,341 @@
-<script setup>
-useHead({
-  title: 'Agent Partnership | 代理合作',
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const pageText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      seoTitle: '代理合作 | 合作伙伴与商务合作',
+      seoDescription:
+        '面向代理团队、本地推广人员、社群运营者和长期用户资源合作伙伴。',
+
+      heroLabel: '代理合作',
+      heroTitle: '代理合作',
+      heroDescription:
+        '我们正在寻找代理团队、本地推广人员、社群运营者和可以长期运营用户资源的合作伙伴。',
+
+      targetLabel: '我们寻找谁',
+      targetTitle: '适合的代理合作对象',
+
+      cardOneTitle: '代理团队',
+      cardOneDescription:
+        '适合具备用户开发、客户运营、本地推广或长期社群管理经验的代理团队。',
+
+      cardTwoTitle: '本地推广代理',
+      cardTwoDescription:
+        '适合熟悉本地市场、用户习惯和本地沟通渠道的推广代理。',
+
+      cardThreeTitle: '社群运营方',
+      cardThreeDescription:
+        '适合运营 Telegram 群、WhatsApp 社群、社交群组或其他私域流量社群的合作方。',
+
+      cardFourTitle: '区域代理',
+      cardFourDescription:
+        '适合可以开发本地区域市场、管理区域用户资源，并支持长期业务增长的代理伙伴。',
+
+      areasLabel: '合作内容',
+      areasTitle: '代理伙伴可以合作的内容',
+
+      areaOne: '用户开发',
+      areaTwo: '本地推广',
+      areaThree: '社群运营',
+      areaFour: '区域市场拓展',
+      areaFive: '客户关系维护',
+      areaSix: '长期代理合作',
+
+      supportLabel: '代理支持',
+      supportTitle: '支持代理长期发展',
+      supportDescription:
+        '我们重视可以稳定维护用户资源、建立长期关系，并保持清晰沟通的代理合作伙伴。',
+
+      supportOne: '合作方式沟通',
+      supportTwo: '推广方向确认',
+      supportThree: '市场与用户资源评估',
+      supportFour: '长期合作规划',
+
+      expectationLabel: '我们的关注点',
+      expectationTitle: '我们关注什么',
+
+      expectationOne: '真实用户资源',
+      expectationTwo: '稳定推广能力',
+      expectationThree: '沟通清晰直接',
+      expectationFour: '长期运营意识',
+      expectationFive: '市场理解能力',
+      expectationSix: '负责任的合作态度',
+
+      ctaLabel: '开始合作',
+      ctaTitle: '联系我们开始代理合作',
+      ctaDescription:
+        '如果你拥有代理资源、本地推广能力或用户运营经验，可以直接通过 Telegram 或 WhatsApp 联系我们。',
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    seoTitle: 'Agent Partnership | Partner Cooperation',
+    seoDescription:
+      'Agent partnership opportunities for agent teams, local promoters, community operators and long-term user resource partners.',
+
+    heroLabel: 'AGENT PARTNERSHIP',
+    heroTitle: 'Agent Partnership',
+    heroDescription:
+      'We are looking for agent teams, local promoters, community operators and partners who can build and manage long-term user resources.',
+
+    targetLabel: 'WHO WE ARE LOOKING FOR',
+    targetTitle: 'Suitable Agent Partners',
+
+    cardOneTitle: 'Agent Teams',
+    cardOneDescription:
+      'Teams with experience in user development, customer operation, local promotion or long-term community management.',
+
+    cardTwoTitle: 'Local Promoters',
+    cardTwoDescription:
+      'Partners who understand local markets, user behavior and local communication channels.',
+
+    cardThreeTitle: 'Community Operators',
+    cardThreeDescription:
+      'Partners who manage Telegram groups, WhatsApp communities, social groups or other private traffic communities.',
+
+    cardFourTitle: 'Regional Agents',
+    cardFourDescription:
+      'Partners who can develop local markets, manage regional user resources and support long-term business growth.',
+
+    areasLabel: 'COOPERATION AREAS',
+    areasTitle: 'What Agent Partners Can Do',
+
+    areaOne: 'User Development',
+    areaTwo: 'Local Promotion',
+    areaThree: 'Community Operation',
+    areaFour: 'Regional Market Expansion',
+    areaFive: 'Customer Relationship Maintenance',
+    areaSix: 'Long-Term Agent Cooperation',
+
+    supportLabel: 'SUPPORT FOR AGENTS',
+    supportTitle: 'Support for Long-Term Agent Growth',
+    supportDescription:
+      'We value agent partners who can build stable relationships, manage user resources and communicate clearly for long-term cooperation.',
+
+    supportOne: 'Cooperation discussion',
+    supportTwo: 'Promotion direction alignment',
+    supportThree: 'Market and user resource review',
+    supportFour: 'Long-term cooperation planning',
+
+    expectationLabel: 'OUR EXPECTATIONS',
+    expectationTitle: 'What We Care About',
+
+    expectationOne: 'Real user resources',
+    expectationTwo: 'Stable promotion ability',
+    expectationThree: 'Clear communication',
+    expectationFour: 'Long-term operation mindset',
+    expectationFive: 'Market understanding',
+    expectationSix: 'Responsible cooperation attitude',
+
+    ctaLabel: 'START COOPERATION',
+    ctaTitle: 'Contact Us for Agent Cooperation',
+    ctaDescription:
+      'If you have agent resources, local promotion capability or user operation experience, please contact us directly through Telegram or WhatsApp.',
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+
+useHead(() => ({
+  title: pageText.value.seoTitle,
   meta: [
     {
       name: 'description',
-      content:
-        'Agent partnership opportunities for agent teams, local promoters, community operators and long-term user resource partners. 面向代理团队、本地推广人员、社群运营者和长期用户资源合作伙伴。'
+      content: pageText.value.seoDescription
     },
     {
       property: 'og:title',
-      content: 'Agent Partnership | 代理合作'
+      content: pageText.value.seoTitle
     },
     {
       property: 'og:description',
-      content:
-        'Cooperate with us if you have agent resources, local promotion capability, community resources or user operation experience. 如果你拥有代理资源、本地推广能力、社群资源或用户运营经验，欢迎联系我们。'
+      content: pageText.value.seoDescription
     }
   ]
-})
+}))
 </script>
 
 <template>
   <main class="partner-page">
-    <!-- Page Hero -->
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">AGENT PARTNERSHIP</p>
+        <p class="section-label">
+          {{ pageText.heroLabel }}
+        </p>
 
         <h1>
-          Agent Partnership
-          <span>代理合作</span>
+          {{ pageText.heroTitle }}
         </h1>
 
         <p>
-          We are looking for agent teams, local promoters, community operators and
-          partners who can build and manage long-term user resources.
-        </p>
-
-        <p class="chinese">
-          我们正在寻找代理团队、本地推广人员、社群运营者和可以长期运营用户资源的合作伙伴。
+          {{ pageText.heroDescription }}
         </p>
       </div>
     </section>
 
-    <!-- Who We Are Looking For -->
     <section class="content-section">
       <div class="section-heading">
-        <p class="section-label">WHO WE ARE LOOKING FOR</p>
+        <p class="section-label">
+          {{ pageText.targetLabel }}
+        </p>
 
         <h2>
-          Suitable Agent Partners
-          <span>适合的代理合作对象</span>
+          {{ pageText.targetTitle }}
         </h2>
       </div>
 
       <div class="card-grid">
         <div class="info-card">
-          <h3>
-            Agent Teams
-            <span>代理团队</span>
-          </h3>
-
-          <p>
-            Teams with experience in user development, customer operation,
-            local promotion or long-term community management.
-          </p>
-
-          <p class="chinese">
-            适合具备用户开发、客户运营、本地推广或长期社群管理经验的代理团队。
-          </p>
+          <h3>{{ pageText.cardOneTitle }}</h3>
+          <p>{{ pageText.cardOneDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Local Promoters
-            <span>本地推广代理</span>
-          </h3>
-
-          <p>
-            Partners who understand local markets, user behavior and local communication channels.
-          </p>
-
-          <p class="chinese">
-            适合熟悉本地市场、用户习惯和本地沟通渠道的推广代理。
-          </p>
+          <h3>{{ pageText.cardTwoTitle }}</h3>
+          <p>{{ pageText.cardTwoDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Community Operators
-            <span>社群运营方</span>
-          </h3>
-
-          <p>
-            Partners who manage Telegram groups, WhatsApp communities,
-            social groups or other private traffic communities.
-          </p>
-
-          <p class="chinese">
-            适合运营 Telegram 群、WhatsApp 社群、社交群组或其他私域流量社群的合作方。
-          </p>
+          <h3>{{ pageText.cardThreeTitle }}</h3>
+          <p>{{ pageText.cardThreeDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Regional Agents
-            <span>区域代理</span>
-          </h3>
-
-          <p>
-            Partners who can develop local markets, manage regional user resources
-            and support long-term business growth.
-          </p>
-
-          <p class="chinese">
-            适合可以开发本地区域市场、管理区域用户资源，并支持长期业务增长的代理伙伴。
-          </p>
+          <h3>{{ pageText.cardFourTitle }}</h3>
+          <p>{{ pageText.cardFourDescription }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Cooperation Areas -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">COOPERATION AREAS</p>
+        <p class="section-label">
+          {{ pageText.areasLabel }}
+        </p>
 
         <h2>
-          What Agent Partners Can Do
-          <span>代理伙伴可以合作的内容</span>
+          {{ pageText.areasTitle }}
         </h2>
       </div>
 
       <div class="list-panel">
         <div class="list-item">
-          <strong>User Development</strong>
-          <span>用户开发</span>
+          <strong>{{ pageText.areaOne }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Local Promotion</strong>
-          <span>本地推广</span>
+          <strong>{{ pageText.areaTwo }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Community Operation</strong>
-          <span>社群运营</span>
+          <strong>{{ pageText.areaThree }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Regional Market Expansion</strong>
-          <span>区域市场拓展</span>
+          <strong>{{ pageText.areaFour }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Customer Relationship Maintenance</strong>
-          <span>客户关系维护</span>
+          <strong>{{ pageText.areaFive }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Long-Term Agent Cooperation</strong>
-          <span>长期代理合作</span>
+          <strong>{{ pageText.areaSix }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- Cooperation Support -->
     <section class="content-section">
       <div class="split-content">
         <div>
-          <p class="section-label">SUPPORT FOR AGENTS</p>
+          <p class="section-label">
+            {{ pageText.supportLabel }}
+          </p>
 
           <h2>
-            Support for Long-Term Agent Growth
-            <span>支持代理长期发展</span>
+            {{ pageText.supportTitle }}
           </h2>
 
           <p>
-            We value agent partners who can build stable relationships, manage user resources
-            and communicate clearly for long-term cooperation.
-          </p>
-
-          <p class="chinese">
-            我们重视可以稳定维护用户资源、建立长期关系，并保持清晰沟通的代理合作伙伴。
+            {{ pageText.supportDescription }}
           </p>
         </div>
 
         <div class="expectation-list">
           <div class="expectation-item">
-            <strong>Cooperation discussion</strong>
-            <span>合作方式沟通</span>
+            <strong>{{ pageText.supportOne }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Promotion direction alignment</strong>
-            <span>推广方向确认</span>
+            <strong>{{ pageText.supportTwo }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Market and user resource review</strong>
-            <span>市场与用户资源评估</span>
+            <strong>{{ pageText.supportThree }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Long-term cooperation planning</strong>
-            <span>长期合作规划</span>
+            <strong>{{ pageText.supportFour }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- What We Care About -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">OUR EXPECTATIONS</p>
+        <p class="section-label">
+          {{ pageText.expectationLabel }}
+        </p>
 
         <h2>
-          What We Care About
-          <span>我们关注什么</span>
+          {{ pageText.expectationTitle }}
         </h2>
       </div>
 
       <div class="requirement-grid">
         <div class="requirement-card">
-          <strong>Real user resources</strong>
-          <span>真实用户资源</span>
+          <strong>{{ pageText.expectationOne }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Stable promotion ability</strong>
-          <span>稳定推广能力</span>
+          <strong>{{ pageText.expectationTwo }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Clear communication</strong>
-          <span>沟通清晰直接</span>
+          <strong>{{ pageText.expectationThree }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Long-term operation mindset</strong>
-          <span>长期运营意识</span>
+          <strong>{{ pageText.expectationFour }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Market understanding</strong>
-          <span>市场理解能力</span>
+          <strong>{{ pageText.expectationFive }}</strong>
         </div>
 
         <div class="requirement-card">
-          <strong>Responsible cooperation attitude</strong>
-          <span>负责任的合作态度</span>
+          <strong>{{ pageText.expectationSix }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="cta-section">
       <div class="cta-card">
-        <p class="section-label">START COOPERATION</p>
+        <p class="section-label">
+          {{ pageText.ctaLabel }}
+        </p>
 
         <h2>
-          Contact Us for Agent Cooperation
-          <span>联系我们开始代理合作</span>
+          {{ pageText.ctaTitle }}
         </h2>
 
         <p>
-          If you have agent resources, local promotion capability or user operation experience,
-          please contact us directly through Telegram or WhatsApp.
-        </p>
-
-        <p class="chinese">
-          如果你拥有代理资源、本地推广能力或用户运营经验，可以直接通过 Telegram 或 WhatsApp 联系我们。
+          {{ pageText.ctaDescription }}
         </p>
 
         <div class="cta-actions">
@@ -279,8 +345,7 @@ useHead({
             rel="noopener noreferrer"
             class="primary-button"
           >
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegram }}
           </a>
 
           <a
@@ -289,8 +354,7 @@ useHead({
             rel="noopener noreferrer"
             class="secondary-button"
           >
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsapp }}
           </a>
         </div>
       </div>
@@ -337,18 +401,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-h1 span,
-h2 span,
-h3 span,
-.primary-button span,
-.secondary-button span {
-  display: block;
-}
-
-h1 span {
-  margin-top: 8px;
-}
-
 .page-hero p,
 .section-heading p,
 .split-content p,
@@ -358,10 +410,6 @@ h1 span {
   color: #334155;
   font-size: 16px;
   line-height: 1.8;
-}
-
-.chinese {
-  color: #475569;
 }
 
 .content-section {
@@ -403,7 +451,7 @@ h1 span {
 }
 
 .info-card {
-  min-height: 300px;
+  min-height: 260px;
   padding: 28px;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
@@ -416,11 +464,6 @@ h1 span {
   color: #07112a;
   font-size: 20px;
   line-height: 1.35;
-}
-
-.info-card h3 span {
-  margin-top: 4px;
-  font-size: 17px;
 }
 
 .info-card p {
@@ -444,17 +487,11 @@ h1 span {
 }
 
 .list-item strong,
-.expectation-item strong {
+.expectation-item strong,
+.requirement-card strong {
   display: block;
-  margin-bottom: 6px;
   color: #07112a;
   font-size: 16px;
-}
-
-.list-item span,
-.expectation-item span {
-  color: #475569;
-  font-size: 14px;
 }
 
 .split-content {
@@ -493,18 +530,6 @@ h1 span {
   background: #f8fafc;
 }
 
-.requirement-card strong {
-  display: block;
-  margin-bottom: 6px;
-  color: #07112a;
-  font-size: 16px;
-}
-
-.requirement-card span {
-  color: #475569;
-  font-size: 14px;
-}
-
 .cta-section {
   max-width: 1180px;
   margin: 0 auto;
@@ -541,7 +566,6 @@ h1 span {
 .primary-button,
 .secondary-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 52px;

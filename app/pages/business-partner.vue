@@ -1,233 +1,283 @@
-<script setup>
-useHead({
-  title: 'Business Partnership | 招商合作',
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const { currentLanguage } = useLanguage()
+
+const pageText = computed(() => {
+  if (currentLanguage.value === 'zh') {
+    return {
+      seoTitle: '招商合作 | 合作伙伴与商务合作',
+      seoDescription:
+        '面向拥有市场资源、商务渠道和区域合作能力的招商合作伙伴。',
+
+      heroLabel: '招商合作',
+      heroTitle: '招商合作',
+      heroDescription:
+        '我们正在寻找拥有商务资源、市场渠道、区域资源和商业拓展能力的合作伙伴，共同发展长期合作机会。',
+
+      targetLabel: '我们寻找谁',
+      targetTitle: '适合的合作对象',
+
+      cardOneTitle: '商务资源方',
+      cardOneDescription:
+        '适合拥有现有商务资源、客户关系、业务网络或合作机会的资源方。',
+
+      cardTwoTitle: '区域市场合作方',
+      cardTwoDescription:
+        '适合熟悉本地市场，并能协助在指定国家、地区或城市拓展业务的合作方。',
+
+      cardThreeTitle: '渠道合作方',
+      cardThreeDescription:
+        '适合拥有线上或线下渠道、行业关系、客户群体或市场入口资源的合作伙伴。',
+
+      cardFourTitle: '战略合作伙伴',
+      cardFourDescription:
+        '适合可以支持长期业务发展、品牌合作、资源整合或市场拓展的合作伙伴。',
+
+      areasLabel: '合作方向',
+      areasTitle: '可以合作的方向',
+
+      areaOne: '市场拓展合作',
+      areaTwo: '区域业务开发',
+      areaThree: '渠道资源合作',
+      areaFour: '品牌或平台合作',
+      areaFive: '长期战略合作',
+      areaSix: '本地商务资源对接',
+
+      expectationLabel: '我们的关注点',
+      expectationTitle: '我们关注什么',
+      expectationDescription:
+        '我们重视拥有真实资源、沟通清晰、合作稳定，并具备长期业务发展潜力的合作伙伴。',
+
+      expectationOne: '真实商务资源',
+      expectationTwo: '明确市场方向',
+      expectationThree: '稳定沟通能力',
+      expectationFour: '长期合作意识',
+
+      ctaLabel: '开始合作',
+      ctaTitle: '联系我们开始招商合作',
+      ctaDescription:
+        '如果你拥有商务资源、区域渠道或合作机会，可以直接通过 Telegram 或 WhatsApp 联系我们。',
+      telegram: 'Telegram 联系',
+      whatsapp: 'WhatsApp 联系'
+    }
+  }
+
+  return {
+    seoTitle: 'Business Partnership | Partner Cooperation',
+    seoDescription:
+      'Business partnership opportunities for partners with market resources, business channels and regional cooperation capability.',
+
+    heroLabel: 'BUSINESS PARTNERSHIP',
+    heroTitle: 'Business Partnership',
+    heroDescription:
+      'We are looking for partners with business resources, market channels, regional connections and commercial development capability.',
+
+    targetLabel: 'WHO WE ARE LOOKING FOR',
+    targetTitle: 'Suitable Partner Types',
+
+    cardOneTitle: 'Business Resource Partners',
+    cardOneDescription:
+      'Partners who have existing commercial resources, client connections, business networks or cooperation opportunities.',
+
+    cardTwoTitle: 'Regional Market Partners',
+    cardTwoDescription:
+      'Partners who understand local markets and can help expand business in specific countries, regions or cities.',
+
+    cardThreeTitle: 'Channel Partners',
+    cardThreeDescription:
+      'Partners with offline or online channels, industry connections, customer groups or market access resources.',
+
+    cardFourTitle: 'Strategic Cooperation Partners',
+    cardFourDescription:
+      'Partners who can support long-term business development, brand cooperation, resource integration or market expansion.',
+
+    areasLabel: 'COOPERATION AREAS',
+    areasTitle: 'What We Can Cooperate On',
+
+    areaOne: 'Market Expansion',
+    areaTwo: 'Regional Business Development',
+    areaThree: 'Channel Resource Cooperation',
+    areaFour: 'Brand or Platform Cooperation',
+    areaFive: 'Long-Term Strategic Cooperation',
+    areaSix: 'Local Business Resource Matching',
+
+    expectationLabel: 'OUR EXPECTATIONS',
+    expectationTitle: 'What We Care About',
+    expectationDescription:
+      'We value partners who can provide real resources, clear communication, stable cooperation attitude and long-term business potential.',
+
+    expectationOne: 'Real business resources',
+    expectationTwo: 'Clear market direction',
+    expectationThree: 'Stable communication',
+    expectationFour: 'Long-term cooperation mindset',
+
+    ctaLabel: 'START COOPERATION',
+    ctaTitle: 'Contact Us for Business Cooperation',
+    ctaDescription:
+      'If you have business resources, regional channels or cooperation opportunities, please contact us directly through Telegram or WhatsApp.',
+    telegram: 'Telegram',
+    whatsapp: 'WhatsApp'
+  }
+})
+
+useHead(() => ({
+  title: pageText.value.seoTitle,
   meta: [
     {
       name: 'description',
-      content:
-        'Business partnership opportunities for partners with market resources, business channels and regional cooperation capability. 面向拥有市场资源、商务渠道和区域合作能力的招商合作伙伴。'
+      content: pageText.value.seoDescription
     },
     {
       property: 'og:title',
-      content: 'Business Partnership | 招商合作'
+      content: pageText.value.seoTitle
     },
     {
       property: 'og:description',
-      content:
-        'Cooperate with us if you have business resources, market channels, regional connections or commercial development capability. 如果你拥有商务资源、市场渠道、区域资源或商业拓展能力，欢迎联系我们。'
+      content: pageText.value.seoDescription
     }
   ]
-})
+}))
 </script>
 
 <template>
   <main class="partner-page">
-    <!-- Page Hero -->
     <section class="page-hero">
       <div class="page-hero-content">
-        <p class="section-label">BUSINESS PARTNERSHIP</p>
+        <p class="section-label">
+          {{ pageText.heroLabel }}
+        </p>
 
         <h1>
-          Business Partnership
-          <span>招商合作</span>
+          {{ pageText.heroTitle }}
         </h1>
 
         <p>
-          We are looking for partners with business resources, market channels,
-          regional connections and commercial development capability.
-        </p>
-
-        <p class="chinese">
-          我们正在寻找拥有商务资源、市场渠道、区域资源和商业拓展能力的合作伙伴，
-          共同发展长期合作机会。
+          {{ pageText.heroDescription }}
         </p>
       </div>
     </section>
 
-    <!-- Who We Are Looking For -->
     <section class="content-section">
       <div class="section-heading">
-        <p class="section-label">WHO WE ARE LOOKING FOR</p>
+        <p class="section-label">
+          {{ pageText.targetLabel }}
+        </p>
 
         <h2>
-          Suitable Partner Types
-          <span>适合的合作对象</span>
+          {{ pageText.targetTitle }}
         </h2>
       </div>
 
       <div class="card-grid">
         <div class="info-card">
-          <h3>
-            Business Resource Partners
-            <span>商务资源方</span>
-          </h3>
-
-          <p>
-            Partners who have existing commercial resources, client connections,
-            business networks or cooperation opportunities.
-          </p>
-
-          <p class="chinese">
-            适合拥有现有商务资源、客户关系、业务网络或合作机会的资源方。
-          </p>
+          <h3>{{ pageText.cardOneTitle }}</h3>
+          <p>{{ pageText.cardOneDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Regional Market Partners
-            <span>区域市场合作方</span>
-          </h3>
-
-          <p>
-            Partners who understand local markets and can help expand business
-            in specific countries, regions or cities.
-          </p>
-
-          <p class="chinese">
-            适合熟悉本地市场，并能协助在指定国家、地区或城市拓展业务的合作方。
-          </p>
+          <h3>{{ pageText.cardTwoTitle }}</h3>
+          <p>{{ pageText.cardTwoDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Channel Partners
-            <span>渠道合作方</span>
-          </h3>
-
-          <p>
-            Partners with offline or online channels, industry connections,
-            customer groups or market access resources.
-          </p>
-
-          <p class="chinese">
-            适合拥有线上或线下渠道、行业关系、客户群体或市场入口资源的合作伙伴。
-          </p>
+          <h3>{{ pageText.cardThreeTitle }}</h3>
+          <p>{{ pageText.cardThreeDescription }}</p>
         </div>
 
         <div class="info-card">
-          <h3>
-            Strategic Cooperation Partners
-            <span>战略合作伙伴</span>
-          </h3>
-
-          <p>
-            Partners who can support long-term business development, brand cooperation,
-            resource integration or market expansion.
-          </p>
-
-          <p class="chinese">
-            适合可以支持长期业务发展、品牌合作、资源整合或市场拓展的合作伙伴。
-          </p>
+          <h3>{{ pageText.cardFourTitle }}</h3>
+          <p>{{ pageText.cardFourDescription }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Cooperation Areas -->
     <section class="content-section light-section">
       <div class="section-heading">
-        <p class="section-label">COOPERATION AREAS</p>
+        <p class="section-label">
+          {{ pageText.areasLabel }}
+        </p>
 
         <h2>
-          What We Can Cooperate On
-          <span>可以合作的方向</span>
+          {{ pageText.areasTitle }}
         </h2>
       </div>
 
       <div class="list-panel">
         <div class="list-item">
-          <strong>Market Expansion</strong>
-          <span>市场拓展合作</span>
+          <strong>{{ pageText.areaOne }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Regional Business Development</strong>
-          <span>区域业务开发</span>
+          <strong>{{ pageText.areaTwo }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Channel Resource Cooperation</strong>
-          <span>渠道资源合作</span>
+          <strong>{{ pageText.areaThree }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Brand or Platform Cooperation</strong>
-          <span>品牌或平台合作</span>
+          <strong>{{ pageText.areaFour }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Long-Term Strategic Cooperation</strong>
-          <span>长期战略合作</span>
+          <strong>{{ pageText.areaFive }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>Local Business Resource Matching</strong>
-          <span>本地商务资源对接</span>
+          <strong>{{ pageText.areaSix }}</strong>
         </div>
       </div>
     </section>
 
-    <!-- What We Care About -->
     <section class="content-section">
       <div class="split-content">
         <div>
-          <p class="section-label">OUR EXPECTATIONS</p>
+          <p class="section-label">
+            {{ pageText.expectationLabel }}
+          </p>
 
           <h2>
-            What We Care About
-            <span>我们关注什么</span>
+            {{ pageText.expectationTitle }}
           </h2>
 
           <p>
-            We value partners who can provide real resources, clear communication,
-            stable cooperation attitude and long-term business potential.
-          </p>
-
-          <p class="chinese">
-            我们重视拥有真实资源、沟通清晰、合作稳定，并具备长期业务发展潜力的合作伙伴。
+            {{ pageText.expectationDescription }}
           </p>
         </div>
 
         <div class="expectation-list">
           <div class="expectation-item">
-            <strong>Real business resources</strong>
-            <span>真实商务资源</span>
+            <strong>{{ pageText.expectationOne }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Clear market direction</strong>
-            <span>明确市场方向</span>
+            <strong>{{ pageText.expectationTwo }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Stable communication</strong>
-            <span>稳定沟通能力</span>
+            <strong>{{ pageText.expectationThree }}</strong>
           </div>
 
           <div class="expectation-item">
-            <strong>Long-term cooperation mindset</strong>
-            <span>长期合作意识</span>
+            <strong>{{ pageText.expectationFour }}</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="cta-section">
       <div class="cta-card">
-        <p class="section-label">START COOPERATION</p>
+        <p class="section-label">
+          {{ pageText.ctaLabel }}
+        </p>
 
         <h2>
-          Contact Us for Business Cooperation
-          <span>联系我们开始招商合作</span>
+          {{ pageText.ctaTitle }}
         </h2>
 
         <p>
-          If you have business resources, regional channels or cooperation opportunities,
-          please contact us directly through Telegram or WhatsApp.
-        </p>
-
-        <p class="chinese">
-          如果你拥有商务资源、区域渠道或合作机会，可以直接通过 Telegram 或 WhatsApp 联系我们。
+          {{ pageText.ctaDescription }}
         </p>
 
         <div class="cta-actions">
@@ -237,8 +287,7 @@ useHead({
             rel="noopener noreferrer"
             class="primary-button"
           >
-            Telegram
-            <span>Telegram 联系</span>
+            {{ pageText.telegram }}
           </a>
 
           <a
@@ -247,8 +296,7 @@ useHead({
             rel="noopener noreferrer"
             class="secondary-button"
           >
-            WhatsApp
-            <span>WhatsApp 联系</span>
+            {{ pageText.whatsapp }}
           </a>
         </div>
       </div>
@@ -295,18 +343,6 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-h1 span,
-h2 span,
-h3 span,
-.primary-button span,
-.secondary-button span {
-  display: block;
-}
-
-h1 span {
-  margin-top: 8px;
-}
-
 .page-hero p,
 .section-heading p,
 .split-content p,
@@ -316,10 +352,6 @@ h1 span {
   color: #334155;
   font-size: 16px;
   line-height: 1.8;
-}
-
-.chinese {
-  color: #475569;
 }
 
 .content-section {
@@ -361,7 +393,7 @@ h1 span {
 }
 
 .info-card {
-  min-height: 300px;
+  min-height: 260px;
   padding: 28px;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
@@ -374,11 +406,6 @@ h1 span {
   color: #07112a;
   font-size: 20px;
   line-height: 1.35;
-}
-
-.info-card h3 span {
-  margin-top: 4px;
-  font-size: 17px;
 }
 
 .info-card p {
@@ -404,15 +431,8 @@ h1 span {
 .list-item strong,
 .expectation-item strong {
   display: block;
-  margin-bottom: 6px;
   color: #07112a;
   font-size: 16px;
-}
-
-.list-item span,
-.expectation-item span {
-  color: #475569;
-  font-size: 14px;
 }
 
 .split-content {
@@ -474,7 +494,6 @@ h1 span {
 .primary-button,
 .secondary-button {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 52px;
