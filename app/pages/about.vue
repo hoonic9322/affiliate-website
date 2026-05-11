@@ -165,7 +165,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="about-page">
+  <main class="about-page page-wrapper">
     <section class="page-hero">
       <div class="page-hero-content">
         <div class="hero-copy">
@@ -183,7 +183,7 @@ useHead(() => ({
         </div>
 
         <div class="hero-visual">
-          <div class="hero-image-card">
+          <div class="hero-image-card glass-card">
             <img
               src="/images/sections/partner-network.png"
               :alt="pageText.heroImageAlt"
@@ -194,7 +194,7 @@ useHead(() => ({
     </section>
 
     <section class="content-section">
-      <div class="split-content">
+      <div class="split-content glass-card">
         <div>
           <p class="section-label">
             {{ pageText.whoLabel }}
@@ -210,22 +210,22 @@ useHead(() => ({
         </div>
 
         <div class="highlight-panel">
-          <div class="highlight-item">
+          <div class="highlight-item basic-card">
             <span>01</span>
             <strong>{{ pageText.business }}</strong>
           </div>
 
-          <div class="highlight-item">
+          <div class="highlight-item basic-card">
             <span>02</span>
             <strong>{{ pageText.agent }}</strong>
           </div>
 
-          <div class="highlight-item">
+          <div class="highlight-item basic-card">
             <span>03</span>
             <strong>{{ pageText.traffic }}</strong>
           </div>
 
-          <div class="highlight-item">
+          <div class="highlight-item basic-card">
             <span>04</span>
             <strong>{{ pageText.technology }}</strong>
           </div>
@@ -248,8 +248,8 @@ useHead(() => ({
         </p>
       </div>
 
-      <div class="card-grid">
-        <div class="info-card">
+      <div class="card-grid card-grid-4">
+        <div class="info-card glass-card hover-card">
           <div class="mini-icon business-mini">01</div>
 
           <h3>{{ pageText.cardOneTitle }}</h3>
@@ -259,7 +259,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="info-card">
+        <div class="info-card glass-card hover-card">
           <div class="mini-icon agent-mini">02</div>
 
           <h3>{{ pageText.cardTwoTitle }}</h3>
@@ -269,7 +269,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="info-card">
+        <div class="info-card glass-card hover-card">
           <div class="mini-icon traffic-mini">03</div>
 
           <h3>{{ pageText.cardThreeTitle }}</h3>
@@ -279,7 +279,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="info-card">
+        <div class="info-card glass-card hover-card">
           <div class="mini-icon tech-mini">04</div>
 
           <h3>{{ pageText.cardFourTitle }}</h3>
@@ -302,8 +302,8 @@ useHead(() => ({
         </h2>
       </div>
 
-      <div class="value-grid">
-        <div class="value-card">
+      <div class="value-grid card-grid-4">
+        <div class="value-card glass-card">
           <strong>{{ pageText.valueOneTitle }}</strong>
 
           <p>
@@ -311,7 +311,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card glass-card">
           <strong>{{ pageText.valueTwoTitle }}</strong>
 
           <p>
@@ -319,7 +319,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card glass-card">
           <strong>{{ pageText.valueThreeTitle }}</strong>
 
           <p>
@@ -327,7 +327,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="value-card">
+        <div class="value-card glass-card">
           <strong>{{ pageText.valueFourTitle }}</strong>
 
           <p>
@@ -338,7 +338,7 @@ useHead(() => ({
     </section>
 
     <section class="cta-section">
-      <div class="cta-card">
+      <div class="cta-card glass-card">
         <p class="section-label">
           {{ pageText.ctaLabel }}
         </p>
@@ -351,7 +351,7 @@ useHead(() => ({
           {{ pageText.ctaDescription }}
         </p>
 
-        <div class="cta-actions">
+        <div class="cta-actions button-group">
           <a
             href="https://t.me/jerrymax88"
             target="_blank"
@@ -378,15 +378,10 @@ useHead(() => ({
 <style scoped>
 .about-page {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(22, 135, 217, 0.13), transparent 34%),
-    #0b1220;
-  color: #ffffff;
 }
 
 .page-hero {
-  max-width: 1280px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 72px 24px 36px;
 }
@@ -398,7 +393,7 @@ useHead(() => ({
   gap: 42px;
   align-items: center;
   padding: 68px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid var(--color-card-border);
   border-radius: 32px;
   background:
     linear-gradient(90deg, rgba(7, 17, 42, 0.94), rgba(7, 17, 42, 0.7)),
@@ -425,29 +420,21 @@ useHead(() => ({
   z-index: 2;
 }
 
-.section-label {
-  margin: 0 0 14px;
-  color: #38bdf8;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .hero-label {
   display: inline-flex;
   align-items: center;
   min-height: 34px;
   padding: 0 16px;
   border: 1px solid rgba(96, 165, 250, 0.32);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: rgba(22, 135, 217, 0.16);
   color: #93c5fd;
+  text-transform: uppercase;
 }
 
 h1 {
   margin: 0 0 20px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 54px;
   line-height: 1.1;
   letter-spacing: -0.04em;
@@ -460,18 +447,14 @@ h1 {
 .value-card p {
   max-width: 820px;
   margin: 0 0 8px;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 16px;
   line-height: 1.8;
 }
 
 .hero-image-card {
   padding: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
   border-radius: 28px;
-  background: rgba(15, 23, 42, 0.64);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(16px);
 }
 
 .hero-image-card img {
@@ -509,7 +492,7 @@ h1 {
 .split-content h2,
 .cta-card h2 {
   margin: 0 0 16px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -521,11 +504,7 @@ h1 {
   gap: 40px;
   align-items: center;
   padding: 44px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 24px;
-  background: rgba(15, 23, 42, 0.72);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(14px);
 }
 
 .highlight-panel {
@@ -538,9 +517,7 @@ h1 {
   align-items: center;
   gap: 14px;
   padding: 18px 20px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 14px;
-  background: rgba(30, 41, 59, 0.72);
 }
 
 .highlight-item span {
@@ -551,7 +528,7 @@ h1 {
   height: 34px;
   flex-shrink: 0;
   border-radius: 12px;
-  background: #1687d9;
+  background: var(--color-primary);
   color: #ffffff;
   font-size: 12px;
   font-weight: 900;
@@ -559,24 +536,13 @@ h1 {
 
 .highlight-item strong {
   display: block;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 16px;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
 }
 
 .info-card {
   min-height: 295px;
   padding: 28px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 20px;
-  background: rgba(15, 23, 42, 0.78);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(14px);
 }
 
 .mini-icon {
@@ -594,7 +560,7 @@ h1 {
 }
 
 .business-mini {
-  background: linear-gradient(135deg, #1687d9, #38bdf8);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
 }
 
 .agent-mini {
@@ -602,7 +568,7 @@ h1 {
 }
 
 .traffic-mini {
-  background: linear-gradient(135deg, #0f766e, #22c55e);
+  background: linear-gradient(135deg, #0f766e, var(--color-success));
 }
 
 .tech-mini {
@@ -611,43 +577,32 @@ h1 {
 
 .info-card h3 {
   margin: 0 0 14px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 20px;
   line-height: 1.35;
 }
 
 .info-card p {
   margin: 0 0 8px;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 15px;
   line-height: 1.75;
 }
 
-.value-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
 .value-card {
   padding: 26px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 18px;
-  background: rgba(15, 23, 42, 0.72);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(14px);
 }
 
 .value-card strong {
   display: block;
   margin-bottom: 14px;
-  color: #38bdf8;
+  color: var(--color-primary-light);
   font-size: 18px;
 }
 
 .value-card p {
   font-size: 15px;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
 }
 
 .cta-section {
@@ -658,18 +613,17 @@ h1 {
 
 .cta-card {
   padding: 54px;
-  border: 1px solid rgba(96, 165, 250, 0.26);
+  border-color: rgba(96, 165, 250, 0.26);
   border-radius: 24px;
   background:
     radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 34%),
     linear-gradient(135deg, #07112a, #123d68);
-  color: #ffffff;
-  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.26);
+  color: var(--color-text-main);
 }
 
 .cta-card h2,
 .cta-card p {
-  color: #ffffff;
+  color: var(--color-text-main);
 }
 
 .cta-card p {
@@ -681,56 +635,13 @@ h1 {
 }
 
 .cta-actions {
-  display: flex;
-  gap: 14px;
   margin-top: 32px;
-  flex-wrap: wrap;
-}
-
-.primary-button,
-.secondary-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 24px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.25;
-  text-decoration: none;
-}
-
-.primary-button {
-  background: #1687d9;
-  color: #ffffff;
-  box-shadow: 0 12px 28px rgba(22, 135, 217, 0.24);
-}
-
-.primary-button:hover {
-  background: #0f75c2;
-}
-
-.secondary-button {
-  border: 1px solid rgba(203, 213, 225, 0.32);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-}
-
-.secondary-button:hover {
-  border-color: #38bdf8;
-  background: rgba(22, 135, 217, 0.18);
 }
 
 @media (max-width: 1080px) {
   .page-hero-content {
     grid-template-columns: 1fr;
     padding: 52px;
-  }
-
-  .card-grid,
-  .value-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .split-content {
@@ -763,11 +674,6 @@ h1 {
     padding: 38px 16px;
   }
 
-  .card-grid,
-  .value-grid {
-    grid-template-columns: 1fr;
-  }
-
   .info-card {
     min-height: auto;
   }
@@ -776,11 +682,6 @@ h1 {
   .cta-card {
     padding: 30px 22px;
     border-radius: 18px;
-  }
-
-  .primary-button,
-  .secondary-button {
-    width: 100%;
   }
 }
 </style>
