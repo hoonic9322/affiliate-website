@@ -3,7 +3,7 @@
     <div class="footer-bg-glow"></div>
 
     <div class="footer-inner">
-      <div class="footer-brand glass-card">
+      <div class="footer-brand">
         <div class="footer-logo">
           <span class="brand-mark">P</span>
 
@@ -18,28 +18,18 @@
         </p>
 
         <div class="footer-contact-actions">
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button footer-action-link"
-          >
-            Telegram
-          </a>
+          <NuxtLink to="/contact" class="footer-primary-link">
+            {{ footerText.contactOptions }}
+          </NuxtLink>
 
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button footer-action-link"
-          >
-            WhatsApp
-          </a>
+          <NuxtLink to="/cooperation-model" class="footer-secondary-link">
+            {{ footerText.viewModel }}
+          </NuxtLink>
         </div>
       </div>
 
       <div class="footer-links">
-        <div class="footer-group glass-card">
+        <div class="footer-group">
           <h4>{{ footerText.partnershipTitle }}</h4>
 
           <NuxtLink to="/business-partner">
@@ -59,7 +49,7 @@
           </NuxtLink>
         </div>
 
-        <div class="footer-group glass-card">
+        <div class="footer-group">
           <h4>{{ footerText.pageTitle }}</h4>
 
           <NuxtLink to="/about">
@@ -79,27 +69,23 @@
           </NuxtLink>
         </div>
 
-        <div class="footer-group glass-card">
+        <div class="footer-group">
           <h4>{{ footerText.contactTitle }}</h4>
 
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Telegram @jerrymax88
-          </a>
-
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            WhatsApp
-          </a>
+          <NuxtLink to="/contact">
+            {{ footerText.businessContact }}
+          </NuxtLink>
 
           <NuxtLink to="/contact">
-            {{ footerText.contactPage }}
+            {{ footerText.agentContact }}
+          </NuxtLink>
+
+          <NuxtLink to="/contact">
+            {{ footerText.trafficContact }}
+          </NuxtLink>
+
+          <NuxtLink to="/contact">
+            {{ footerText.technologyContact }}
           </NuxtLink>
         </div>
       </div>
@@ -122,19 +108,29 @@ const footerText = computed(() => {
       brandTitle: '合作伙伴与商务合作',
       brandSubtitle: 'Partner Cooperation',
       brandDescription:
-        '我们欢迎招商、代理、流量和远程技术合作伙伴加入，共同拓展长期合作机会。',
+        '我们欢迎招商、代理、流量和远程技术合作伙伴加入。不同合作类型有不同联系方式，请进入联系页面选择对应合作方向。',
       partnershipTitle: '合作方向',
       pageTitle: '网站页面',
-      contactTitle: '联系方式',
+      contactTitle: '分类联系方式',
+
       business: '招商合作',
       agent: '代理合作',
       traffic: '流量合作',
       technology: '技术合作',
+
       about: '关于我们',
       model: '合作模式',
       faq: '常见问题',
       contact: '联系我们',
-      contactPage: '查看联系页面',
+
+      contactOptions: '查看联系方式',
+      viewModel: '查看合作模式',
+
+      businessContact: '招商 / 商户合作联系',
+      agentContact: '代理合作联系',
+      trafficContact: '流量合作联系',
+      technologyContact: '技术合作联系',
+
       copyright: '© 2026 合作伙伴与商务合作网站。保留所有权利。'
     }
   }
@@ -143,19 +139,29 @@ const footerText = computed(() => {
     brandTitle: 'Partner Cooperation',
     brandSubtitle: 'Business Partnership Platform',
     brandDescription:
-      'We welcome business, agent, traffic and remote technology partners to build long-term cooperation opportunities together.',
+      'We welcome business, agent, traffic and remote technology partners. Different cooperation types use different contacts, please choose the correct contact type on the contact page.',
     partnershipTitle: 'Partnership',
     pageTitle: 'Pages',
-    contactTitle: 'Contact',
+    contactTitle: 'Contact by Category',
+
     business: 'Business Partnership',
     agent: 'Agent Partnership',
     traffic: 'Traffic Partnership',
     technology: 'Technology Partnership',
+
     about: 'About Us',
     model: 'Cooperation Model',
     faq: 'FAQ',
     contact: 'Contact Us',
-    contactPage: 'View Contact Page',
+
+    contactOptions: 'View Contact Options',
+    viewModel: 'View Cooperation Model',
+
+    businessContact: 'Business / Merchant Contact',
+    agentContact: 'Agent Contact',
+    trafficContact: 'Traffic Contact',
+    technologyContact: 'Technology Contact',
+
     copyright: '© 2026 Partner Cooperation. All rights reserved.'
   }
 })
@@ -168,8 +174,8 @@ const footerText = computed(() => {
   background:
     radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
     radial-gradient(circle at bottom right, rgba(22, 135, 217, 0.12), transparent 34%),
-    var(--color-bg-secondary);
-  color: var(--color-text-main);
+    #0b1220;
+  color: #ffffff;
   border-top: 1px solid rgba(148, 163, 184, 0.16);
 }
 
@@ -197,6 +203,11 @@ const footerText = computed(() => {
 
 .footer-brand {
   padding: 28px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.58);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
 }
 
 .footer-logo {
@@ -214,7 +225,7 @@ const footerText = computed(() => {
   height: 48px;
   flex-shrink: 0;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  background: linear-gradient(135deg, #1687d9, #0f75c2);
   color: #ffffff;
   font-size: 24px;
   font-weight: 900;
@@ -225,7 +236,7 @@ const footerText = computed(() => {
 
 .footer-brand h3 {
   margin: 0;
-  color: var(--color-text-main);
+  color: #ffffff;
   font-size: 23px;
   line-height: 1.28;
 }
@@ -233,7 +244,7 @@ const footerText = computed(() => {
 .footer-brand small {
   display: block;
   margin-top: 6px;
-  color: var(--color-text-muted);
+  color: #94a3b8;
   font-size: 12px;
   font-weight: 700;
 }
@@ -241,7 +252,7 @@ const footerText = computed(() => {
 .footer-brand p {
   max-width: 460px;
   margin: 0;
-  color: var(--color-text-secondary);
+  color: #cbd5e1;
   font-size: 15px;
   line-height: 1.8;
 }
@@ -253,11 +264,43 @@ const footerText = computed(() => {
   flex-wrap: wrap;
 }
 
-.footer-action-link {
+.footer-primary-link,
+.footer-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 44px;
   padding: 0 18px;
-  border-radius: 12px;
+  border-radius: 11px;
   font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.footer-primary-link {
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  background: linear-gradient(135deg, #1687d9, #0f75c2);
+  color: #ffffff;
+  box-shadow:
+    0 10px 24px rgba(22, 135, 217, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.footer-primary-link:hover {
+  background: linear-gradient(135deg, #1d9bf0, #1687d9);
+  transform: translateY(-1px);
+}
+
+.footer-secondary-link {
+  border: 1px solid rgba(203, 213, 225, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.footer-secondary-link:hover {
+  border-color: #38bdf8;
+  background: rgba(22, 135, 217, 0.18);
 }
 
 .footer-links {
@@ -269,6 +312,11 @@ const footerText = computed(() => {
 .footer-group {
   min-height: 250px;
   padding: 26px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 22px;
+  background: rgba(15, 23, 42, 0.54);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
   display: flex;
   flex-direction: column;
   gap: 11px;
@@ -276,13 +324,13 @@ const footerText = computed(() => {
 
 .footer-group h4 {
   margin: 0 0 8px;
-  color: var(--color-text-main);
+  color: #ffffff;
   font-size: 15px;
   font-weight: 900;
 }
 
 .footer-group a {
-  color: var(--color-text-secondary);
+  color: #cbd5e1;
   font-size: 14px;
   line-height: 1.5;
   text-decoration: none;
@@ -290,7 +338,7 @@ const footerText = computed(() => {
 }
 
 .footer-group a:hover {
-  color: var(--color-primary-light);
+  color: #38bdf8;
   transform: translateX(2px);
 }
 
@@ -305,7 +353,7 @@ const footerText = computed(() => {
 
 .footer-bottom p {
   margin: 0;
-  color: var(--color-text-muted);
+  color: #94a3b8;
   font-size: 13px;
 }
 
@@ -327,8 +375,8 @@ const footerText = computed(() => {
 
   .footer-brand,
   .footer-group {
-    padding: 24px;
     border-radius: 18px;
+    padding: 24px;
   }
 
   .footer-links {
@@ -348,7 +396,8 @@ const footerText = computed(() => {
     flex-direction: column;
   }
 
-  .footer-action-link {
+  .footer-primary-link,
+  .footer-secondary-link {
     width: 100%;
   }
 }

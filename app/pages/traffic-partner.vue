@@ -1,175 +1,166 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const { currentLanguage } = useLanguage()
+
+const {
+  getContact,
+  loadContactLinks
+} = useContactLinks()
+
+onMounted(() => {
+  loadContactLinks()
+})
+
+const contact = computed(() => getContact('traffic'))
 
 const pageText = computed(() => {
   if (currentLanguage.value === 'zh') {
     return {
-      seoTitle: '远程技术合作 | 合作伙伴与商务合作',
+      seoTitle: '流量合作 | 合作伙伴与商务合作',
       seoDescription:
-        '面向软件公司、远程开发团队、UI/UX、QA、DevOps 和技术服务商。',
+        '面向网站站长、SEO 团队、广告投放团队、KOL、社群和流量合作伙伴。',
 
-      heroLabel: '远程技术合作',
-      heroTitle: '远程技术合作',
+      heroLabel: '流量合作',
+      heroTitle: '流量合作',
       heroDescription:
-        '我们正在寻找稳定可靠的远程技术公司、软件开发团队、技术服务供应商和长期技术合作伙伴。',
-      heroImageAlt: '远程技术合作与软件开发生态视觉图',
+        '我们欢迎拥有真实流量资源、SEO 排名资源、广告投放经验、社群渠道、媒体资源或区域推广能力的合作伙伴。',
+      heroImageAlt: '流量合作与增长渠道视觉图',
 
       targetLabel: '我们寻找谁',
-      targetTitle: '适合的技术合作对象',
+      targetTitle: '适合的流量合作对象',
 
-      cardOneTitle: '软件开发公司',
+      cardOneTitle: '网站站长',
       cardOneDescription:
-        '适合具备网站开发、系统开发、后台管理系统和业务平台开发经验的软件公司。',
+        '适合拥有网站、内容平台、排名页面或广告位，并具备稳定访问流量的合作方。',
 
-      cardTwoTitle: '远程开发团队',
+      cardTwoTitle: 'SEO 团队',
       cardTwoDescription:
-        '适合可以远程支持前端、后端、全栈开发、API 对接和长期项目维护的开发团队。',
+        '适合具备 SEO 排名能力、关键词资源、内容网络或搜索流量资源的团队。',
 
-      cardThreeTitle: 'UI/UX 与产品团队',
+      cardThreeTitle: '广告投放团队',
       cardThreeDescription:
-        '适合可以支持界面设计、用户体验设计、原型设计和产品需求梳理的团队。',
+        '适合具备 Google、Meta、TikTok、原生广告或其他流量平台投放经验的团队。',
 
-      cardFourTitle: '测试、运维与技术支持',
+      cardFourTitle: '社群与 KOL 资源方',
       cardFourDescription:
-        '适合可以支持测试、部署、服务器维护、数据库优化和技术问题处理的团队。',
+        '适合拥有 Telegram 群、WhatsApp 社群、社交媒体频道、KOL 或私域流量资源的合作方。',
 
-      serviceLabel: '技术服务',
-      serviceTitle: '我们可能需要的技术服务',
+      channelLabel: '流量渠道',
+      channelTitle: '支持的流量渠道',
 
-      serviceOne: '网站开发',
-      serviceTwo: '后台管理系统开发',
-      serviceThree: '前端开发',
-      serviceFour: '后端开发',
-      serviceFive: 'API 对接',
-      serviceSix: '数据库设计',
-      serviceSeven: 'UI/UX 设计',
-      serviceEight: '测试服务',
-      serviceNine: '部署与维护',
-
-      stackLabel: '技术能力',
-      stackTitle: '现代 Web 开发能力',
-      stackDescription:
-        '我们不限制合作方必须使用某一种技术栈，但合作方需要具备现代 Web 开发、API 对接、数据库设计、部署维护和版本管理能力。',
-
-      stackOne: '前端框架能力',
-      stackTwo: '后端开发能力',
-      stackThree: '数据库与缓存能力',
-      stackFour: '部署、运维与版本管理',
+      channelOne: 'SEO 网站流量',
+      channelTwo: '搜索引擎流量',
+      channelThree: '社交媒体流量',
+      channelFour: 'Telegram / WhatsApp 社群',
+      channelFive: 'KOL / 网红推广',
+      channelSix: '媒体广告位',
+      channelSeven: '付费广告流量',
+      channelEight: '内容推广',
+      channelNine: '区域市场渠道',
 
       modelLabel: '合作模式',
-      modelTitle: '灵活的技术合作方式',
+      modelTitle: '灵活的流量合作方式',
+      modelDescription:
+        '流量合作方式可以根据流量来源、市场区域、流量质量、转化预期和合作规模进行安排。',
 
-      modelOne: '项目制合作',
-      modelTwo: '长期维护合作',
-      modelThree: '月度技术支持',
-      modelFour: '专属远程团队',
-      modelFive: '技术顾问合作',
-      modelSix: '紧急问题修复支持',
+      modelOne: 'CPA 合作',
+      modelTwo: '收入分成合作',
+      modelThree: '固定广告位合作',
+      modelFour: '混合合作模式',
+      modelFive: '内容推广合作',
+      modelSix: '长期流量采购合作',
 
       expectationLabel: '我们的关注点',
       expectationTitle: '我们关注什么',
-      expectationDescription:
-        '我们重视沟通清晰、交付负责、重视项目保密，并可以长期稳定配合的技术合作伙伴。',
 
-      expectationOne: '真实项目经验',
-      expectationTwo: '清晰技术沟通',
-      expectationThree: '稳定交付能力',
-      expectationFour: '保密意识',
-      expectationFive: '版本管理规范',
-      expectationSix: '长期支持意识',
+      expectationOne: '真实流量来源',
+      expectationTwo: '目标市场匹配',
+      expectationThree: '稳定推广渠道',
+      expectationFour: '流量质量',
+      expectationFive: '基础数据透明',
+      expectationSix: '长期合作潜力',
 
       ctaLabel: '开始合作',
-      ctaTitle: '联系我们开始远程技术合作',
+      ctaTitle: '联系我们开始流量合作',
       ctaDescription:
-        '如果你的公司或团队有兴趣成为我们的远程技术合作伙伴，可以直接通过 Telegram 或 WhatsApp 联系我们。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '如果你拥有网站流量、SEO 排名资源、社群资源、KOL 资源、广告流量或本地推广渠道，可以通过流量合作对应的 Telegram 或 WhatsApp 联系我们。',
+      telegram: contact.value.telegramLabelZh,
+      whatsapp: contact.value.whatsappLabelZh
     }
   }
 
   return {
-    seoTitle: 'Technology Partnership | Partner Cooperation',
+    seoTitle: 'Traffic Partnership | Partner Cooperation',
     seoDescription:
-      'Remote technology partnership opportunities for software companies, development teams, UI/UX, QA, DevOps and technical service providers.',
+      'Traffic partnership opportunities for website owners, SEO teams, media buyers, KOLs, social communities and affiliate traffic partners.',
 
-    heroLabel: 'TECHNOLOGY PARTNERSHIP',
-    heroTitle: 'Remote Technology Partnership',
+    heroLabel: 'TRAFFIC PARTNERSHIP',
+    heroTitle: 'Traffic Partnership',
     heroDescription:
-      'We are looking for reliable remote technology companies, software development teams, technical service providers and long-term technical partners.',
-    heroImageAlt: 'Remote technology partnership and software development ecosystem illustration',
+      'We welcome partners with real traffic resources, SEO ranking resources, advertising experience, community channels, media resources or regional promotion ability.',
+    heroImageAlt: 'Traffic partnership and growth channel illustration',
 
     targetLabel: 'WHO WE ARE LOOKING FOR',
-    targetTitle: 'Suitable Technology Partners',
+    targetTitle: 'Suitable Traffic Partners',
 
-    cardOneTitle: 'Software Development Companies',
+    cardOneTitle: 'Website Owners',
     cardOneDescription:
-      'Companies with experience in website development, system development, backend management systems and business platform development.',
+      'Partners who own websites, content platforms, ranking pages or advertising spaces with stable visitor traffic.',
 
-    cardTwoTitle: 'Remote Development Teams',
+    cardTwoTitle: 'SEO Teams',
     cardTwoDescription:
-      'Teams that can support frontend, backend, full-stack development, API integration and long-term project maintenance remotely.',
+      'Teams with SEO ranking ability, keyword resources, content networks or search traffic.',
 
-    cardThreeTitle: 'UI/UX & Product Teams',
+    cardThreeTitle: 'Media Buying Teams',
     cardThreeDescription:
-      'Teams that can support interface design, user experience design, prototype design and product requirement clarification.',
+      'Teams with paid advertising experience across Google, Meta, TikTok, native ads or other traffic platforms.',
 
-    cardFourTitle: 'QA, DevOps & Technical Support',
+    cardFourTitle: 'Community & KOL Resources',
     cardFourDescription:
-      'Teams that can support testing, deployment, server maintenance, database optimization and technical troubleshooting.',
+      'Partners who manage Telegram groups, WhatsApp communities, social media channels, influencers or private traffic groups.',
 
-    serviceLabel: 'TECHNICAL SERVICES',
-    serviceTitle: 'Services We May Need',
+    channelLabel: 'TRAFFIC CHANNELS',
+    channelTitle: 'Supported Traffic Channels',
 
-    serviceOne: 'Website Development',
-    serviceTwo: 'Admin System Development',
-    serviceThree: 'Frontend Development',
-    serviceFour: 'Backend Development',
-    serviceFive: 'API Integration',
-    serviceSix: 'Database Design',
-    serviceSeven: 'UI/UX Design',
-    serviceEight: 'QA Testing',
-    serviceNine: 'Deployment & Maintenance',
-
-    stackLabel: 'TECHNOLOGY STACK',
-    stackTitle: 'Modern Web Development Capability',
-    stackDescription:
-      'We do not limit partners to only one technology stack, but partners should have solid experience in modern web development, API integration, database design, deployment and version control.',
-
-    stackOne: 'Vue / Nuxt / React / Next.js',
-    stackTwo: 'ASP.NET Core / Node.js / Laravel / Java',
-    stackThree: 'MSSQL / MySQL / PostgreSQL / Redis',
-    stackFour: 'Docker / Linux / Cloudflare / Git',
+    channelOne: 'SEO Website Traffic',
+    channelTwo: 'Search Engine Traffic',
+    channelThree: 'Social Media Traffic',
+    channelFour: 'Telegram / WhatsApp Communities',
+    channelFive: 'KOL / Influencer Promotion',
+    channelSix: 'Media Advertising Spaces',
+    channelSeven: 'Paid Advertising Traffic',
+    channelEight: 'Content Promotion',
+    channelNine: 'Regional Market Channels',
 
     modelLabel: 'COOPERATION MODELS',
-    modelTitle: 'Flexible Technical Cooperation',
+    modelTitle: 'Flexible Traffic Cooperation',
+    modelDescription:
+      'Traffic cooperation can be arranged based on traffic source, market, quality, conversion expectation and cooperation scale.',
 
-    modelOne: 'Project-Based Cooperation',
-    modelTwo: 'Long-Term Maintenance',
-    modelThree: 'Monthly Technical Support',
-    modelFour: 'Dedicated Remote Team',
-    modelFive: 'Technical Consulting',
-    modelSix: 'Urgent Bug Fix Support',
+    modelOne: 'CPA Cooperation',
+    modelTwo: 'Revenue Share Cooperation',
+    modelThree: 'Fixed Advertising Placement',
+    modelFour: 'Hybrid Cooperation Model',
+    modelFive: 'Content Promotion',
+    modelSix: 'Long-Term Traffic Purchase',
 
     expectationLabel: 'OUR EXPECTATIONS',
     expectationTitle: 'What We Care About',
-    expectationDescription:
-      'We value technology partners who can communicate clearly, deliver responsibly, protect project confidentiality and support long-term collaboration.',
 
-    expectationOne: 'Real project experience',
-    expectationTwo: 'Clear technical communication',
-    expectationThree: 'Stable delivery capability',
-    expectationFour: 'Confidentiality awareness',
-    expectationFive: 'Version control discipline',
-    expectationSix: 'Long-term support mindset',
+    expectationOne: 'Real traffic source',
+    expectationTwo: 'Target market match',
+    expectationThree: 'Stable promotion channel',
+    expectationFour: 'Traffic quality',
+    expectationFive: 'Basic data transparency',
+    expectationSix: 'Long-term cooperation potential',
 
     ctaLabel: 'START COOPERATION',
-    ctaTitle: 'Contact Us for Technology Cooperation',
+    ctaTitle: 'Contact Us for Traffic Cooperation',
     ctaDescription:
-      'If your company or team is interested in remote technical cooperation, please contact us directly through Telegram or WhatsApp.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'If you have website traffic, SEO ranking resources, social communities, KOL resources, advertising traffic or local promotion channels, please contact us through the traffic partnership Telegram or WhatsApp.',
+    telegram: contact.value.telegramLabelEn,
+    whatsapp: contact.value.whatsappLabelEn
   }
 })
 
@@ -213,7 +204,7 @@ useHead(() => ({
         <div class="hero-visual">
           <div class="hero-image-card">
             <img
-              src="/images/sections/technology-partner-visual.png"
+              src="/images/sections/traffic-partner-visual.png"
               :alt="pageText.heroImageAlt"
             >
           </div>
@@ -262,49 +253,49 @@ useHead(() => ({
     <section class="content-section dark-section">
       <div class="section-heading">
         <p class="section-label">
-          {{ pageText.serviceLabel }}
+          {{ pageText.channelLabel }}
         </p>
 
         <h2>
-          {{ pageText.serviceTitle }}
+          {{ pageText.channelTitle }}
         </h2>
       </div>
 
       <div class="list-panel">
         <div class="list-item">
-          <strong>{{ pageText.serviceOne }}</strong>
+          <strong>{{ pageText.channelOne }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceTwo }}</strong>
+          <strong>{{ pageText.channelTwo }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceThree }}</strong>
+          <strong>{{ pageText.channelThree }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceFour }}</strong>
+          <strong>{{ pageText.channelFour }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceFive }}</strong>
+          <strong>{{ pageText.channelFive }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceSix }}</strong>
+          <strong>{{ pageText.channelSix }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceSeven }}</strong>
+          <strong>{{ pageText.channelSeven }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceEight }}</strong>
+          <strong>{{ pageText.channelEight }}</strong>
         </div>
 
         <div class="list-item">
-          <strong>{{ pageText.serviceNine }}</strong>
+          <strong>{{ pageText.channelNine }}</strong>
         </div>
       </div>
     </section>
@@ -313,37 +304,47 @@ useHead(() => ({
       <div class="split-content">
         <div>
           <p class="section-label">
-            {{ pageText.stackLabel }}
+            {{ pageText.modelLabel }}
           </p>
 
           <h2>
-            {{ pageText.stackTitle }}
+            {{ pageText.modelTitle }}
           </h2>
 
           <p>
-            {{ pageText.stackDescription }}
+            {{ pageText.modelDescription }}
           </p>
         </div>
 
         <div class="expectation-list">
           <div class="expectation-item">
             <span>01</span>
-            <strong>{{ pageText.stackOne }}</strong>
+            <strong>{{ pageText.modelOne }}</strong>
           </div>
 
           <div class="expectation-item">
             <span>02</span>
-            <strong>{{ pageText.stackTwo }}</strong>
+            <strong>{{ pageText.modelTwo }}</strong>
           </div>
 
           <div class="expectation-item">
             <span>03</span>
-            <strong>{{ pageText.stackThree }}</strong>
+            <strong>{{ pageText.modelThree }}</strong>
           </div>
 
           <div class="expectation-item">
             <span>04</span>
-            <strong>{{ pageText.stackFour }}</strong>
+            <strong>{{ pageText.modelFour }}</strong>
+          </div>
+
+          <div class="expectation-item">
+            <span>05</span>
+            <strong>{{ pageText.modelFive }}</strong>
+          </div>
+
+          <div class="expectation-item">
+            <span>06</span>
+            <strong>{{ pageText.modelSix }}</strong>
           </div>
         </div>
       </div>
@@ -352,93 +353,43 @@ useHead(() => ({
     <section class="content-section dark-section">
       <div class="section-heading">
         <p class="section-label">
-          {{ pageText.modelLabel }}
+          {{ pageText.expectationLabel }}
         </p>
 
         <h2>
-          {{ pageText.modelTitle }}
+          {{ pageText.expectationTitle }}
         </h2>
       </div>
 
       <div class="requirement-grid">
         <div class="requirement-card">
           <span>01</span>
-          <strong>{{ pageText.modelOne }}</strong>
+          <strong>{{ pageText.expectationOne }}</strong>
         </div>
 
         <div class="requirement-card">
           <span>02</span>
-          <strong>{{ pageText.modelTwo }}</strong>
+          <strong>{{ pageText.expectationTwo }}</strong>
         </div>
 
         <div class="requirement-card">
           <span>03</span>
-          <strong>{{ pageText.modelThree }}</strong>
+          <strong>{{ pageText.expectationThree }}</strong>
         </div>
 
         <div class="requirement-card">
           <span>04</span>
-          <strong>{{ pageText.modelFour }}</strong>
+          <strong>{{ pageText.expectationFour }}</strong>
         </div>
 
         <div class="requirement-card">
           <span>05</span>
-          <strong>{{ pageText.modelFive }}</strong>
+          <strong>{{ pageText.expectationFive }}</strong>
         </div>
 
         <div class="requirement-card">
           <span>06</span>
-          <strong>{{ pageText.modelSix }}</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="split-content">
-        <div>
-          <p class="section-label">
-            {{ pageText.expectationLabel }}
-          </p>
-
-          <h2>
-            {{ pageText.expectationTitle }}
-          </h2>
-
-          <p>
-            {{ pageText.expectationDescription }}
-          </p>
-        </div>
-
-        <div class="expectation-list">
-          <div class="expectation-item">
-            <span>01</span>
-            <strong>{{ pageText.expectationOne }}</strong>
-          </div>
-
-          <div class="expectation-item">
-            <span>02</span>
-            <strong>{{ pageText.expectationTwo }}</strong>
-          </div>
-
-          <div class="expectation-item">
-            <span>03</span>
-            <strong>{{ pageText.expectationThree }}</strong>
-          </div>
-
-          <div class="expectation-item">
-            <span>04</span>
-            <strong>{{ pageText.expectationFour }}</strong>
-          </div>
-
-          <div class="expectation-item">
-            <span>05</span>
-            <strong>{{ pageText.expectationFive }}</strong>
-          </div>
-
-          <div class="expectation-item">
-            <span>06</span>
-            <strong>{{ pageText.expectationSix }}</strong>
-          </div>
+          <strong>{{ pageText.expectationSix }}</strong>
         </div>
       </div>
     </section>
@@ -459,7 +410,7 @@ useHead(() => ({
 
         <div class="cta-actions">
           <a
-            href="https://t.me/jerrymax88"
+            :href="contact.telegramUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="primary-button"
@@ -468,7 +419,7 @@ useHead(() => ({
           </a>
 
           <a
-            href="https://wa.me/your_number"
+            :href="contact.whatsappUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="secondary-button"
@@ -538,6 +489,7 @@ useHead(() => ({
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .hero-label {
@@ -557,6 +509,7 @@ h1 {
   font-size: 54px;
   line-height: 1.1;
   letter-spacing: -0.04em;
+  text-align: left;
 }
 
 .page-hero p,
@@ -569,6 +522,7 @@ h1 {
   color: #cbd5e1;
   font-size: 16px;
   line-height: 1.8;
+  text-align: left;
 }
 
 .hero-image-card {
@@ -600,7 +554,9 @@ h1 {
   border-bottom: 1px solid rgba(148, 163, 184, 0.16);
 }
 
-.dark-section > * {
+.dark-section > .section-heading,
+.dark-section > .list-panel,
+.dark-section > .requirement-grid {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
@@ -609,6 +565,7 @@ h1 {
 .section-heading {
   max-width: 820px;
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .section-heading h2,
@@ -619,6 +576,17 @@ h1 {
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -0.03em;
+  text-align: left;
+}
+
+.dark-section .section-heading {
+  text-align: left;
+}
+
+.dark-section .section-heading h2,
+.dark-section .section-heading p,
+.dark-section .section-label {
+  text-align: left;
 }
 
 .card-grid {
@@ -672,6 +640,7 @@ h1 {
   color: #ffffff;
   font-size: 20px;
   line-height: 1.35;
+  text-align: left;
 }
 
 .info-card p {
@@ -679,6 +648,7 @@ h1 {
   color: #cbd5e1;
   font-size: 15px;
   line-height: 1.75;
+  text-align: left;
 }
 
 .list-panel {
@@ -698,6 +668,7 @@ h1 {
   display: block;
   color: #ffffff;
   font-size: 16px;
+  text-align: left;
 }
 
 .split-content {
@@ -749,6 +720,7 @@ h1 {
   display: block;
   color: #ffffff;
   font-size: 16px;
+  text-align: left;
 }
 
 .requirement-grid {

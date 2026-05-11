@@ -1,7 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const { currentLanguage } = useLanguage()
+
+const {
+  getContact,
+  loadContactLinks
+} = useContactLinks()
+
+onMounted(() => {
+  loadContactLinks()
+})
+
+const contact = computed(() => getContact('business'))
 
 const pageText = computed(() => {
   if (currentLanguage.value === 'zh') {
@@ -58,9 +69,9 @@ const pageText = computed(() => {
       ctaLabel: '开始合作',
       ctaTitle: '联系我们开始招商合作',
       ctaDescription:
-        '如果你拥有商务资源、区域渠道或合作机会，可以直接通过 Telegram 或 WhatsApp 联系我们。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '如果你拥有商务资源、区域渠道或合作机会，可以通过招商 / 商户合作对应的 Telegram 或 WhatsApp 联系我们。',
+      telegram: contact.value.telegramLabelZh,
+      whatsapp: contact.value.whatsappLabelZh
     }
   }
 
@@ -117,9 +128,9 @@ const pageText = computed(() => {
     ctaLabel: 'START COOPERATION',
     ctaTitle: 'Contact Us for Business Cooperation',
     ctaDescription:
-      'If you have business resources, regional channels or cooperation opportunities, please contact us directly through Telegram or WhatsApp.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'If you have business resources, regional channels or cooperation opportunities, please contact us through the business / merchant partnership Telegram or WhatsApp.',
+    telegram: contact.value.telegramLabelEn,
+    whatsapp: contact.value.whatsappLabelEn
   }
 })
 
@@ -303,7 +314,7 @@ useHead(() => ({
 
         <div class="cta-actions">
           <a
-            href="https://t.me/jerrymax88"
+            :href="contact.telegramUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="primary-button"
@@ -312,7 +323,7 @@ useHead(() => ({
           </a>
 
           <a
-            href="https://wa.me/your_number"
+            :href="contact.whatsappUrl"
             target="_blank"
             rel="noopener noreferrer"
             class="secondary-button"
