@@ -1,36 +1,60 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const { currentLanguage } = useLanguage()
+
+const {
+  contactLinks,
+  loadContactLinks
+} = useContactLinks()
+
+onMounted(() => {
+  loadContactLinks()
+})
+
+const isZh = computed(() => currentLanguage.value === 'zh')
+
+const contactItems = computed(() => {
+  const keys = ['business', 'agent', 'traffic', 'technology'] as const
+
+  return keys
+    .map((key) => {
+      const item = contactLinks.value[key]
+
+      return {
+        key,
+        title: isZh.value ? item.titleZh : item.titleEn,
+        telegramLabel: isZh.value ? item.telegramLabelZh : item.telegramLabelEn,
+        whatsappLabel: isZh.value ? item.whatsappLabelZh : item.whatsappLabelEn,
+        telegramUrl: item.telegramUrl,
+        whatsappUrl: item.whatsappUrl,
+        enabled: item.enabled
+      }
+    })
+    .filter((item) => item.enabled)
+})
 
 const pageText = computed(() => {
   if (currentLanguage.value === 'zh') {
     return {
       seoTitle: '联系我们 | 合作伙伴与商务合作',
       seoDescription:
-        '通过 Telegram 或 WhatsApp 联系我们，沟通招商、代理、流量或远程技术合作。',
+        '请选择合作类型，并通过对应的 Telegram 或 WhatsApp 联系我们，沟通招商、代理、流量或远程技术合作。',
 
       heroLabel: '联系我们',
-      heroTitle: '联系我们开始合作',
+      heroTitle: '请选择合作类型联系我们',
       heroDescription:
-        '如果你有兴趣进行招商合作、代理合作、流量合作或远程技术合作，可以直接通过 Telegram 或 WhatsApp 联系我们。',
+        '不同合作类型使用不同的 Telegram 和 WhatsApp 联系方式。请根据你的合作方向选择对应联系人，方便我们更快安排对接。',
       heroImageAlt: '商务合作联系与在线沟通视觉图',
+      viewContactOptions: '查看联系方式',
+      prepareInfo: '联系前准备',
 
-      directLabel: '直接联系',
-      directTitle: '选择你的联系方式',
+      directLabel: '分类联系方式',
+      directTitle: '请选择对应合作类型',
       directDescription:
-        '我们建议通过 Telegram 或 WhatsApp 直接沟通，这样可以更快确认合作方向。',
+        '为了提高沟通效率，请根据招商 / 商户合作、代理合作、流量合作或技术合作选择对应联系方式。',
 
-      telegramTitle: 'Telegram 联系',
-      telegramAccount: '@jerrymax88',
-      telegramDescription:
-        '通过 Telegram 联系我们，快速沟通合作方向。',
       telegramButton: '打开 Telegram',
-
-      whatsappTitle: 'WhatsApp 联系',
-      whatsappAccount: '稍后配置',
-      whatsappDescription:
-        '通过 WhatsApp 联系我们，沟通商务与合作事项。',
       whatsappButton: '打开 WhatsApp',
 
       prepareLabel: '联系前准备',
@@ -40,7 +64,7 @@ const pageText = computed(() => {
 
       infoOneTitle: '合作类型',
       infoOneDescription:
-        '招商合作、代理合作、流量合作或远程技术合作。',
+        '招商 / 商户合作、代理合作、流量合作或远程技术合作。',
 
       infoTwoTitle: '市场或区域',
       infoTwoDescription:
@@ -57,48 +81,40 @@ const pageText = computed(() => {
       partnerLabel: '谁可以联系我们',
       partnerTitle: '欢迎不同类型合作伙伴联系',
       partnerDescription:
-        '无论你是个人、团队、公司、代理方、流量主、广告投放团队或技术服务商，都可以直接联系我们。',
+        '无论你是个人、团队、公司、代理方、流量主、广告投放团队或技术服务商，都可以根据对应合作类型联系我们。',
 
-      partnerOne: '招商合作方',
+      partnerOne: '招商 / 商户合作方',
       partnerTwo: '代理合作方',
       partnerThree: '流量合作方',
       partnerFour: '远程技术合作方',
 
       ctaLabel: '现在开始',
-      ctaTitle: '现在开始沟通合作',
+      ctaTitle: '选择正确联系人，开始沟通合作',
       ctaDescription:
-        '直接联系我们，并说明你的合作类型、市场、资源和期望合作方式。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '请根据你的合作类型选择对应的 Telegram 或 WhatsApp。这样可以避免联系错人，也方便我们更快安排后续沟通。',
+      chooseContact: '选择联系方式'
     }
   }
 
   return {
     seoTitle: 'Contact Us | Partner Cooperation',
     seoDescription:
-      'Contact us through Telegram or WhatsApp for business, agent, traffic or remote technology cooperation.',
+      'Choose the correct cooperation type and contact us through the corresponding Telegram or WhatsApp for business, agent, traffic or remote technology cooperation.',
 
     heroLabel: 'CONTACT US',
-    heroTitle: 'Contact Us for Cooperation',
+    heroTitle: 'Choose the Right Contact Type',
     heroDescription:
-      'If you are interested in business partnership, agent partnership, traffic partnership or remote technology cooperation, contact us directly through Telegram or WhatsApp.',
+      'Different cooperation types use different Telegram and WhatsApp contacts. Please choose the contact based on your cooperation direction.',
     heroImageAlt: 'Business cooperation contact and online communication illustration',
+    viewContactOptions: 'View Contact Options',
+    prepareInfo: 'Before Contacting Us',
 
-    directLabel: 'DIRECT CONTACT',
-    directTitle: 'Choose Your Preferred Contact Method',
+    directLabel: 'CONTACT BY CATEGORY',
+    directTitle: 'Choose Your Cooperation Type',
     directDescription:
-      'We recommend direct communication through Telegram or WhatsApp for faster response.',
+      'To improve communication efficiency, please choose the correct contact for business / merchant partnership, agent partnership, traffic partnership or technology partnership.',
 
-    telegramTitle: 'Telegram',
-    telegramAccount: '@jerrymax88',
-    telegramDescription:
-      'Contact us through Telegram for quick cooperation discussion.',
     telegramButton: 'Open Telegram',
-
-    whatsappTitle: 'WhatsApp',
-    whatsappAccount: 'Pending setup',
-    whatsappDescription:
-      'Contact us through WhatsApp for business and cooperation inquiries.',
     whatsappButton: 'Open WhatsApp',
 
     prepareLabel: 'BEFORE CONTACTING US',
@@ -108,7 +124,7 @@ const pageText = computed(() => {
 
     infoOneTitle: 'Cooperation Type',
     infoOneDescription:
-      'Business partnership, agent partnership, traffic partnership or technology partnership.',
+      'Business / merchant partnership, agent partnership, traffic partnership or technology partnership.',
 
     infoTwoTitle: 'Market or Region',
     infoTwoDescription:
@@ -125,19 +141,18 @@ const pageText = computed(() => {
     partnerLabel: 'WHO CAN CONTACT US',
     partnerTitle: 'Open to Different Partner Types',
     partnerDescription:
-      'Whether you are an individual, team, company, agency, traffic owner, media buyer or technical service provider, you can contact us directly.',
+      'Whether you are an individual, team, company, agency, traffic owner, media buyer or technical service provider, you can contact us based on the correct cooperation type.',
 
-    partnerOne: 'Business Partners',
+    partnerOne: 'Business / Merchant Partners',
     partnerTwo: 'Agent Partners',
     partnerThree: 'Traffic Partners',
     partnerFour: 'Technology Partners',
 
     ctaLabel: 'START NOW',
-    ctaTitle: 'Start the Conversation Today',
+    ctaTitle: 'Choose the Correct Contact and Start Cooperation',
     ctaDescription:
-      'Contact us directly and tell us your cooperation type, market, resources and expected cooperation model.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'Please choose the corresponding Telegram or WhatsApp based on your cooperation type. This helps avoid contacting the wrong person and improves follow-up efficiency.',
+    chooseContact: 'Choose Contact'
   }
 })
 
@@ -178,22 +193,12 @@ useHead(() => ({
           </p>
 
           <div class="hero-actions">
-            <a
-              href="https://t.me/jerrymax88"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="primary-button"
-            >
-              {{ pageText.telegram }}
+            <a href="#contact-options" class="primary-button">
+              {{ pageText.viewContactOptions }}
             </a>
 
-            <a
-              href="https://wa.me/your_number"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="secondary-button"
-            >
-              {{ pageText.whatsapp }}
+            <a href="#prepare-info" class="secondary-button">
+              {{ pageText.prepareInfo }}
             </a>
           </div>
         </div>
@@ -209,7 +214,7 @@ useHead(() => ({
       </div>
     </section>
 
-    <section class="content-section">
+    <section id="contact-options" class="content-section">
       <div class="section-heading">
         <p class="section-label">
           {{ pageText.directLabel }}
@@ -224,56 +229,52 @@ useHead(() => ({
         </p>
       </div>
 
-      <div class="contact-grid">
-        <a
-          href="https://t.me/jerrymax88"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-card"
+      <div class="contact-type-grid">
+        <div
+          v-for="item in contactItems"
+          :key="item.key"
+          class="contact-type-card"
         >
-          <div class="contact-icon telegram-icon">T</div>
+          <div class="contact-type-header">
+            <div
+              class="contact-icon"
+              :class="`${item.key}-icon`"
+            >
+              {{ item.title.charAt(0) }}
+            </div>
 
-          <h3>
-            {{ pageText.telegramTitle }}
-          </h3>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.key.toUpperCase() }}</p>
+            </div>
+          </div>
 
-          <strong class="contact-account">
-            {{ pageText.telegramAccount }}
-          </strong>
+          <div class="contact-action-list">
+            <a
+              :href="item.telegramUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-action telegram-action"
+            >
+              <span class="action-label">{{ item.telegramLabel }}</span>
+              <strong>{{ pageText.telegramButton }}</strong>
+            </a>
 
-          <p>
-            {{ pageText.telegramDescription }}
-          </p>
-
-          <span class="card-link-text">{{ pageText.telegramButton }}</span>
-        </a>
-
-        <a
-          href="https://wa.me/your_number"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-card"
-        >
-          <div class="contact-icon whatsapp-icon">W</div>
-
-          <h3>
-            {{ pageText.whatsappTitle }}
-          </h3>
-
-          <strong class="contact-account">
-            {{ pageText.whatsappAccount }}
-          </strong>
-
-          <p>
-            {{ pageText.whatsappDescription }}
-          </p>
-
-          <span class="card-link-text">{{ pageText.whatsappButton }}</span>
-        </a>
+            <a
+              :href="item.whatsappUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-action whatsapp-action"
+            >
+              <span class="action-label">{{ item.whatsappLabel }}</span>
+              <strong>{{ pageText.whatsappButton }}</strong>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="content-section dark-section">
+    <section id="prepare-info" class="content-section dark-section">
       <div class="section-heading">
         <p class="section-label">
           {{ pageText.prepareLabel }}
@@ -382,22 +383,8 @@ useHead(() => ({
         </p>
 
         <div class="cta-actions">
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button"
-          >
-            {{ pageText.telegram }}
-          </a>
-
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-          >
-            {{ pageText.whatsapp }}
+          <a href="#contact-options" class="primary-button">
+            {{ pageText.chooseContact }}
           </a>
         </div>
       </div>
@@ -487,7 +474,6 @@ h1 {
 .section-heading p,
 .split-content p,
 .cta-card p,
-.contact-card p,
 .info-card p {
   max-width: 860px;
   margin: 0 0 8px;
@@ -589,29 +575,42 @@ h1 {
   letter-spacing: -0.03em;
 }
 
-.contact-grid {
+.contact-type-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-.contact-card {
-  display: block;
-  padding: 34px;
+.contact-type-card {
+  padding: 30px;
   border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 20px;
   background: rgba(15, 23, 42, 0.72);
   color: inherit;
-  text-decoration: none;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
-  transition: 0.2s ease;
   backdrop-filter: blur(14px);
 }
 
-.contact-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.48);
-  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+.contact-type-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-type-header h3 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.contact-type-header p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .contact-icon {
@@ -620,47 +619,84 @@ h1 {
   justify-content: center;
   width: 58px;
   height: 58px;
-  margin-bottom: 22px;
+  flex-shrink: 0;
   border-radius: 18px;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 900;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.28);
 }
 
-.telegram-icon {
+.business-icon {
   background: linear-gradient(135deg, #1687d9, #38bdf8);
 }
 
-.whatsapp-icon {
-  background: linear-gradient(135deg, #16a34a, #22c55e);
+.agent-icon {
+  background: linear-gradient(135deg, #2563eb, #6366f1);
 }
 
-.contact-card h3 {
-  margin: 0 0 8px;
+.traffic-icon {
+  background: linear-gradient(135deg, #0f766e, #22c55e);
+}
+
+.technology-icon {
+  background: linear-gradient(135deg, #334155, #0f172a);
+}
+
+.contact-action-list {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.contact-action:hover {
+  transform: translateY(-2px);
+}
+
+.telegram-action {
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  background: rgba(22, 135, 217, 0.18);
   color: #ffffff;
-  font-size: 24px;
-  line-height: 1.3;
 }
 
-.contact-account {
-  display: block;
-  margin-bottom: 14px;
-  color: #38bdf8;
-  font-size: 16px;
+.telegram-action:hover {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(22, 135, 217, 0.28);
 }
 
-.contact-card p {
+.whatsapp-action {
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  background: rgba(22, 163, 74, 0.18);
+  color: #ffffff;
+}
+
+.whatsapp-action:hover {
+  border-color: rgba(34, 197, 94, 0.6);
+  background: rgba(22, 163, 74, 0.28);
+}
+
+.action-label {
   color: #cbd5e1;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
-.card-link-text {
-  display: inline-flex;
-  margin-top: 18px;
-  color: #38bdf8;
-  font-size: 15px;
-  font-weight: 800;
+.contact-action strong {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 .info-grid {
@@ -790,6 +826,7 @@ h1 {
     padding: 52px;
   }
 
+  .contact-type-grid,
   .info-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -824,13 +861,20 @@ h1 {
     padding: 38px 16px;
   }
 
-  .contact-grid,
+  .contact-type-grid,
   .info-grid {
     grid-template-columns: 1fr;
   }
 
+  .contact-type-card,
   .info-card {
     min-height: auto;
+  }
+
+  .contact-action {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .split-content,
