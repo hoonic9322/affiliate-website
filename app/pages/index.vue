@@ -177,7 +177,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="home-page">
+  <main class="home-page page-wrapper">
     <section class="hero-section">
       <div class="hero-content">
         <div class="hero-copy">
@@ -193,7 +193,7 @@ useHead(() => ({
             {{ pageText.heroDescription }}
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-actions button-group">
             <NuxtLink to="/business-partner" class="primary-button">
               {{ pageText.viewOptions }}
             </NuxtLink>
@@ -205,19 +205,19 @@ useHead(() => ({
         </div>
 
         <div class="hero-visual">
-          <div class="hero-image-card">
+          <div class="hero-image-card glass-card">
             <img
               src="/images/sections/partner-network.png"
               :alt="pageText.heroImageAlt"
             >
           </div>
 
-          <div class="visual-card floating-card top-card">
+          <div class="visual-card floating-card top-card glass-card">
             <span>{{ pageText.visualContact }}</span>
             <strong>{{ pageText.visualTelegram }}</strong>
           </div>
 
-          <div class="visual-card floating-card bottom-card">
+          <div class="visual-card floating-card bottom-card glass-card">
             <span>{{ pageText.visualContact }}</span>
             <strong>{{ pageText.visualWhatsapp }}</strong>
           </div>
@@ -240,8 +240,8 @@ useHead(() => ({
         </p>
       </div>
 
-      <div class="partner-grid">
-        <NuxtLink to="/business-partner" class="partner-card">
+      <div class="partner-grid card-grid-4">
+        <NuxtLink to="/business-partner" class="partner-card glass-card hover-card">
           <div class="card-icon business-icon">
             <span>01</span>
           </div>
@@ -253,7 +253,7 @@ useHead(() => ({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/agent-partner" class="partner-card">
+        <NuxtLink to="/agent-partner" class="partner-card glass-card hover-card">
           <div class="card-icon agent-icon">
             <span>02</span>
           </div>
@@ -265,7 +265,7 @@ useHead(() => ({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/traffic-partner" class="partner-card">
+        <NuxtLink to="/traffic-partner" class="partner-card glass-card hover-card">
           <div class="card-icon traffic-icon">
             <span>03</span>
           </div>
@@ -277,7 +277,7 @@ useHead(() => ({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/technology-partner" class="partner-card">
+        <NuxtLink to="/technology-partner" class="partner-card glass-card hover-card">
           <div class="card-icon technology-icon">
             <span>04</span>
           </div>
@@ -302,8 +302,8 @@ useHead(() => ({
         </h2>
       </div>
 
-      <div class="benefit-grid">
-        <div class="benefit-item">
+      <div class="benefit-grid card-grid-4">
+        <div class="benefit-item glass-card">
           <h3>{{ pageText.benefitOneTitle }}</h3>
 
           <p>
@@ -311,7 +311,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="benefit-item">
+        <div class="benefit-item glass-card">
           <h3>{{ pageText.benefitTwoTitle }}</h3>
 
           <p>
@@ -319,7 +319,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="benefit-item">
+        <div class="benefit-item glass-card">
           <h3>{{ pageText.benefitThreeTitle }}</h3>
 
           <p>
@@ -327,7 +327,7 @@ useHead(() => ({
           </p>
         </div>
 
-        <div class="benefit-item">
+        <div class="benefit-item glass-card">
           <h3>{{ pageText.benefitFourTitle }}</h3>
 
           <p>
@@ -338,7 +338,7 @@ useHead(() => ({
     </section>
 
     <section class="section-block">
-      <div class="split-section">
+      <div class="split-section glass-card">
         <div>
           <p class="section-label">
             {{ pageText.modelLabel }}
@@ -354,19 +354,19 @@ useHead(() => ({
         </div>
 
         <div class="model-list">
-          <div class="model-item">
+          <div class="model-item basic-card">
             <strong>{{ pageText.modelBusiness }}</strong>
           </div>
 
-          <div class="model-item">
+          <div class="model-item basic-card">
             <strong>{{ pageText.modelAgent }}</strong>
           </div>
 
-          <div class="model-item">
+          <div class="model-item basic-card">
             <strong>{{ pageText.modelTraffic }}</strong>
           </div>
 
-          <div class="model-item">
+          <div class="model-item basic-card">
             <strong>{{ pageText.modelTechnology }}</strong>
           </div>
         </div>
@@ -374,7 +374,7 @@ useHead(() => ({
     </section>
 
     <section class="cta-section">
-      <div class="cta-card">
+      <div class="cta-card glass-card">
         <p class="section-label">
           {{ pageText.ctaLabel }}
         </p>
@@ -387,7 +387,7 @@ useHead(() => ({
           {{ pageText.ctaDescription }}
         </p>
 
-        <div class="cta-actions">
+        <div class="cta-actions button-group">
           <a
             href="https://t.me/jerrymax88"
             target="_blank"
@@ -414,15 +414,10 @@ useHead(() => ({
 <style scoped>
 .home-page {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(22, 135, 217, 0.13), transparent 34%),
-    #0b1220;
-  color: #ffffff;
 }
 
 .hero-section {
-  max-width: 1280px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: 76px 24px 52px;
 }
@@ -434,7 +429,7 @@ useHead(() => ({
   gap: 42px;
   align-items: center;
   padding: 68px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid var(--color-card-border);
   border-radius: 32px;
   background:
     linear-gradient(90deg, rgba(7, 17, 42, 0.94), rgba(7, 17, 42, 0.7)),
@@ -460,30 +455,22 @@ useHead(() => ({
   z-index: 2;
 }
 
-.section-label {
-  margin: 0 0 14px;
-  color: #38bdf8;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .hero-label {
   display: inline-flex;
   align-items: center;
   min-height: 34px;
   padding: 0 16px;
   border: 1px solid rgba(96, 165, 250, 0.32);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: rgba(22, 135, 217, 0.16);
   color: #93c5fd;
+  text-transform: uppercase;
 }
 
 h1 {
   max-width: 860px;
   margin: 0 0 24px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 58px;
   line-height: 1.1;
   letter-spacing: -0.04em;
@@ -492,52 +479,14 @@ h1 {
 .hero-description {
   max-width: 780px;
   margin: 0;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 18px;
   line-height: 1.8;
 }
 
 .hero-actions,
 .cta-actions {
-  display: flex;
-  gap: 14px;
   margin-top: 34px;
-  flex-wrap: wrap;
-}
-
-.primary-button,
-.secondary-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0 24px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.25;
-  text-decoration: none;
-}
-
-.primary-button {
-  background: #1687d9;
-  color: #ffffff;
-  box-shadow: 0 12px 28px rgba(22, 135, 217, 0.24);
-}
-
-.primary-button:hover {
-  background: #0f75c2;
-}
-
-.secondary-button {
-  border: 1px solid rgba(203, 213, 225, 0.32);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-}
-
-.secondary-button:hover {
-  border-color: #38bdf8;
-  background: rgba(22, 135, 217, 0.18);
 }
 
 .hero-visual {
@@ -552,11 +501,7 @@ h1 {
   right: 0;
   width: 92%;
   padding: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
   border-radius: 28px;
-  background: rgba(15, 23, 42, 0.64);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(16px);
 }
 
 .hero-image-card img {
@@ -566,30 +511,23 @@ h1 {
   border-radius: 22px;
 }
 
-.visual-card {
-  border: 1px solid rgba(148, 163, 184, 0.28);
-  border-radius: 20px;
-  background: rgba(15, 23, 42, 0.72);
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(16px);
-}
-
 .floating-card {
   position: absolute;
   width: 178px;
   padding: 18px;
+  border-radius: 20px;
 }
 
 .floating-card span {
   display: block;
   margin-bottom: 6px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 12px;
   font-weight: 800;
 }
 
 .floating-card strong {
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 17px;
 }
 
@@ -618,7 +556,7 @@ h1 {
 .split-section h2,
 .cta-card h2 {
   margin: 0 0 16px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 38px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -628,35 +566,17 @@ h1 {
 .split-section p,
 .cta-card p {
   margin: 0 0 8px;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 16px;
   line-height: 1.8;
-}
-
-.partner-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
 }
 
 .partner-card {
   display: block;
   min-height: 310px;
   padding: 28px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 20px;
-  background: rgba(15, 23, 42, 0.72);
   color: inherit;
   text-decoration: none;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
-  transition: 0.2s ease;
-  backdrop-filter: blur(14px);
-}
-
-.partner-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.48);
-  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
 }
 
 .card-icon {
@@ -678,7 +598,7 @@ h1 {
 .card-icon::after {
   content: "";
   position: absolute;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.22);
 }
 
@@ -704,7 +624,7 @@ h1 {
 }
 
 .business-icon {
-  background: linear-gradient(135deg, #1687d9, #38bdf8);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
 }
 
 .agent-icon {
@@ -712,7 +632,7 @@ h1 {
 }
 
 .traffic-icon {
-  background: linear-gradient(135deg, #0f766e, #22c55e);
+  background: linear-gradient(135deg, #0f766e, var(--color-success));
 }
 
 .technology-icon {
@@ -722,7 +642,7 @@ h1 {
 .partner-card h3,
 .benefit-item h3 {
   margin: 0 0 14px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 21px;
   line-height: 1.35;
 }
@@ -730,7 +650,7 @@ h1 {
 .partner-card p,
 .benefit-item p {
   margin: 0 0 8px;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 15px;
   line-height: 1.75;
 }
@@ -748,19 +668,8 @@ h1 {
   margin-right: auto;
 }
 
-.benefit-grid {
-  max-width: 1180px;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-
 .benefit-item {
   padding: 26px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 18px;
-  background: rgba(15, 23, 42, 0.78);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
 }
 
 .split-section {
@@ -769,11 +678,7 @@ h1 {
   gap: 40px;
   align-items: center;
   padding: 44px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 24px;
-  background: rgba(15, 23, 42, 0.72);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(14px);
 }
 
 .model-list {
@@ -783,14 +688,12 @@ h1 {
 
 .model-item {
   padding: 18px 20px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 14px;
-  background: rgba(30, 41, 59, 0.72);
 }
 
 .model-item strong {
   display: block;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 16px;
 }
 
@@ -802,18 +705,17 @@ h1 {
 
 .cta-card {
   padding: 54px;
-  border: 1px solid rgba(96, 165, 250, 0.26);
+  border-color: rgba(96, 165, 250, 0.26);
   border-radius: 24px;
   background:
     radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 34%),
     linear-gradient(135deg, #07112a, #123d68);
-  color: #ffffff;
-  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.26);
+  color: var(--color-text-main);
 }
 
 .cta-card h2,
 .cta-card p {
-  color: #ffffff;
+  color: var(--color-text-main);
 }
 
 .cta-card p {
@@ -839,11 +741,6 @@ h1 {
     left: 70px;
     right: auto;
     width: calc(100% - 70px);
-  }
-
-  .partner-grid,
-  .benefit-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .split-section {
@@ -895,11 +792,6 @@ h1 {
     padding: 38px 16px;
   }
 
-  .partner-grid,
-  .benefit-grid {
-    grid-template-columns: 1fr;
-  }
-
   .partner-card {
     min-height: auto;
   }
@@ -908,11 +800,6 @@ h1 {
   .cta-card {
     padding: 30px 22px;
     border-radius: 18px;
-  }
-
-  .primary-button,
-  .secondary-button {
-    width: 100%;
   }
 }
 </style>
