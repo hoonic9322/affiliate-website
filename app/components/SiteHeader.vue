@@ -159,8 +159,8 @@ const closeMenu = () => {
   justify-content: center;
   width: 46px;
   height: 46px;
-  border-radius: 13px;
-  background: linear-gradient(135deg, #1687d9, #0f75c2);
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: #ffffff;
   font-size: 24px;
   font-weight: 900;
@@ -176,14 +176,14 @@ const closeMenu = () => {
 }
 
 .brand-text strong {
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 19px;
   font-weight: 800;
 }
 
 .brand-text small {
   margin-top: 5px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 12px;
   font-weight: 600;
 }
@@ -196,15 +196,14 @@ const closeMenu = () => {
   margin-left: auto;
 }
 
-.nav-link,
-.contact-link {
+.nav-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 40px;
   padding: 0 11px;
-  border-radius: 9px;
-  color: #cbd5e1;
+  border-radius: 10px;
+  color: var(--color-text-secondary);
   font-size: 13px;
   font-weight: 800;
   line-height: 1.15;
@@ -216,13 +215,13 @@ const closeMenu = () => {
 
 .nav-link:hover {
   background: rgba(22, 135, 217, 0.16);
-  color: #ffffff;
+  color: var(--color-text-main);
 }
 
 .router-link-active.nav-link,
 .router-link-exact-active.nav-link {
   background: rgba(22, 135, 217, 0.2);
-  color: #ffffff;
+  color: var(--color-text-main);
 }
 
 .language-button {
@@ -234,9 +233,9 @@ const closeMenu = () => {
   margin-left: 6px;
   padding: 0 12px;
   border: 1px solid rgba(203, 213, 225, 0.32);
-  border-radius: 9px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 13px;
   font-weight: 800;
   cursor: pointer;
@@ -244,29 +243,39 @@ const closeMenu = () => {
 }
 
 .language-button:hover {
-  border-color: #38bdf8;
+  border-color: var(--color-primary-light);
   background: rgba(22, 135, 217, 0.18);
-  color: #ffffff;
+  color: var(--color-text-main);
 }
 
 .contact-link {
   position: relative;
-  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 46px;
-  padding: 0 22px;
+  margin-left: 8px;
+  padding: 0 24px;
   overflow: hidden;
   border: 1px solid rgba(96, 165, 250, 0.75);
-  border-radius: 12px;
+  border-radius: 14px;
   background:
     radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 22%),
     linear-gradient(180deg, #2aa7ff 0%, #1687d9 45%, #0f75c2 100%);
   color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
   box-shadow:
     0 0 0 1px rgba(125, 211, 252, 0.18),
     0 0 18px rgba(56, 189, 248, 0.45),
     0 10px 26px rgba(22, 135, 217, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.42),
     inset 0 -2px 0 rgba(7, 17, 42, 0.35);
+  transition: 0.2s ease;
   animation: contactPulse 2.4s ease-in-out infinite;
 }
 
@@ -280,7 +289,7 @@ const closeMenu = () => {
   position: absolute;
   inset: 1px;
   z-index: 1;
-  border-radius: 10px;
+  border-radius: 14px;
   background:
     linear-gradient(
       180deg,
@@ -374,15 +383,16 @@ const closeMenu = () => {
   border: 1px solid rgba(203, 213, 225, 0.32);
   border-radius: 11px;
   background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 27px;
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .mobile-menu-button:hover {
-  border-color: #38bdf8;
+  border-color: var(--color-primary-light);
   background: rgba(22, 135, 217, 0.18);
 }
 
@@ -397,7 +407,7 @@ const closeMenu = () => {
   }
 
   .contact-link {
-    padding: 0 14px;
+    padding: 0 16px;
     font-size: 12px;
   }
 
@@ -443,7 +453,6 @@ const closeMenu = () => {
   }
 
   .nav-link,
-  .contact-link,
   .language-button {
     width: 100%;
     min-height: 46px;
@@ -457,11 +466,17 @@ const closeMenu = () => {
   }
 
   .contact-link {
+    width: 100%;
+    min-height: 46px;
     margin-left: 0;
     justify-content: center;
+    padding: 0 18px;
+    border-radius: 14px;
     text-align: center;
-    min-height: 46px;
-    border-radius: 12px;
+  }
+
+  .contact-link::before {
+    border-radius: 14px;
   }
 }
 
@@ -474,7 +489,7 @@ const closeMenu = () => {
   .brand-mark {
     width: 40px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 21px;
   }
 
@@ -489,7 +504,7 @@ const closeMenu = () => {
   .mobile-menu-button {
     width: 40px;
     height: 40px;
-    border-radius: 9px;
+    border-radius: 10px;
     font-size: 24px;
   }
 
