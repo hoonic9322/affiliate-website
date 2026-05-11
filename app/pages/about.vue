@@ -184,10 +184,7 @@ useHead(() => ({
 
         <div class="hero-visual">
           <div class="hero-image-card glass-card">
-            <img
-              src="/images/sections/partner-network.png"
-              :alt="pageText.heroImageAlt"
-            >
+            <img src="/images/sections/partner-network.png" :alt="pageText.heroImageAlt">
           </div>
         </div>
       </div>
@@ -210,12 +207,12 @@ useHead(() => ({
         </div>
 
         <div class="highlight-panel">
-          <div class="highlight-item basic-card">
+          <div class="highlight-item">
             <span>01</span>
             <strong>{{ pageText.business }}</strong>
           </div>
 
-          <div class="highlight-item basic-card">
+          <div class="highlight-item">
             <span>02</span>
             <strong>{{ pageText.agent }}</strong>
           </div>
@@ -351,22 +348,12 @@ useHead(() => ({
           {{ pageText.ctaDescription }}
         </p>
 
-        <div class="cta-actions button-group">
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button"
-          >
+        <div class="cta-actions">
+          <a href="https://t.me/jerrymax88" target="_blank" rel="noopener noreferrer" class="primary-button">
             {{ pageText.telegram }}
           </a>
 
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-          >
+          <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer" class="secondary-button">
             {{ pageText.whatsapp }}
           </a>
         </div>
@@ -477,7 +464,7 @@ h1 {
   border-bottom: 1px solid rgba(148, 163, 184, 0.16);
 }
 
-.dark-section > * {
+.dark-section>* {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
@@ -517,7 +504,9 @@ h1 {
   align-items: center;
   gap: 14px;
   padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 14px;
+  background: rgba(30, 41, 59, 0.72);
 }
 
 .highlight-item span {
@@ -635,7 +624,23 @@ h1 {
 }
 
 .cta-actions {
-  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.cta-actions .primary-button,
+.cta-actions .secondary-button {
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.cta-actions .secondary-button {
+  margin-left: 14px;
 }
 
 @media (max-width: 1080px) {
@@ -682,6 +687,16 @@ h1 {
   .cta-card {
     padding: 30px 22px;
     border-radius: 18px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-actions .secondary-button {
+    margin-left: 0;
+    margin-top: 12px;
   }
 }
 </style>

@@ -1,0 +1,46 @@
+{
+  "business": {
+    "titleZh": "招商 / 商户合作",
+    "titleEn": "Business / Merchant Partnership",
+    "telegramLabelZh": "Telegram 联系",
+    "telegramLabelEn": "Telegram",
+    "whatsappLabelZh": "WhatsApp 联系",
+    "whatsappLabelEn": "WhatsApp",
+    "telegramUrl": "https://t.me/business_contact",
+    "whatsappUrl": "https://wa.me/85500000001",
+    "enabled": true
+  },
+  "agent": {
+    "titleZh": "代理合作",
+    "titleEn": "Agent Partnership",
+    "telegramLabelZh": "Telegram 联系",
+    "telegramLabelEn": "Telegram",
+    "whatsappLabelZh": "WhatsApp 联系",
+    "whatsappLabelEn": "WhatsApp",
+    "telegramUrl": "https://t.me/agent_contact",
+    "whatsappUrl": "https://wa.me/85500000002",
+    "enabled": true
+  },
+  "traffic": {
+    "titleZh": "流量合作",
+    "titleEn": "Traffic Partnership",
+    "telegramLabelZh": "Telegram 联系",
+    "telegramLabelEn": "Telegram",
+    "whatsappLabelZh": "WhatsApp 联系",
+    "whatsappLabelEn": "WhatsApp",
+    "telegramUrl": "https://t.me/traffic_contact",
+    "whatsappUrl": "https://wa.me/85500000003",
+    "enabled": true
+  },
+  "technology": {
+    "titleZh": "技术合作",
+    "titleEn": "Technology Partnership",
+    "telegramLabelZh": "Telegram 联系",
+    "telegramLabelEn": "Telegram",
+    "whatsappLabelZh": "WhatsApp 联系",
+    "whatsappLabelEn": "WhatsApp",
+    "telegramUrl": "https://t.me/tech_contact",
+    "whatsappUrl": "https://wa.me/85500000004",
+    "enabled": true
+  }
+}

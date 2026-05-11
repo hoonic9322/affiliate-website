@@ -193,7 +193,7 @@ useHead(() => ({
             {{ pageText.heroDescription }}
           </p>
 
-          <div class="hero-actions button-group">
+          <div class="hero-actions">
             <NuxtLink to="/business-partner" class="primary-button">
               {{ pageText.viewOptions }}
             </NuxtLink>
@@ -206,10 +206,7 @@ useHead(() => ({
 
         <div class="hero-visual">
           <div class="hero-image-card glass-card">
-            <img
-              src="/images/sections/partner-network.png"
-              :alt="pageText.heroImageAlt"
-            >
+            <img src="/images/sections/partner-network.png" :alt="pageText.heroImageAlt">
           </div>
 
           <div class="visual-card floating-card top-card glass-card">
@@ -241,7 +238,7 @@ useHead(() => ({
       </div>
 
       <div class="partner-grid card-grid-4">
-        <NuxtLink to="/business-partner" class="partner-card glass-card hover-card">
+        <NuxtLink to="/business-partner" class="partner-card">
           <div class="card-icon business-icon">
             <span>01</span>
           </div>
@@ -253,7 +250,7 @@ useHead(() => ({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/agent-partner" class="partner-card glass-card hover-card">
+        <NuxtLink to="/agent-partner" class="partner-card">
           <div class="card-icon agent-icon">
             <span>02</span>
           </div>
@@ -265,7 +262,7 @@ useHead(() => ({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/traffic-partner" class="partner-card glass-card hover-card">
+        <NuxtLink to="/traffic-partner" class="partner-card">
           <div class="card-icon traffic-icon">
             <span>03</span>
           </div>
@@ -277,7 +274,7 @@ useHead(() => ({
           </p>
         </NuxtLink>
 
-        <NuxtLink to="/technology-partner" class="partner-card glass-card hover-card">
+        <NuxtLink to="/technology-partner" class="partner-card">
           <div class="card-icon technology-icon">
             <span>04</span>
           </div>
@@ -354,19 +351,19 @@ useHead(() => ({
         </div>
 
         <div class="model-list">
-          <div class="model-item basic-card">
+          <div class="model-item">
             <strong>{{ pageText.modelBusiness }}</strong>
           </div>
 
-          <div class="model-item basic-card">
+          <div class="model-item">
             <strong>{{ pageText.modelAgent }}</strong>
           </div>
 
-          <div class="model-item basic-card">
+          <div class="model-item">
             <strong>{{ pageText.modelTraffic }}</strong>
           </div>
 
-          <div class="model-item basic-card">
+          <div class="model-item">
             <strong>{{ pageText.modelTechnology }}</strong>
           </div>
         </div>
@@ -387,22 +384,12 @@ useHead(() => ({
           {{ pageText.ctaDescription }}
         </p>
 
-        <div class="cta-actions button-group">
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button"
-          >
+        <div class="cta-actions">
+          <a href="https://t.me/jerrymax88" target="_blank" rel="noopener noreferrer" class="primary-button">
             {{ pageText.telegram }}
           </a>
 
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-          >
+          <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer" class="secondary-button">
             {{ pageText.whatsapp }}
           </a>
         </div>
@@ -484,9 +471,44 @@ h1 {
   line-height: 1.8;
 }
 
-.hero-actions,
-.cta-actions {
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin-top: 34px;
+}
+
+.hero-actions .primary-button,
+.hero-actions .secondary-button {
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.hero-actions .secondary-button {
+  margin-left: 14px;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.cta-actions .primary-button,
+.cta-actions .secondary-button {
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.cta-actions .secondary-button {
+  margin-left: 14px;
 }
 
 .hero-visual {
@@ -575,8 +597,20 @@ h1 {
   display: block;
   min-height: 310px;
   padding: 28px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
   color: inherit;
   text-decoration: none;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease;
+  backdrop-filter: blur(14px);
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.48);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
 }
 
 .card-icon {
@@ -662,7 +696,7 @@ h1 {
   border-bottom: 1px solid rgba(148, 163, 184, 0.16);
 }
 
-.dark-section > * {
+.dark-section>* {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
@@ -688,7 +722,9 @@ h1 {
 
 .model-item {
   padding: 18px 20px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 14px;
+  background: rgba(30, 41, 59, 0.72);
 }
 
 .model-item strong {
@@ -762,6 +798,16 @@ h1 {
     font-size: 38px;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .secondary-button {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
   .hero-visual {
     min-height: auto;
     margin-top: 34px;
@@ -800,6 +846,16 @@ h1 {
   .cta-card {
     padding: 30px 22px;
     border-radius: 18px;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-actions .secondary-button {
+    margin-left: 0;
+    margin-top: 12px;
   }
 }
 </style>
