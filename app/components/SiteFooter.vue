@@ -3,7 +3,7 @@
     <div class="footer-bg-glow"></div>
 
     <div class="footer-inner">
-      <div class="footer-brand">
+      <div class="footer-brand glass-card">
         <div class="footer-logo">
           <span class="brand-mark">P</span>
 
@@ -22,7 +22,7 @@
             href="https://t.me/jerrymax88"
             target="_blank"
             rel="noopener noreferrer"
-            class="footer-primary-link"
+            class="primary-button footer-action-link"
           >
             Telegram
           </a>
@@ -31,7 +31,7 @@
             href="https://wa.me/your_number"
             target="_blank"
             rel="noopener noreferrer"
-            class="footer-secondary-link"
+            class="secondary-button footer-action-link"
           >
             WhatsApp
           </a>
@@ -39,7 +39,7 @@
       </div>
 
       <div class="footer-links">
-        <div class="footer-group">
+        <div class="footer-group glass-card">
           <h4>{{ footerText.partnershipTitle }}</h4>
 
           <NuxtLink to="/business-partner">
@@ -59,7 +59,7 @@
           </NuxtLink>
         </div>
 
-        <div class="footer-group">
+        <div class="footer-group glass-card">
           <h4>{{ footerText.pageTitle }}</h4>
 
           <NuxtLink to="/about">
@@ -79,7 +79,7 @@
           </NuxtLink>
         </div>
 
-        <div class="footer-group">
+        <div class="footer-group glass-card">
           <h4>{{ footerText.contactTitle }}</h4>
 
           <a
@@ -168,8 +168,8 @@ const footerText = computed(() => {
   background:
     radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32%),
     radial-gradient(circle at bottom right, rgba(22, 135, 217, 0.12), transparent 34%),
-    #0b1220;
-  color: #ffffff;
+    var(--color-bg-secondary);
+  color: var(--color-text-main);
   border-top: 1px solid rgba(148, 163, 184, 0.16);
 }
 
@@ -197,11 +197,6 @@ const footerText = computed(() => {
 
 .footer-brand {
   padding: 28px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 24px;
-  background: rgba(15, 23, 42, 0.58);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(14px);
 }
 
 .footer-logo {
@@ -219,7 +214,7 @@ const footerText = computed(() => {
   height: 48px;
   flex-shrink: 0;
   border-radius: 14px;
-  background: linear-gradient(135deg, #1687d9, #0f75c2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   color: #ffffff;
   font-size: 24px;
   font-weight: 900;
@@ -230,7 +225,7 @@ const footerText = computed(() => {
 
 .footer-brand h3 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 23px;
   line-height: 1.28;
 }
@@ -238,7 +233,7 @@ const footerText = computed(() => {
 .footer-brand small {
   display: block;
   margin-top: 6px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 12px;
   font-weight: 700;
 }
@@ -246,7 +241,7 @@ const footerText = computed(() => {
 .footer-brand p {
   max-width: 460px;
   margin: 0;
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 15px;
   line-height: 1.8;
 }
@@ -258,43 +253,11 @@ const footerText = computed(() => {
   flex-wrap: wrap;
 }
 
-.footer-primary-link,
-.footer-secondary-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.footer-action-link {
   min-height: 44px;
   padding: 0 18px;
-  border-radius: 11px;
+  border-radius: 12px;
   font-size: 14px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
-
-.footer-primary-link {
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  background: linear-gradient(135deg, #1687d9, #0f75c2);
-  color: #ffffff;
-  box-shadow:
-    0 10px 24px rgba(22, 135, 217, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
-}
-
-.footer-primary-link:hover {
-  background: linear-gradient(135deg, #1d9bf0, #1687d9);
-  transform: translateY(-1px);
-}
-
-.footer-secondary-link {
-  border: 1px solid rgba(203, 213, 225, 0.28);
-  background: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-}
-
-.footer-secondary-link:hover {
-  border-color: #38bdf8;
-  background: rgba(22, 135, 217, 0.18);
 }
 
 .footer-links {
@@ -306,11 +269,6 @@ const footerText = computed(() => {
 .footer-group {
   min-height: 250px;
   padding: 26px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 22px;
-  background: rgba(15, 23, 42, 0.54);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(14px);
   display: flex;
   flex-direction: column;
   gap: 11px;
@@ -318,13 +276,13 @@ const footerText = computed(() => {
 
 .footer-group h4 {
   margin: 0 0 8px;
-  color: #ffffff;
+  color: var(--color-text-main);
   font-size: 15px;
   font-weight: 900;
 }
 
 .footer-group a {
-  color: #cbd5e1;
+  color: var(--color-text-secondary);
   font-size: 14px;
   line-height: 1.5;
   text-decoration: none;
@@ -332,7 +290,7 @@ const footerText = computed(() => {
 }
 
 .footer-group a:hover {
-  color: #38bdf8;
+  color: var(--color-primary-light);
   transform: translateX(2px);
 }
 
@@ -347,7 +305,7 @@ const footerText = computed(() => {
 
 .footer-bottom p {
   margin: 0;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 13px;
 }
 
@@ -369,8 +327,8 @@ const footerText = computed(() => {
 
   .footer-brand,
   .footer-group {
-    border-radius: 18px;
     padding: 24px;
+    border-radius: 18px;
   }
 
   .footer-links {
@@ -390,8 +348,7 @@ const footerText = computed(() => {
     flex-direction: column;
   }
 
-  .footer-primary-link,
-  .footer-secondary-link {
+  .footer-action-link {
     width: 100%;
   }
 }
