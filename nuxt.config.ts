@@ -6,12 +6,16 @@ export default defineNuxtConfig({
     enabled: true
   },
 
+  css: [
+    '~/assets/css/main.css'
+  ],
+
   app: {
     head: {
       title: 'Partner Cooperation | 合作伙伴与商务合作',
       titleTemplate: '%s | Partner Cooperation',
       htmlAttrs: {
-        lang: 'en'
+        lang: 'zh-CN'
       },
       meta: [
         {

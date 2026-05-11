@@ -1,0 +1,42 @@
+@media (max-width: 1024px) {
+  .card-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 18px;
+  }
+
+  .section-sm {
+    padding: 44px 18px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+  }
+
+  .card-grid-4,
+  .card-grid-3,
+  .card-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}

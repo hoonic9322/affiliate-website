@@ -1,0 +1,22 @@
+:root {
+  --color-bg: #07111f;
+  --color-bg-secondary: #0b1728;
+  --color-card: rgba(15, 28, 48, 0.86);
+  --color-card-border: rgba(120, 170, 255, 0.18);
+
+  --color-primary: #1687d9;
+  --color-primary-hover: #0f75c2;
+  --color-primary-light: #38a9ff;
+
+  --color-text-main: #ffffff;
+  --color-text-secondary: #c9d5e8;
+  --color-text-muted: #8fa3bf;
+
+  --radius-card: 18px;
+  --radius-button: 12px;
+
+  --shadow-card: 0 18px 45px rgba(0, 0, 0, 0.32);
+  --shadow-primary: 0 0 24px rgba(22, 135, 217, 0.5);
+
+  --container-width: 1280px;
+}
