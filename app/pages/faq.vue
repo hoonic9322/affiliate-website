@@ -23,10 +23,10 @@ const pageText = computed(() => {
       a1: '我们主要寻找四类合作伙伴：招商合作方、代理合作方、流量合作方和远程技术合作方。',
 
       q2: '我要如何开始合作？',
-      a2: '你可以直接通过 Telegram 或 WhatsApp 联系我们。请简单说明你的合作类型、所在市场、资源情况和期望合作方式。',
+      a2: '你可以进入联系方式页面，根据你的合作类型选择对应的 Telegram 或 WhatsApp 联系人。请简单说明你的合作类型、所在市场、资源情况和期望合作方式。',
 
       q3: '是否需要填写申请表？',
-      a3: '第一阶段我们不设计复杂申请表单。合作方可以直接通过 Telegram 或 WhatsApp 联系我们。',
+      a3: '第一阶段我们不设计复杂申请表单。合作方可以先进入联系方式页面，选择对应合作类型后直接联系我们。',
 
       q4: '个人可以合作吗？还是只接受公司？',
       a4: '个人和公司都可以联系我们。但我们会根据真实资源、实际能力、沟通质量和长期合作潜力进行评估。',
@@ -59,7 +59,7 @@ const pageText = computed(() => {
       a11: '我们关注真实流量来源、目标市场是否匹配、流量质量、推广渠道是否稳定、基础数据是否透明，以及是否具备长期合作潜力。',
 
       q12: '你们接受 SEO 团队合作吗？',
-      a12: '接受。拥有排名资源、网站资源、内容能力或搜索流量资源的 SEO 团队可以直接联系我们。',
+      a12: '接受。拥有排名资源、网站资源、内容能力或搜索流量资源的 SEO 团队可以通过流量合作对应联系方式联系我们。',
 
       techLabel: '技术合作',
       techTitle: '技术合作问题',
@@ -79,9 +79,9 @@ const pageText = computed(() => {
       ctaLabel: '联系我们',
       ctaTitle: '还有其他问题？',
       ctaDescription:
-        '你可以直接通过 Telegram 或 WhatsApp 联系我们。我们会根据你的合作类型进一步沟通合作细节。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '不同合作类型有不同联系人。请进入联系方式页面，选择招商、代理、流量或技术合作对应的 Telegram / WhatsApp。',
+      viewContactOptions: '查看联系方式',
+      viewModel: '查看合作模式'
     }
   }
 
@@ -103,10 +103,10 @@ const pageText = computed(() => {
     a1: 'We are looking for four main types of partners: business partners, agent partners, traffic partners and remote technology partners.',
 
     q2: 'How can I start cooperation?',
-    a2: 'You can contact us directly through Telegram or WhatsApp. Please briefly introduce your cooperation type, market, resources and expected cooperation model.',
+    a2: 'You can visit the contact page and choose the correct Telegram or WhatsApp contact based on your cooperation type. Please briefly introduce your cooperation type, market, resources and expected cooperation model.',
 
     q3: 'Do I need to submit an application form?',
-    a3: 'In the first phase, we do not use a complicated application form. Direct communication through Telegram or WhatsApp is preferred.',
+    a3: 'In the first phase, we do not use a complicated application form. Partners can visit the contact page, choose the correct cooperation type and contact us directly.',
 
     q4: 'Can individuals cooperate, or only companies?',
     a4: 'Both individuals and companies can contact us. However, we will evaluate cooperation based on real resources, capability, communication quality and long-term cooperation potential.',
@@ -139,7 +139,7 @@ const pageText = computed(() => {
     a11: 'We care about real traffic source, target market match, traffic quality, stable promotion channel, basic data transparency and long-term cooperation potential.',
 
     q12: 'Do you accept SEO teams?',
-    a12: 'Yes. SEO teams with ranking resources, website networks, content capability or search traffic resources can contact us directly.',
+    a12: 'Yes. SEO teams with ranking resources, website networks, content capability or search traffic resources can contact us through the traffic partnership contact option.',
 
     techLabel: 'TECHNOLOGY PARTNERS',
     techTitle: 'Technology Cooperation Questions',
@@ -159,9 +159,9 @@ const pageText = computed(() => {
     ctaLabel: 'CONTACT US',
     ctaTitle: 'Still Have Questions?',
     ctaDescription:
-      'Contact us directly through Telegram or WhatsApp. Our team will discuss the cooperation details with you based on your partner type.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'Different cooperation types use different contacts. Please visit the contact page and choose the correct Telegram or WhatsApp for business, agent, traffic or technology cooperation.',
+    viewContactOptions: 'View Contact Options',
+    viewModel: 'View Cooperation Model'
   }
 })
 
@@ -313,23 +313,13 @@ useHead(() => ({
         </p>
 
         <div class="cta-actions">
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button"
-          >
-            {{ pageText.telegram }}
-          </a>
+          <NuxtLink to="/contact" class="primary-button">
+            {{ pageText.viewContactOptions }}
+          </NuxtLink>
 
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-          >
-            {{ pageText.whatsapp }}
-          </a>
+          <NuxtLink to="/cooperation-model" class="secondary-button">
+            {{ pageText.viewModel }}
+          </NuxtLink>
         </div>
       </div>
     </section>

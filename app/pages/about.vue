@@ -29,7 +29,7 @@ const pageText = computed(() => {
       whatLabel: '我们做什么',
       whatTitle: '连接资源、市场与技术',
       whatDescription:
-        '我们为不同背景的合作伙伴提供清晰的合作入口。无论你拥有商务资源、代理网络、流量渠道或技术能力，都可以直接联系我们，沟通适合的合作机会。',
+        '我们为不同背景的合作伙伴提供清晰的合作入口。无论你拥有商务资源、代理网络、流量渠道或技术能力，都可以根据对应合作类型联系我们，沟通适合的合作机会。',
 
       cardOneTitle: '商务资源对接',
       cardOneDescription:
@@ -69,9 +69,9 @@ const pageText = computed(() => {
       ctaLabel: '联系我们',
       ctaTitle: '有兴趣合作？',
       ctaDescription:
-        '你可以直接通过 Telegram 或 WhatsApp 联系我们，并简单说明你的合作类型、资源情况、所在市场和期望合作方式。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '不同合作类型有不同联系人。请进入联系方式页面，选择招商、代理、流量或技术合作对应的 Telegram / WhatsApp。',
+      viewContactOptions: '查看联系方式',
+      viewModel: '查看合作模式'
     }
   }
 
@@ -99,7 +99,7 @@ const pageText = computed(() => {
     whatLabel: 'WHAT WE DO',
     whatTitle: 'We Connect Resources, Markets and Technology',
     whatDescription:
-      'We provide a clear cooperation entry point for partners from different backgrounds. Whether you have business resources, agent networks, traffic channels or technical capability, you can contact us directly to discuss suitable cooperation opportunities.',
+      'We provide a clear cooperation entry point for partners from different backgrounds. Whether you have business resources, agent networks, traffic channels or technical capability, you can choose the correct cooperation type and contact us to discuss suitable opportunities.',
 
     cardOneTitle: 'Business Resource Matching',
     cardOneDescription:
@@ -139,9 +139,9 @@ const pageText = computed(() => {
     ctaLabel: 'GET IN TOUCH',
     ctaTitle: 'Interested in Cooperation?',
     ctaDescription:
-      'Contact us directly through Telegram or WhatsApp and tell us your cooperation type, available resources, market and expected cooperation model.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'Different cooperation types use different contacts. Please visit the contact page and choose the correct Telegram or WhatsApp for business, agent, traffic or technology cooperation.',
+    viewContactOptions: 'View Contact Options',
+    viewModel: 'View Cooperation Model'
   }
 })
 
@@ -349,13 +349,13 @@ useHead(() => ({
         </p>
 
         <div class="cta-actions">
-          <a href="https://t.me/jerrymax88" target="_blank" rel="noopener noreferrer" class="primary-button">
-            {{ pageText.telegram }}
-          </a>
+          <NuxtLink to="/contact" class="primary-button">
+            {{ pageText.viewContactOptions }}
+          </NuxtLink>
 
-          <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer" class="secondary-button">
-            {{ pageText.whatsapp }}
-          </a>
+          <NuxtLink to="/cooperation-model" class="secondary-button">
+            {{ pageText.viewModel }}
+          </NuxtLink>
         </div>
       </div>
     </section>

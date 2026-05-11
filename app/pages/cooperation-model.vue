@@ -67,30 +67,30 @@ const pageText = computed(() => {
       processLabel: '如何开始',
       processTitle: '简单直接的合作沟通流程',
       processDescription:
-        '第一阶段我们不设计复杂申请表单。合作方可以直接通过 Telegram 或 WhatsApp 联系我们。',
+        '第一阶段我们不设计复杂申请表单。合作方可以先进入联系方式页面，选择对应合作类型后联系对应联系人。',
 
-      stepOneTitle: '联系我们',
+      stepOneTitle: '选择合作类型',
       stepOneDescription:
-        '通过 Telegram 或 WhatsApp 直接联系我们。',
+        '先确认你属于招商、代理、流量或远程技术合作类型。',
 
-      stepTwoTitle: '介绍你的资源',
+      stepTwoTitle: '进入联系方式页面',
       stepTwoDescription:
+        '在联系方式页面选择对应合作类型的 Telegram 或 WhatsApp。',
+
+      stepThreeTitle: '介绍你的资源',
+      stepThreeDescription:
         '简单说明你的合作类型、所在市场、资源情况、团队背景或技术能力。',
 
-      stepThreeTitle: '沟通合作方式',
-      stepThreeDescription:
-        '根据你的情况和我们的需求，沟通适合的合作方式。',
-
-      stepFourTitle: '开始合作',
+      stepFourTitle: '沟通合作方式',
       stepFourDescription:
-        '双方确认合作方向后，即可推进后续合作安排。',
+        '根据你的情况和我们的需求，沟通适合的合作方式并推进后续安排。',
 
       ctaLabel: '开始合作',
-      ctaTitle: '沟通适合的合作模式',
+      ctaTitle: '选择正确的合作类型开始沟通',
       ctaDescription:
-        '无论你是招商合作方、代理合作方、流量合作方或技术合作方，都可以直接联系我们沟通合作机会。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '无论你是招商合作方、代理合作方、流量合作方或技术合作方，都可以进入联系方式页面选择对应联系人。',
+      viewContactOptions: '查看联系方式',
+      viewFaq: '查看常见问题'
     }
   }
 
@@ -156,30 +156,30 @@ const pageText = computed(() => {
     processLabel: 'HOW WE START',
     processTitle: 'Simple Cooperation Discussion Process',
     processDescription:
-      'In the first phase, we do not use a complicated application form. Partners can contact us directly through Telegram or WhatsApp.',
+      'In the first phase, we do not use a complicated application form. Partners can visit the contact page, choose the correct cooperation type and contact the matching person.',
 
-    stepOneTitle: 'Contact Us',
+    stepOneTitle: 'Choose Cooperation Type',
     stepOneDescription:
-      'Contact our team directly through Telegram or WhatsApp.',
+      'Confirm whether you are a business, agent, traffic or remote technology partner.',
 
-    stepTwoTitle: 'Introduce Your Resources',
+    stepTwoTitle: 'Visit Contact Page',
     stepTwoDescription:
+      'Choose the correct Telegram or WhatsApp contact based on your cooperation type.',
+
+    stepThreeTitle: 'Introduce Your Resources',
+    stepThreeDescription:
       'Tell us your cooperation type, market, resources, team background or technical capability.',
 
-    stepThreeTitle: 'Discuss Cooperation Model',
-    stepThreeDescription:
-      'We discuss a suitable cooperation model based on your situation and our needs.',
-
-    stepFourTitle: 'Start Cooperation',
+    stepFourTitle: 'Discuss Cooperation Model',
     stepFourDescription:
-      'After both sides confirm the cooperation direction, we can proceed with the next steps.',
+      'We discuss the suitable cooperation model based on your situation and proceed with the next steps.',
 
     ctaLabel: 'START COOPERATION',
-    ctaTitle: 'Discuss the Right Cooperation Model',
+    ctaTitle: 'Choose the Right Cooperation Type to Start',
     ctaDescription:
-      'Whether you are a business partner, agent partner, traffic partner or technology partner, you can contact us directly to discuss cooperation opportunities.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'Whether you are a business partner, agent partner, traffic partner or technology partner, you can visit the contact page and choose the matching contact.',
+    viewContactOptions: 'View Contact Options',
+    viewFaq: 'View FAQ'
   }
 })
 
@@ -434,23 +434,13 @@ useHead(() => ({
         </p>
 
         <div class="cta-actions">
-          <a
-            href="https://t.me/jerrymax88"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button"
-          >
-            {{ pageText.telegram }}
-          </a>
+          <NuxtLink to="/contact" class="primary-button">
+            {{ pageText.viewContactOptions }}
+          </NuxtLink>
 
-          <a
-            href="https://wa.me/your_number"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="secondary-button"
-          >
-            {{ pageText.whatsapp }}
-          </a>
+          <NuxtLink to="/faq" class="secondary-button">
+            {{ pageText.viewFaq }}
+          </NuxtLink>
         </div>
       </div>
     </section>

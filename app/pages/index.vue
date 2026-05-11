@@ -15,9 +15,9 @@ const pageText = computed(() => {
       contactUs: '联系我们',
 
       heroImageAlt: '合作伙伴网络与商务合作视觉图',
-      visualContact: '直接联系',
-      visualTelegram: 'Telegram',
-      visualWhatsapp: 'WhatsApp',
+      visualContact: '合作类型',
+      visualTelegram: '分类联系',
+      visualWhatsapp: '快速对接',
 
       cooperationLabel: '合作类型',
       cooperationTitle: '四大合作方向',
@@ -53,7 +53,7 @@ const pageText = computed(() => {
 
       benefitThreeTitle: '沟通清晰直接',
       benefitThreeDescription:
-        '我们优先通过 Telegram 或 WhatsApp 直接沟通，提高对接效率。',
+        '不同合作类型有对应联系人，方便更快安排正确对接。',
 
       benefitFourTitle: '多种合作方向',
       benefitFourDescription:
@@ -62,7 +62,7 @@ const pageText = computed(() => {
       modelLabel: '合作模式',
       modelTitle: '简单、直接、灵活',
       modelDescription:
-        '第一阶段我们不设计复杂申请流程。有合作意向的伙伴可以直接联系我们，再根据资源、市场、团队能力和合作方向沟通适合的合作模式。',
+        '第一阶段我们不设计复杂申请流程。有合作意向的伙伴可以先选择合作类型，再根据资源、市场、团队能力和合作方向沟通适合的合作模式。',
 
       modelBusiness: '招商 / 商务合作',
       modelAgent: '代理合作',
@@ -70,11 +70,11 @@ const pageText = computed(() => {
       modelTechnology: '远程技术合作',
 
       ctaLabel: '开始合作',
-      ctaTitle: '通过 Telegram 或 WhatsApp 开始合作',
+      ctaTitle: '选择正确的合作类型开始沟通',
       ctaDescription:
-        '如果你有合作意向，请直接联系我们。你可以简单说明合作类型、所在市场、拥有的资源和希望的合作方式。',
-      telegram: 'Telegram 联系',
-      whatsapp: 'WhatsApp 联系'
+        '不同合作类型有不同联系人。请进入联系方式页面，选择招商、代理、流量或技术合作对应的 Telegram / WhatsApp。',
+      viewContactOptions: '查看联系方式',
+      viewModel: '查看合作模式'
     }
   }
 
@@ -88,9 +88,9 @@ const pageText = computed(() => {
     contactUs: 'Contact Us',
 
     heroImageAlt: 'Partner network and business cooperation illustration',
-    visualContact: 'Direct Contact',
-    visualTelegram: 'Telegram',
-    visualWhatsapp: 'WhatsApp',
+    visualContact: 'Contact Type',
+    visualTelegram: 'Category Contact',
+    visualWhatsapp: 'Fast Matching',
 
     cooperationLabel: 'COOPERATION TYPES',
     cooperationTitle: 'Four Main Partnership Directions',
@@ -126,7 +126,7 @@ const pageText = computed(() => {
 
     benefitThreeTitle: 'Clear Communication',
     benefitThreeDescription:
-      'We prefer direct communication through Telegram or WhatsApp for faster discussion.',
+      'Different cooperation types use different contacts, helping us arrange the correct follow-up faster.',
 
     benefitFourTitle: 'Multiple Cooperation Areas',
     benefitFourDescription:
@@ -135,7 +135,7 @@ const pageText = computed(() => {
     modelLabel: 'COOPERATION MODEL',
     modelTitle: 'Simple, Direct and Flexible',
     modelDescription:
-      'We do not use a complicated application process in the first phase. Interested partners can contact us directly and discuss suitable cooperation models.',
+      'We do not use a complicated application process in the first phase. Interested partners can choose the correct cooperation type and discuss suitable cooperation models with us.',
 
     modelBusiness: 'Business Cooperation',
     modelAgent: 'Agent Cooperation',
@@ -143,11 +143,11 @@ const pageText = computed(() => {
     modelTechnology: 'Remote Technical Cooperation',
 
     ctaLabel: 'GET STARTED',
-    ctaTitle: 'Start Cooperation Through Telegram or WhatsApp',
+    ctaTitle: 'Choose the Right Cooperation Type to Start',
     ctaDescription:
-      'If you are interested in cooperation, please contact us directly. Tell us your cooperation type, market, resources and expected cooperation model.',
-    telegram: 'Telegram',
-    whatsapp: 'WhatsApp'
+      'Different cooperation types use different contacts. Please visit the contact page and choose the correct Telegram or WhatsApp for business, agent, traffic or technology cooperation.',
+    viewContactOptions: 'View Contact Options',
+    viewModel: 'View Cooperation Model'
   }
 })
 
@@ -385,13 +385,13 @@ useHead(() => ({
         </p>
 
         <div class="cta-actions">
-          <a href="https://t.me/jerrymax88" target="_blank" rel="noopener noreferrer" class="primary-button">
-            {{ pageText.telegram }}
-          </a>
+          <NuxtLink to="/contact" class="primary-button">
+            {{ pageText.viewContactOptions }}
+          </NuxtLink>
 
-          <a href="https://wa.me/your_number" target="_blank" rel="noopener noreferrer" class="secondary-button">
-            {{ pageText.whatsapp }}
-          </a>
+          <NuxtLink to="/cooperation-model" class="secondary-button">
+            {{ pageText.viewModel }}
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -696,7 +696,7 @@ h1 {
   border-bottom: 1px solid rgba(148, 163, 184, 0.16);
 }
 
-.dark-section>* {
+.dark-section > * {
   max-width: 1180px;
   margin-left: auto;
   margin-right: auto;
