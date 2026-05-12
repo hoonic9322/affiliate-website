@@ -5,7 +5,12 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo">
-          <span class="brand-mark">P</span>
+          <span class="footer-brand-logo">
+            <img
+              src="/images/logo/logo.png"
+              alt="Partner Cooperation Logo"
+            >
+          </span>
 
           <div>
             <h3>{{ footerText.brandTitle }}</h3>
@@ -18,11 +23,11 @@
         </p>
 
         <div class="footer-contact-actions">
-          <NuxtLink to="/contact" class="footer-primary-link">
-            {{ footerText.contactOptions }}
+          <NuxtLink to="/contact" class="primary-button footer-action-link">
+            {{ footerText.viewContactOptions }}
           </NuxtLink>
 
-          <NuxtLink to="/cooperation-model" class="footer-secondary-link">
+          <NuxtLink to="/cooperation-model" class="secondary-button footer-action-link">
             {{ footerText.viewModel }}
           </NuxtLink>
         </div>
@@ -112,7 +117,6 @@ const footerText = computed(() => {
       partnershipTitle: '合作方向',
       pageTitle: '网站页面',
       contactTitle: '分类联系方式',
-
       business: '招商合作',
       agent: '代理合作',
       traffic: '流量合作',
@@ -122,15 +126,12 @@ const footerText = computed(() => {
       model: '合作模式',
       faq: '常见问题',
       contact: '联系我们',
-
-      contactOptions: '查看联系方式',
+      viewContactOptions: '查看联系方式',
       viewModel: '查看合作模式',
-
       businessContact: '招商 / 商户合作联系',
       agentContact: '代理合作联系',
       trafficContact: '流量合作联系',
       technologyContact: '技术合作联系',
-
       copyright: '© 2026 合作伙伴与商务合作网站。保留所有权利。'
     }
   }
@@ -142,8 +143,7 @@ const footerText = computed(() => {
       'We welcome business, agent, traffic and remote technology partners. Different cooperation types use different contacts, please choose the correct contact type on the contact page.',
     partnershipTitle: 'Partnership',
     pageTitle: 'Pages',
-    contactTitle: 'Contact by Category',
-
+    contactTitle: 'Contact Options',
     business: 'Business Partnership',
     agent: 'Agent Partnership',
     traffic: 'Traffic Partnership',
@@ -153,15 +153,12 @@ const footerText = computed(() => {
     model: 'Cooperation Model',
     faq: 'FAQ',
     contact: 'Contact Us',
-
-    contactOptions: 'View Contact Options',
+    viewContactOptions: 'View Contact Options',
     viewModel: 'View Cooperation Model',
-
-    businessContact: 'Business / Merchant Contact',
+    businessContact: 'Business Contact',
     agentContact: 'Agent Contact',
     trafficContact: 'Traffic Contact',
     technologyContact: 'Technology Contact',
-
     copyright: '© 2026 Partner Cooperation. All rights reserved.'
   }
 })
@@ -217,21 +214,26 @@ const footerText = computed(() => {
   margin-bottom: 22px;
 }
 
-.brand-mark {
+.footer-brand-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #1687d9, #0f75c2);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 900;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
   box-shadow:
-    0 10px 24px rgba(22, 135, 217, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    0 10px 24px rgba(22, 135, 217, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .footer-brand h3 {
@@ -386,6 +388,12 @@ const footerText = computed(() => {
 
   .footer-group {
     min-height: auto;
+  }
+
+  .footer-brand-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
   }
 
   .footer-brand h3 {

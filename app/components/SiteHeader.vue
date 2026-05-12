@@ -2,7 +2,12 @@
   <header class="site-header">
     <div class="header-inner">
       <NuxtLink to="/" class="brand" @click="closeMenu">
-        <span class="brand-mark">P</span>
+        <span class="brand-logo">
+          <img
+            src="/images/logo/logo.png"
+            alt="Partner Cooperation Logo"
+          >
+        </span>
 
         <span class="brand-text">
           <strong>Partner</strong>
@@ -153,20 +158,26 @@ const closeMenu = () => {
   flex-shrink: 0;
 }
 
-.brand-mark {
+.brand-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 900;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
   box-shadow:
-    0 10px 24px rgba(22, 135, 217, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    0 10px 24px rgba(22, 135, 217, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand-text {
@@ -486,11 +497,10 @@ const closeMenu = () => {
     padding: 0 14px;
   }
 
-  .brand-mark {
+  .brand-logo {
     width: 40px;
     height: 40px;
     border-radius: 12px;
-    font-size: 21px;
   }
 
   .brand-text strong {
